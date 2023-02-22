@@ -86,32 +86,25 @@ sns.heatmap(corr,
 
 # are the ratings all numeric?
 print("Is this variable numeric?")
-is.numeric(recpies$rating)
+
 
 
 
 
 # are the ratings all integers?
 print("Is this variable only integers?")
-all.equal(recpies$rating, as.integer(recpies$rating)) == T
+
 
 
 
 
 # plot calories by whether or not it's a dessert
-ggplot(recpies, aes(x = calories, y = dessert)) + # draw a 
-    geom_point()  # add points
+
 
 
 
 
 # plot & add a regression line
-ggplot(recpies, aes(x = calories, y = dessert)) + # draw a 
-    geom_point() + # add points
-    geom_smooth(method = "glm", # plot a regression...
-    method.args = list(family = "binomial")) # ...from the binomial family
-
-
 
 
 # your work goes here! :)
