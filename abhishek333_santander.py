@@ -144,9 +144,7 @@ ts.sort_values()[-15:].plot(kind="barh", title=("features importance"))
 featp = ts.sort_values()[-15:].plot(kind='barh', x='feature', y='fscore', legend=False, figsize=(6, 10))
 plt.title('XGBoost Feature Importance')
 fig_featp = featp.get_figure()
-fig_featp.savefig('feature_importance_xgb.png', bbox_inches='tight', pad_inches=1)
 
- a=clf.booster().get_fscore()
 
 import operator
 sorted_x = sorted(a.items(), key=operator.itemgetter(1))
