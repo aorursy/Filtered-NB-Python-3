@@ -254,7 +254,7 @@ print("Accuracy Score for Train Using Decision Tree Classifier : ", accuracy_sco
 
 
 y_pred = clf_gini.predict(X_test)
-print("Accuracy Score for Test using Decision Tree Classifier:", accuracy_score(Y_test, y_pred))
+
 
 
 
@@ -264,7 +264,7 @@ print("Accuracy Score for Test using Decision Tree Classifier:", accuracy_score(
 
 
 
-conda install python-graphviz
+
 
 
 
