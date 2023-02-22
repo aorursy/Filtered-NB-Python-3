@@ -52,7 +52,6 @@ print('Aditya')
 
 import os, sys
 path = os.getcwd();
-print ("Current working dir : %s" % path)
 
 
 
