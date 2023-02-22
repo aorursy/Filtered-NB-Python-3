@@ -99,34 +99,6 @@ interpret_model(tune_lgb)
 
 
 from pycaret.classification import *
-# plotting a model
-plot_model(tune_lgb,plot = 'pr')
-
-
-
-
-# plotting a model
-plot_model(tune_lgb,plot = 'confusion_matrix')
-
-
-
-
-# Validation Curve
-plot_model(tune_lgb, plot = 'vc')`
-
-
-
-
-# AUC Curve
-plot_model(tune_lgb, plot = 'auc')
-
-
-
-
-# error Curve
-plot_model(tune_lgb, plot = 'error')
-
-
 
 
 y_pred = predict_model(tune_lgb, data=test)
