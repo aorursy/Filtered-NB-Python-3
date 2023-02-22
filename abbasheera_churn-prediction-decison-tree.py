@@ -278,19 +278,6 @@ import pydotplus
 
 
 
-def plot_decision_tree(clf,feature_name,target_name):
-    dot_data = StringIO()  
-    tree.export_graphviz(clf, out_file=dot_data,  
-                         feature_names=feature_name,  
-                         class_names=target_name,  
-                         filled=True, rounded=True,  
-                         special_characters=True)  
-    graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
-    return Image(graph.create_png())
-
-
-
-
 #plot_decision_tree(clf, X_train.columns,df.columns[1])
 
 from sklearn.tree import DecisionTreeClassifier,export_graphviz
