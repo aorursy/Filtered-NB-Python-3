@@ -178,14 +178,6 @@ df.MethodDescription.value_counts()[:10]
 methods = ['Shoot', 'Strangle', 'Stab', 'Bludgeon', 'Poison']
 plot_hist('BirthDate', 'MethodDescription', methods, match_type='in')
 
-
-
-
-Not surprisingly, shootings appear to be gaining popularity.
-
-
-
-
 gun_codes = {0: '', 1: 'Handgun', 2: 'Rifle', 3: 'Shotgun'}
 def custom_map(x):
     try:
