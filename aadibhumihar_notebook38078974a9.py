@@ -59,8 +59,6 @@ print ("Current working dir : %s" % path)
 
 import os, sys
 path = os.getcwd();
-print ("Current working dir : %s" % path)
-path = '../input'
 print("Folder item :",os.listdir(path))
 
 
@@ -78,7 +76,6 @@ X = train_m[:50,1:]
 y = train_m[:50,0]
 logistic = LogisticRegression()
 logistic.fit(X,y)
-print ('Predicted class %s, real class %s' % (logistic.predict(X[419,:]),y[419])
 
 
 
@@ -88,7 +85,6 @@ X = train_m[:50,1:]
 y = train_m[:50,0]
 logistic = LogisticRegression()
 logistic.fit(X,y)
-print ('Predicted class %s, real class %s' % (logistic.predict(X[419,:]),y[419]))
 
 
 

@@ -26,7 +26,7 @@ from sklearn import linear_model
 from sklearn import metrics
 from sklearn import preprocessing
 import os
-print(os.listdir("../input"))
+# print(os.listdir("../input"))
 
 # Any results you write to the current directory are saved as output.
 
