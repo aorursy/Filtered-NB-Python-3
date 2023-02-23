@@ -28,7 +28,7 @@ library(readr) # CSV file I/O, e.g. the read_csv function
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
-system("ls ../input")
+# system("ls ../input")
 
 # Any results you write to the current directory are saved as output.
 
@@ -36,12 +36,10 @@ system("ls ../input")
 # It is defined by the kaggle/julia docker image: https://github.com/kaggle/docker-julia
 # For example, here's a helpful package to load in 
 
-using DataFrames # data processing, CSV file I/O - e.g. readtable("../input/MyTable.csv")
+# using DataFrames # data processing, CSV file I/O - e.g. readtable("../input/MyTable.csv")
 
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
-
-run(`ls ../input`)
 
 # Any results you write to the current directory are saved as output.
 
