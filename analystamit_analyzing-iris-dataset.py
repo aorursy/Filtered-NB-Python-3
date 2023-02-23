@@ -212,11 +212,6 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
 
-    for idx, cl in enumerate(np.unique(y)):
-        plt.scatter(x=X[y == cl, 0], y=X[y == cl, 1],
-                    alpha=0.8, c=cmap(idx),
-                    marker=markers[idx], label=cl)
-
 
 
 
@@ -240,27 +235,6 @@ y_test = y_test.map(a: lambda(a) = if a == 'Iris-virginica' then 0
 convert = lambda a: lambda(a) = if a == 'Iris-virginica' then 0
                        elif a == 'Iris-versicolor' then 1
                        else 2
-
-
-
-
-def convert(a):
-    if a == 'Iris-virginica':
-        return 0
-    elif a == 'Iris-versicolor':
-        return 1
-    else:
-        return 2
-
-
-
-
-y_test = pd.series(map(convert, y_test))
-
-
-
-
-y_test.to
 
 
 
