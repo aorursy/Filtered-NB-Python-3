@@ -72,7 +72,6 @@ import matplotlib.pyplot as plt
 
 df = make_base_df()
 small_df = df[:100]
-for 
 path = df.path[1]
 grey = get_grayscale_img(path, 100)
 cv2.imwrite("grey.jpg", grey)
