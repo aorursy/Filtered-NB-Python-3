@@ -42,18 +42,10 @@ def preprocess(X):
     
     sex = labels(X['Sex'])
     print(X)
-    cabin = X['Cabin'])
+    cabin = X['Cabin']
     print(X)
     
-    X['Fam'] = X['SibSp']+X['Parch']
-    del X['SibSp']
-    del X['Parch']
-    imp = prep.Imputer(missing_values='NaN', strategy='mean', axis=0)
-   
-    imp.fit(X[['Pclass','Age','Fam']])
-    X = imp.transform(X[['Pclass','Age','Fam']])
-    X = np.append(X,sex, axis=1)
-    return X
+
 train = pd.read_csv('../input/train.csv')
 X= preprocess(train)
 print(X)
