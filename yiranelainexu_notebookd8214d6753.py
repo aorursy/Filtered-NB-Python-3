@@ -41,7 +41,7 @@ test_df.head(5)
 
 
 
-We should drop PassengerId for our predictive model
+# We should drop PassengerId for our predictive model
 
 
 
@@ -57,7 +57,7 @@ train_df["Survived"].value_counts(normalize=True)
 
 
 
-Around 62% of the people in the training set died
+# Around 62% of the people in the training set died
 
 
 
