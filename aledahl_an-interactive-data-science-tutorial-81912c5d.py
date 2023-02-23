@@ -346,7 +346,7 @@ model = SVC()
 
 
 ### 4.1.3 Gradient Boosting Classifier
-Try a Gradient Boosting Classifier model by running the cell below. 
+# Try a Gradient Boosting Classifier model by running the cell below. 
 
 
 
