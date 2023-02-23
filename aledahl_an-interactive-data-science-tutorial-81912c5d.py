@@ -372,9 +372,9 @@ model = LogisticRegression()
 
 
 ## 4.2 Train the selected model
-When you have selected a dataset with the features you want and a model you would like to try it is now time to train the model. After all our preparation model training is simply done with the one line below.
+# When you have selected a dataset with the features you want and a model you would like to try it is now time to train the model. After all our preparation model training is simply done with the one line below.
 
-*Select the cell below and run it by pressing the play button.*
+# *Select the cell below and run it by pressing the play button.*
 
 
 
