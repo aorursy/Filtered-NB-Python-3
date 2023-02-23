@@ -5,14 +5,6 @@
 
 ## This notebook demos Python data visualizations on the Iris dataset
 
-This Python 3 environment comes with many helpful analytics libraries installed. It is defined by the [kaggle/python docker image](https://github.com/kaggle/docker-python)
-
-We'll use three libraries for this tutorial: [pandas](http://pandas.pydata.org/), [matplotlib](http://matplotlib.org/), and [seaborn](http://stanford.edu/~mwaskom/software/seaborn/).
-
-Press "Fork" at the top-right of this screen to run this notebook yourself and build each of the examples.
-
-
-
 
 # First, we'll import pandas, a data processing and CSV file I/O library
 import pandas as pd
