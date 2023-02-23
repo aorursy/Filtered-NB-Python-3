@@ -29,9 +29,9 @@ print("Eruptions vs latitude (N): ", stats.pearsonr(C, E)[0])
 
 
 # Output
-Eruptions vs latitude (N):  0.0375643739884
+# Eruptions vs latitude (N):  0.0375643739884
     
-(a little correlation -> the higher north the volcano, the more eruptions it has)
+# (a little correlation -> the higher north the volcano, the more eruptions it has)
 
 
 
@@ -48,9 +48,9 @@ print("Eruptions vs longitude (W): ", stats.pearsonr(C, E)[0])
 
 
 # Output
-Eruptions vs longitude (W):  -0.0721502591359
+# Eruptions vs longitude (W):  -0.0721502591359
 
-(a little correlation -> the further east the volcano, the less eruptions it has)
+# (a little correlation -> the further east the volcano, the less eruptions it has)
 
 
 
@@ -64,7 +64,7 @@ print("Eruptions vs height (m): ", stats.pearsonr(C, E)[0])
 
 
 # Output
-Eruptions vs height (m):  0.242221970196
+# Eruptions vs height (m):  0.242221970196
 
-(a little correlation -> the taller the volcano, the more eruptions it has)
+# (a little correlation -> the taller the volcano, the more eruptions it has)
 
