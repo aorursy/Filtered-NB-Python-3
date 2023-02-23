@@ -71,7 +71,7 @@ train.groupby('Date')['Store'].size().plot(kind='line');
 
 
 
-**There are days in the training set where some stores are missing. Lets add those missing stores with Open flag as '0' and Customers and Sales values as '0'**
+# **There are days in the training set where some stores are missing. Lets add those missing stores with Open flag as '0' and Customers and Sales values as '0'**
 
 
 
