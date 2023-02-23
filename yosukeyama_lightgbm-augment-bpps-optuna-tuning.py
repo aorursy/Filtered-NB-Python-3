@@ -374,7 +374,7 @@ submission.to_csv('submission.csv', index=False)
 
 
 
-get_ipython().system('pip install optuna')
+# get_ipython().system('pip install optuna')
 import optuna.integration.lightgbm as opt_lgb
 
 
