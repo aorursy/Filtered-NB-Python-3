@@ -52,7 +52,6 @@ test1$Credit_History
 
 #USING KNN METHOD ON loan amount
 
-install.packages("VIM")
 library(VIM)
 test3<- kNN(test,variable=c("LoanAmount"),k=5)
 summary(test3)
@@ -71,7 +70,6 @@ hist(test1$Loan_Amount_Term)
 hist(test1$Loan_Amount_Term,freq = FALSE)
 
 
-install.packages("ggplot2")
 
 library(ggplot2)
 

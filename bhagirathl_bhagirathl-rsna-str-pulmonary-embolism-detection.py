@@ -170,7 +170,6 @@ df_data_1.describe()
 
 
 
-pip install png
 
 
 

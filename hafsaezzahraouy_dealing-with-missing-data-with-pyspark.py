@@ -23,7 +23,6 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 
 
 
-pip install pyspark
 
 
 
@@ -61,7 +60,6 @@ df.select([count(when(isnull(c), c)).alias(c) for c in df.columns]).show()
 
 
 
-pip install missingno
 
 
 

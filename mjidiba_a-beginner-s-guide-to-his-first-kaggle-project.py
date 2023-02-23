@@ -410,7 +410,6 @@ dataFullCopy = dataFull.copy()
 
 # Creating a new fata with aplied transformations using sklearn Pipeline
 from sklearn.pipeline import Pipeline
-pipeline = Pipeline([('labenc',labenc()),('skewness',skewness()),('onehotenc',onehotenc())])
 dataPipeline = pipeline.fit_transform(dataFullCopy)
 dataFull.shape, dataPipeline.shape
 

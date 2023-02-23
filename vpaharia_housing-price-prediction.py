@@ -386,12 +386,10 @@ from sklearn.preprocessing import StandardScaler
 
 param_grid = {'alpha' : [0.0001,0.001,0.01,0.1,1,10,100,1000]}
 
-pipelineRidge = Pipeline([
     #('select',SelectFromModel(ExtraTreesRegressor(n_estimators=300))),
     ('Scaler', StandardScaler()),
     ('ridge',GridSearchCV(Ridge(), param_grid, cv=5))])
 
-pipelineRidge.fit(housing_train.drop('SalePrice',axis=1), housing_train['SalePrice'])
 print('Best score: {}'.format(pipelineRidge.steps[1][1].best_score_))
 print('Best parameters: {}'.format(pipelineRidge.steps[1][1].best_params_))
 

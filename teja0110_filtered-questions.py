@@ -3,7 +3,6 @@
 
 
 
-pip install grammarbot
 
 
 

@@ -140,7 +140,6 @@ from sklearn.decomposition import PCA
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
-pipe_lr = Pipeline([('scl', StandardScaler()),
             ('pca', PCA(n_components=2)),
             ('clf', LogisticRegression(penalty='l2', C = 10000, random_state=1))])
 #although l2 regularisation specified, this is the default set anyway. C parameter uses a default of 1
@@ -219,7 +218,6 @@ plt.show()
 
 
 #Now change the logistic regression to no PCA to counter high bias
-pipe_lr = Pipeline([('scl', StandardScaler()),
             #('pca', PCA(n_components=2)),
             ('clf', LogisticRegression(penalty='l2', random_state=1))])
 
@@ -333,7 +331,6 @@ plt.show()
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 
-pipe_svc = Pipeline([('scl', StandardScaler()),
             ('clf', SVC(random_state=1))])
 
 param_range = [0.01, 0.1, 1.0, 10.0, 100.0]
@@ -414,7 +411,6 @@ print(gs.best_params_)
 
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
-pipe_svc = Pipeline([('scl', StandardScaler()),
             ('clf', SVC(random_state=1))])
 
 param_range = [0.01, 0.1, 1.0, 10.0, 100.0]

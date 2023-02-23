@@ -3,7 +3,6 @@
 
 
 
-pip install MoviePy
 
 
 

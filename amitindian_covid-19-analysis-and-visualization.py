@@ -24,13 +24,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-
-
-pip install bokeh
-
-
-
-
 covid = pd.read_csv('../input/covid-19-data/covid_clean_complete_data.csv',parse_dates=['Date'])
 
 

@@ -39,7 +39,6 @@ bureau_balance = pd.read_csv('../input/bureau_balance.csv')
 POS_CASH_balance = pd.read_csv('../input/POS_CASH_balance.csv')
 credit_card_balance = pd.read_csv('../input/credit_card_balance.csv')
 previous_application = pd.read_csv('../input/previous_application.csv')
-installments_payments = pd.read_csv('../input/installments_payments.csv')
 
 
 
@@ -214,7 +213,6 @@ missingdata(previous_application)
 
 
 
-installments_payments.head(7)
 
 
 

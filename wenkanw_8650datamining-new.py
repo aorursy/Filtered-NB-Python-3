@@ -319,17 +319,13 @@ corpus = ['this is the first document',
            'is this the first document']
 vocabulary = ['this', 'document', 'first', 'is', 'second', 'the',
               'and', 'one']
-pipe = Pipeline([
                  ('tfid', TfidfTransformer())]).fit(X_train)
 # pipe['count'].transform(corpus).toarray()
-pipe['tfid'].idf_
 print(len(pipe['tfid'].idf_))
 # print(X_train)
 
-pipe1 = Pipeline([
                  ('tfid', TfidfTransformer())]).fit(X_test)
 # pipe['count'].transform(corpus).toarray()
-pipe1['tfid'].idf_
 print(len(pipe1['tfid'].idf_))
 # print(X_test)
 print(maxlen)
@@ -888,13 +884,11 @@ model1.summary()
 
 
 
-pipeline = Pipeline([
     ('tfidf', TfidfVectorizer(max_df=0.5, min_df=20, stop_words = 'english')),
     ('clf', model1(batch_size=512, epochs=5, validation_data=(X_test, y_test), verbose = 1))
 ])
 X_train, X_test, y_train, y_test = train_test_split(df_train.text, df_train.target, test_size=0.1, random_state=1)
 
-pipeline.fit(X_train, y_train)
 prediction = pipeline.predict(X_test)
 print(metrics.accuracy_score(y_test, prediction))
 print(metrics.precision_score(y_test, prediction))

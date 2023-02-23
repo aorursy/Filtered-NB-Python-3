@@ -313,7 +313,6 @@ scores_df
 # we will first inverse transform the y_test & y_pred vectors so we can see 'M' and 'B' in 
 # the confusion matrix
 y_test2 = le.inverse_transform(y_test)
-pipe_lr = clf_list[1][0]
 y_pred2 = le.inverse_transform(pipe_lr.predict(X_test))
 # this shows the same result as confusion_matrix() call, but displayed better
 pd.crosstab(y_test2.ravel(), y_pred2, rownames=['Actual'], colnames=['Predicted->'], margins=False)
@@ -342,7 +341,6 @@ print('\nBest results: with %s - PCA = %d, Accuracy score = %.4f' % (best_classi
 
 
 # now let us create the classifier basedon above results & re-check
-pipe_lr_best = Pipeline([('scl', StandardScaler()),
                          ('pca', PCA(n_components=best_n)),                    
                          ('clf', LogisticRegression(penalty='l2', C=1.0, random_state=seed))])
 scores = test_classifier((pipe_lr_best, 'Logistic Regression Classifier - %d PCA' % best_n), 

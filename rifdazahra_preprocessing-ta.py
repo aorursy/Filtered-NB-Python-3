@@ -317,7 +317,6 @@ print('after Gaussian: ',counter)
 
 
 
-pip install mixed-naive-bayes
 
 
 

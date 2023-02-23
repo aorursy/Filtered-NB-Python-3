@@ -130,7 +130,6 @@ print(X.info())
 
 steps = [('scaler', StandardScaler()), ('logistic', SGDClassifier())]
 
-pipeline = Pipeline(steps)
 
 
 

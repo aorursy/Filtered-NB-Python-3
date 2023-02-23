@@ -228,7 +228,6 @@ test.head()
 
 
 
-pip install haversine
 
 
 

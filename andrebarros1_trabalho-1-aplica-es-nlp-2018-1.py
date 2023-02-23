@@ -34,7 +34,6 @@ from sklearn.svm import SVC
 
 
 
-pip_feature_4 = Pipeline(['features',features)])
 
 
 
@@ -56,7 +55,6 @@ dataset.category.value_counts().plot(kind='bar')
 
 
 
-pip_simples = Pipeline([('counts', CountVectorizer()),('classifier',MultinomialNB())])
 
 
 

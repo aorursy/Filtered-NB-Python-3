@@ -866,7 +866,6 @@ t
 
 
 
-install.packages('ggbiplot')
 library(ggbiplot)
 home_wins = select.match$home_wins
 g <- ggbiplot(matrix.pca, obs.scale = 1, var.scale = 1, 

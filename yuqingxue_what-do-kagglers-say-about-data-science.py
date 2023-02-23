@@ -655,7 +655,6 @@ data_dem.drop('Country',axis=1,inplace=True)
 
 
 """If you want to execute the following two blocks of code and have the plot above,
-install the package 'prince', copy all the code and uncomment it, you'll have the same outputs.
 P.S : Don't forger the random seed !"""
 
 #projections=mca.row_principal_coordinates

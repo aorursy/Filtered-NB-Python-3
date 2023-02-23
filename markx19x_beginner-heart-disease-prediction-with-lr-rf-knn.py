@@ -229,7 +229,6 @@ scalar = StandardScaler()
 
 lr = LogisticRegression()
 
-pipeline = Pipeline([('transformer', scalar), ('estimator', lr)])
 
 #lr.fit(x_train,y_train)
 #acc = lr.score(x_test,y_test)*100
@@ -261,7 +260,6 @@ plt.plot(scoreList)
 
 rf = RandomForestClassifier(n_estimators=100, max_depth=5, n_jobs=-1)
 cv = StratifiedKFold(n_splits=7)
-pipeline = Pipeline([('transformer', scalar), ('estimator', rf)])
 
 acc = cross_val_score(pipeline, x, y, cv=cv, scoring="f1")
 scoreList.append(acc.mean())

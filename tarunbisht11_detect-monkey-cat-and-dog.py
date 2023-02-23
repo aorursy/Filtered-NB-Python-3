@@ -44,7 +44,6 @@ pretrained_model_name="efficientdet_d0_coco17_tpu-32"
 
 # pretrained_model_file=f"{pretrained_model_name}.tar.gz"
 model_dir=f"../{pretrained_model_name}-theft"
-pipeline_config_path=f"../pipeline.config"
 output_directory= f"../{pretrained_model_name}-theft-inf"
 
 
@@ -76,7 +75,6 @@ get_ipython().system('mv {pretrained_model_name} data/models')
 
 
 
-pipeline_file = '''# SSD with EfficientNet-b0 + BiFPN feature extractor,
 # shared box predictor and focal loss (a.k.a EfficientDet-d0).
 # See EfficientDet, Tan et al, https://arxiv.org/abs/1911.09070
 # See Lin et al, https://arxiv.org/abs/1708.02002
