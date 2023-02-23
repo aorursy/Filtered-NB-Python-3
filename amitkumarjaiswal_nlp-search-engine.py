@@ -627,9 +627,9 @@ try:
     feedback = input("were these articles helpful?, (Y/N): ")
     if feedback == "Y":
         np.save('correct_search.npy', worddic) 
-    elif feedback == "exit":
-    else:
-        print("sorry it was not helpful, try again")
+    # elif feedback == "exit":
+    # else:
+    #     print("sorry it was not helpful, try again")
 except:
     print("no results found")
 
