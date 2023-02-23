@@ -32,7 +32,7 @@ df.isnull().sum() # mostra que na coluna A1 tem 12NaN  colunas A2=12Nan A4=6NaN 
 
 
 cols = ['A2']
- for i in cols:
+for i in cols:
     df[i].fillna(value=df[i].moda())
     df.isnull().sum()
 
@@ -52,7 +52,7 @@ print(df.isnull().sum())
 
 
 cols = ['A2','A14']
- for i in cols:
+for i in cols:
     df[i].fillna(value=df[i].mean, implace=True)
     df.isnull().sum()
 
