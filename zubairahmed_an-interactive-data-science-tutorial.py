@@ -6,40 +6,40 @@
 # **An Interactive Data Science Tutorial**
 
 
-*[Based on the Titanic competition on Kaggle](https://www.kaggle.com/c/titanic)*
+# *[Based on the Titanic competition on Kaggle](https://www.kaggle.com/c/titanic)*
 
-*by Helge Bjorland & Stian Eide*
+# *by Helge Bjorland & Stian Eide*
 
-*January 2017*
+# *January 2017*
 
----
+# ---
 
 ## Content
 
 
- 1. Business Understanding (5 min)
-     * Objective
-     * Description
- 2. Data Understanding (15 min)
-    * Import Libraries
-    * Load data
-    * Statistical summaries and visualisations
-    * Excersises
- 3. Data Preparation (5 min)
-    * Missing values imputation
-    * Feature Engineering
- 4. Modeling (5 min)
-     * Build the model
- 5. Evaluation (25 min)
-     * Model performance
-     * Feature importance
-     get_ipython().set_next_input('     * Who gets the best performing model');get_ipython().run_line_magic('pinfo', 'model')
- 6. Deployment  (5 min)
-     * Submit result to Kaggle leaderboard     
+#  1. Business Understanding (5 min)
+#      * Objective
+#      * Description
+#  2. Data Understanding (15 min)
+#     * Import Libraries
+#     * Load data
+#     * Statistical summaries and visualisations
+#     * Excersises
+#  3. Data Preparation (5 min)
+#     * Missing values imputation
+#     * Feature Engineering
+#  4. Modeling (5 min)
+#      * Build the model
+#  5. Evaluation (25 min)
+#      * Model performance
+#      * Feature importance
+#      get_ipython().set_next_input('     * Who gets the best performing model');get_ipython().run_line_magic('pinfo', 'model')
+#  6. Deployment  (5 min)
+#      * Submit result to Kaggle leaderboard     
 
-[*Adopted from Cross Industry Standard Process for Data Mining (CRISP-DM)*](http://www.sv-europe.com/crisp-dm-methodology/)
+# [*Adopted from Cross Industry Standard Process for Data Mining (CRISP-DM)*](http://www.sv-europe.com/crisp-dm-methodology/)
 
-get_ipython().system('[CripsDM](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/CRISP-DM_Process_Diagram.png/220px-CRISP-DM_Process_Diagram.png "Process diagram showing the relationship between the different phases of CRISP-DM")')
+# get_ipython().system('[CripsDM](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/CRISP-DM_Process_Diagram.png/220px-CRISP-DM_Process_Diagram.png "Process diagram showing the relationship between the different phases of CRISP-DM")')
 
 
 
