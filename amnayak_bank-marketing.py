@@ -866,7 +866,7 @@ gboost_model=gboost.fit(train_X,train_y)
 
 
 
-predict=gboost_model.predict(test_X)`
+predict=gboost_model.predict(test_X)
 predict[0:200,]
 
 
