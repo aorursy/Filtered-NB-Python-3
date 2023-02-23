@@ -108,21 +108,21 @@ submission.to_csv('otto.csv', index=False)
 
 
 
-""""l = np.array(Y_pred_out)
-print(l)
-#b = np.zeros((144368,9))
-#a = pd.DataFrame(b, columns= ['Class_1', 'Class_2' ,'Class_3', 'Class_4', 'Class_5','Class_6','Class_7','Class_8','Class_9'])
-#a = a.astype(int)
-#a.insert(0, 'ID',range(1,1+len(a)))
-#a.head()
-#
-#index=0;
-#for i in np.nditer(l):
-    #print(i)
- #   a[str('Class_{}'.format(i+1))][index] = 1
-    #print('row=',index, "  col=",str('Class_{}'.format(i+1)))
-  #  index = index+1;
-    #a[ : , i] = i + 1""""
+# """"l = np.array(Y_pred_out)
+# print(l)
+# #b = np.zeros((144368,9))
+# #a = pd.DataFrame(b, columns= ['Class_1', 'Class_2' ,'Class_3', 'Class_4', 'Class_5','Class_6','Class_7','Class_8','Class_9'])
+# #a = a.astype(int)
+# #a.insert(0, 'ID',range(1,1+len(a)))
+# #a.head()
+# #
+# #index=0;
+# #for i in np.nditer(l):
+#     #print(i)
+#  #   a[str('Class_{}'.format(i+1))][index] = 1
+#     #print('row=',index, "  col=",str('Class_{}'.format(i+1)))
+#   #  index = index+1;
+#     #a[ : , i] = i + 1""""
 
 
 
@@ -179,7 +179,7 @@ print(l)
 #from matplotlib.colors import ListedColormap
 #X_set, Y_set = X_trn, Y_trn
 #X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
+                    #  np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
 #plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
  #            alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 #plt.xlim(X1.min(), X1.max())
@@ -196,23 +196,23 @@ print(l)
 
 
 
-""""# Visualising the Test set results
-from matplotlib.colors import ListedColormap
-X_set, Y_set = X_test, Y_test
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
-             alpha = 0.75, cmap = ListedColormap(('red', 'green')))
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
-                c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('K-NN (Test set)')
-plt.xlabel('prediction')
-plt.ylabel('class')
-plt.legend()
-plt.show() """"
+# """"# Visualising the Test set results
+# from matplotlib.colors import ListedColormap
+# X_set, Y_set = X_test, Y_test
+# X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
+#                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
+# plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
+#              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
+# plt.xlim(X1.min(), X1.max())
+# plt.ylim(X2.min(), X2.max())
+# for i, j in enumerate(np.unique(y_set)):
+#     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
+#                 c = ListedColormap(('red', 'green'))(i), label = j)
+# plt.title('K-NN (Test set)')
+# plt.xlabel('prediction')
+# plt.ylabel('class')
+# plt.legend()
+# plt.show() """"
 
 
 
