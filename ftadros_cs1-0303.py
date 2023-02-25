@@ -16,5 +16,5 @@ print(train.describe()train.describe())
 train.to_csv('copy_of_the_training_data.csv', index=False)
 
 x=1
-x
+
 
