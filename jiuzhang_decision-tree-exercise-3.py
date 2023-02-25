@@ -27,21 +27,18 @@ data['safe_loans'].value_counts(normalize=True)
 cols = ['grade', 'term','home_ownership', 'emp_length']
 target = 'safe_loans'
 
-data = #TODO
 data.head()
 
 data['safe_loans'].value_counts()
 
 # use the percentage of bad and good loans to undersample the safe loans.
-bad_ones = # TODO
-safe_ones = # TODO
-percentage = #TODO
+
 
 risky_loans = bad_ones
-safe_loans = #TODO
+
 
 # combine two kinds of loans
-data_set = #TODO
+
 
 data_set[target].value_counts(normalize=True)
 
@@ -61,14 +58,13 @@ def dummies(data, columns=['pclass','name_title','embarked', 'sex']):
 
 #grade, home_ownership, target
 cols = ['grade', 'term','home_ownership', 'emp_length']
-data_set = #TODO
+
 data_set.head()
 
 
 
 
-train_data, test_data = #TODO
-trainX, trainY = #TODO
+
 testX, testY = test_data[test_data.columns[1:]], pd.DataFrame(test_data[target])
 
 
@@ -76,10 +72,7 @@ def count_errors(labels_in_node):
     if len(labels_in_node) == 0:
         return 0
     
-    positive_ones = #TODO
-    negative_ones = #TODO
-    
-    return # TODO
+
 
 
 def best_split(data, features, target):
@@ -90,20 +83,7 @@ def best_split(data, features, target):
 
     for feature in features:
 
-        left_split = # TODO
 
-        right_split = #TODO
-
-        left_misses = #TODO            
-
-        right_misses = #TODO
-
-        error = #TODO
-
-        if error < best_error:
-            best_error = #TODO
-            best_feature = #TODO
-    return best_feature
 
 
 
@@ -124,21 +104,11 @@ def best_split_entropy(data, features, target):
     best_feature = None
     best_info_gain = float('-inf') 
     num_data_points = float(len(data))
-    entropy_original = #TODO
+
 
     for feature in features:
         
-        left_split = #TODO
-        
-        right_split = #TODO 
-        
-        left_entropy = #TODO           
 
-        right_entropy = #TODO
-            
-        entropy_split = #TODO
-        
-        info_gain = #TODO
 
         if info_gain > best_info_gain:
             best_info_gain = info_gain
@@ -165,9 +135,9 @@ class MyDecisionTree(BaseEstimator):
     def fit(self, X, Y, data_weights = None):
         
         data_set = pd.concat([X, Y], axis=1)
-        features = #TODO
+
         target = Y.columns[0]
-        self.root_node = # TODO
+
         
         
     def predict(self, X):
@@ -176,39 +146,25 @@ class MyDecisionTree(BaseEstimator):
         
         
     def score(self, testX, testY):
-        target = # TODO
+
         result = self.predict(testX)
         return accuracy_score(testY[target], result)
     
     
     def create_tree(self, data, features, target, current_depth = 0, max_depth = 10, min_error=0):
 
-        remaining_features = #TODO
-
-        target_values = # TODO
-
         # termination 1
         if count_errors(target_values) <= min_error:
             print("Termination 1 reached.")     
-            return # TODO
 
         # termination 2
         if len(remaining_features) == 0:
             print("Termination 2 reached.")    
-            return # TODO    
 
         # termination 3
         if current_depth >= max_depth: 
             print("Termination 3 reached.")
-            return # TODO
 
-        #split_feature = # TODO 
-        split_feature = # TODO 
-
-        left_split = # TODO
-        right_split = # TODO
-
-        remaining_features = # TODO
 
         if len(left_split) == len(data):
             print("Perfect split!")
@@ -217,8 +173,6 @@ class MyDecisionTree(BaseEstimator):
             print("Perfect split!")
             return self.create_leaf(right_split[target])
 
-        left_tree = # TODO     
-        right_tree = # TODO
 
         result_node = TreeNode(False, None, split_feature)
         result_node.left = left_tree
@@ -228,11 +182,6 @@ class MyDecisionTree(BaseEstimator):
     
     
     def create_leaf(self, target_values):
-
-        leaf = # TODO
-
-        num_positive_ones = #TODO
-        num_negative_ones = # TODO
 
         if num_positive_ones > num_negative_ones:
             leaf.prediction = 1
@@ -247,23 +196,15 @@ class MyDecisionTree(BaseEstimator):
 
         if tree.is_leaf:
             if annotate: 
-            return # TODO 
         else:
-
-            split_feature_value = # TODO
-
             if annotate: 
                 # print("Split on %s = %s" % (tree.split_feature, split_feature_value))
-            if split_feature_value == 0:
-                return # TODO
-            else:
-                return # TODO    
     
     def count_leaves(self):
         return self.count_leaves_helper(self.root_node)
     
     def count_leaves_helper(self, tree):
-        # TODO
+
     
 
 
@@ -277,9 +218,6 @@ m.score(testX, testY)
 
 m.count_leaves()
 
-model_1 = # TODO
-model_2 = # TODO
-model_3 = # TODO
 
 model_1.fit(trainX, trainY)
 model_2.fit(trainX, trainY)
