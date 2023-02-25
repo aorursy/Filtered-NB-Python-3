@@ -81,13 +81,6 @@ def best_split(data, features, target):
     best_error = 2.0 
     num_data_points = float(len(data))  
 
-    for feature in features:
-
-
-
-
-
-
 def entropy(labels_in_node):
     n = len(labels_in_node)
     s1 = (labels_in_node==1).sum()
@@ -107,22 +100,10 @@ def best_split_entropy(data, features, target):
 
 
     for feature in features:
-        
-
-
         if info_gain > best_info_gain:
             best_info_gain = info_gain
             best_feature = feature
-    return best_feature
-    
-
-
-
-
-class TreeNode:
-    def __init__(self, is_leaf, prediction, split_feature):
-    # TODO
-        
+    return best_feature      
 
 from sklearn.base import BaseEstimator
 from sklearn.metrics import accuracy_score
@@ -135,10 +116,8 @@ class MyDecisionTree(BaseEstimator):
     def fit(self, X, Y, data_weights = None):
         
         data_set = pd.concat([X, Y], axis=1)
-
         target = Y.columns[0]
-
-        
+    
         
     def predict(self, X):
         prediction = X.apply(lambda row: self.predict_single_data(self.root_node, row), axis=1)
@@ -146,13 +125,10 @@ class MyDecisionTree(BaseEstimator):
         
         
     def score(self, testX, testY):
-
         result = self.predict(testX)
         return accuracy_score(testY[target], result)
-    
-    
+        
     def create_tree(self, data, features, target, current_depth = 0, max_depth = 10, min_error=0):
-
         # termination 1
         if count_errors(target_values) <= min_error:
             print("Termination 1 reached.")     
@@ -168,47 +144,25 @@ class MyDecisionTree(BaseEstimator):
 
         if len(left_split) == len(data):
             print("Perfect split!")
-            return self.create_leaf(left_split[target])
+            return self.create_leaf(left_split[target])''
         if len(right_split) == len(data):
             print("Perfect split!")
             return self.create_leaf(right_split[target])
 
-
         result_node = TreeNode(False, None, split_feature)
         result_node.left = left_tree
         result_node.right = right_tree
-        return result_node    
-    
-    
+        return result_node     
     
     def create_leaf(self, target_values):
-
         if num_positive_ones > num_negative_ones:
             leaf.prediction = 1
         else:
             leaf.prediction = -1
-     
         return leaf 
-    
-    
-    
-    def predict_single_data(self, tree, x, annotate = False):   
-
-        if tree.is_leaf:
-            if annotate: 
-        else:
-            if annotate: 
-                # print("Split on %s = %s" % (tree.split_feature, split_feature_value))
     
     def count_leaves(self):
         return self.count_leaves_helper(self.root_node)
-    
-    def count_leaves_helper(self, tree):
-
-    
-
-
-
 
 m = MyDecisionTree(max_depth = 10, min_error = 1e-15)
 
