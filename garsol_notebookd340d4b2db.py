@@ -16,15 +16,17 @@ matches = pd.read_sql_query("SELECT * from Match", con)
 leagues = pd.read_sql_query("SELECT * from League", con)
 teams = pd.read_sql_query("SELECT * from Team", con)
 type(con)
-# avg_home_goals = matches.home_team_goal.mean(axis=0)
-# avg_away_goals = matches.away_team_goal.mean(axis=0)
-# print(avg_home_goals,avg_away_goals)
-# y1 = matches.home_team_goal
-# y2 = matches.away_team_goal
-# plt.hist(y1)
-# plt.hist(y2, alpha = 0.5)
-# matches.iloc[]
-# countries.head()
+
+avg_home_goals = matches.home_team_goal.mean(axis=0)
+avg_away_goals = matches.away_team_goal.mean(axis=0)
+print(avg_home_goals,avg_away_goals)
+y1 = matches.home_team_goal
+y2 = matches.away_team_goal
+plt.hist(y1)
+plt.hist(y2, alpha = 0.5)
+matches.iloc[]
+countries.head()
+
 # eng_matches = matches[matches.country_id == 1729]
 # eng_matches
 # eng_matches.iloc[0]
