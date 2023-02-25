@@ -24,19 +24,19 @@ y1 = matches.home_team_goal
 y2 = matches.away_team_goal
 plt.hist(y1)
 plt.hist(y2, alpha = 0.5)
-matches.iloc[]
+# matches.iloc[]
 countries.head()
 
-# eng_matches = matches[matches.country_id == 1729]
-# eng_matches
-# eng_matches.iloc[0]
-# y1 = matches.home_team_goal - matches.away_team_goal
-# y2 = 1/matches.B365H
-# x = matches.index
-# plt.plot(x,y1/10,'ro')
-# plt.plot(x,y2, 'bo')
-# np.corrcoef(y1,y2)
-# y1.head()
+eng_matches = matches[matches.country_id == 1729]
+eng_matches
+eng_matches.iloc[0]
+y1 = matches.home_team_goal - matches.away_team_goal
+y2 = 1/matches.B365H
+x = matches.index
+plt.plot(x,y1/10,'ro')
+plt.plot(x,y2, 'bo')
+np.corrcoef(y1,y2)
+y1.head()
 
 
 
