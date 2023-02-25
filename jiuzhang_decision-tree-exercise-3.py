@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
-
 get_ipython().run_line_magic('matplotlib', 'inline')
 import os
 import pandas as pd
@@ -15,32 +13,16 @@ from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn import tree
 from sklearn import metrics
 
-
-
-
-
 #data = pd.read_csv(os.path.join("data", "loan_sub.csv"), sep=',')
 data = pd.read_csv(os.path.join("../input", "loan_sub.csv"), sep=',')
 
-
-
-
 data.columns
-
-
-
 
 # safe_loans =  1 => safe
 # safe_loans = -1 => risky
 #TODO
 
-
-
-
 data['safe_loans'].value_counts(normalize=True)
-
-
-
 
 cols = ['grade', 'term','home_ownership', 'emp_length']
 target = 'safe_loans'
@@ -48,14 +30,7 @@ target = 'safe_loans'
 data = #TODO
 data.head()
 
-
-
-
 data['safe_loans'].value_counts()
-
-
-
-
 
 # use the percentage of bad and good loans to undersample the safe loans.
 bad_ones = # TODO
@@ -67,9 +42,6 @@ safe_loans = #TODO
 
 # combine two kinds of loans
 data_set = #TODO
-
-
-
 
 data_set[target].value_counts(normalize=True)
 
@@ -100,13 +72,6 @@ trainX, trainY = #TODO
 testX, testY = test_data[test_data.columns[1:]], pd.DataFrame(test_data[target])
 
 
-
-
-
-
-
-
-
 def count_errors(labels_in_node):
     if len(labels_in_node) == 0:
         return 0
@@ -124,23 +89,17 @@ def best_split(data, features, target):
     num_data_points = float(len(data))  
 
     for feature in features:
-        
-        # 左分支对应当前特征为0的数据点
+
         left_split = # TODO
-        
-        # 右分支对应当前特征为1的数据点
+
         right_split = #TODO
-        
-        # 计算左边分支里犯了多少错
+
         left_misses = #TODO            
 
-        # 计算右边分支里犯了多少错
         right_misses = #TODO
-            
-        # 计算当前划分之后的分类犯错率
+
         error = #TODO
 
-        # 更新应选特征和错误率，注意错误越低说明该特征越好
         if error < best_error:
             best_error = #TODO
             best_feature = #TODO
@@ -150,7 +109,6 @@ def best_split(data, features, target):
 
 
 def entropy(labels_in_node):
-    # 二分类问题: 0 or 1
     n = len(labels_in_node)
     s1 = (labels_in_node==1).sum()
     if s1 == 0 or s1 == n:
@@ -166,30 +124,22 @@ def best_split_entropy(data, features, target):
     best_feature = None
     best_info_gain = float('-inf') 
     num_data_points = float(len(data))
-    # 计算划分之前数据集的整体熵值
     entropy_original = #TODO
 
     for feature in features:
         
-        # 左分支对应当前特征为0的数据点
         left_split = #TODO
         
-        # 右分支对应当前特征为1的数据点
         right_split = #TODO 
         
-        # 计算左边分支的熵值
         left_entropy = #TODO           
 
-        # 计算右边分支的熵值
         right_entropy = #TODO
             
-        # 计算左边分支与右分支熵值的加权和（数据集划分后的熵值）
         entropy_split = #TODO
         
-        # 计算划分前与划分后的熵值差得到信息增益
         info_gain = #TODO
 
-        # 更新最佳特征和对应的信息增益的值
         if info_gain > best_info_gain:
             best_info_gain = info_gain
             best_feature = feature
@@ -203,15 +153,6 @@ class TreeNode:
     def __init__(self, is_leaf, prediction, split_feature):
     # TODO
         
-        
-
-
-
-
-
-
-
-
 
 from sklearn.base import BaseEstimator
 from sklearn.metrics import accuracy_score
@@ -241,16 +182,7 @@ class MyDecisionTree(BaseEstimator):
     
     
     def create_tree(self, data, features, target, current_depth = 0, max_depth = 10, min_error=0):
-        """
-        探索三种不同的终止划分数据集的条件  
-  
-        termination 1, 当错误率降到min_error以下, 终止划分并返回叶子节点  
-        termination 2, 当特征都用完了, 终止划分并返回叶子节点  
-        termination 3, 当树的深度等于最大max_depth时, 终止划分并返回叶子节点
-        """
-        
-    
-        # 拷贝以下可用特征
+
         remaining_features = #TODO
 
         target_values = # TODO
@@ -270,21 +202,14 @@ class MyDecisionTree(BaseEstimator):
             print("Termination 3 reached.")
             return # TODO
 
+        #split_feature = # TODO 
+        split_feature = # TODO 
 
-
-        # 选出最佳当前划分特征
-        #split_feature = # TODO   #根据正确率划分
-        split_feature = # TODO  # 根据信息增益来划分
-
-        # 选出最佳特征后，该特征为0的数据分到左边，该特征为1的数据分到右边
         left_split = # TODO
         right_split = # TODO
 
-        # 剔除已经用过的特征
         remaining_features = # TODO
-        print("Split on feature %s. (%s, %s)" % (split_feature, str(len(left_split)), str(len(right_split))))
 
-        # 如果当前数据全部划分到了一边，直接创建叶子节点返回即可
         if len(left_split) == len(data):
             print("Perfect split!")
             return self.create_leaf(left_split[target])
@@ -292,11 +217,9 @@ class MyDecisionTree(BaseEstimator):
             print("Perfect split!")
             return self.create_leaf(right_split[target])
 
-        # 递归上面的步骤
         left_tree = # TODO     
         right_tree = # TODO
 
-        #生成当前的树节点
         result_node = TreeNode(False, None, split_feature)
         result_node.left = left_tree
         result_node.right = right_tree
@@ -305,12 +228,9 @@ class MyDecisionTree(BaseEstimator):
     
     
     def create_leaf(self, target_values):
-        # 用于创建叶子的函数
 
-        # 初始化一个树节点
         leaf = # TODO
 
-        # 统计当前数据集里标签为+1和-1的个数，较大的那个即为当前节点的预测结果
         num_positive_ones = #TODO
         num_negative_ones = # TODO
 
@@ -318,29 +238,25 @@ class MyDecisionTree(BaseEstimator):
             leaf.prediction = 1
         else:
             leaf.prediction = -1
-
-        # 返回叶子        
+     
         return leaf 
     
     
     
     def predict_single_data(self, tree, x, annotate = False):   
-        # 如果已经是叶子节点直接返回叶子节点的预测结果
+
         if tree.is_leaf:
             if annotate: 
-                print("leaf node, predicting %s" % tree.prediction)
             return # TODO 
         else:
-            # 查询当前节点用来划分数据集的特征
+
             split_feature_value = # TODO
 
             if annotate: 
-                print("Split on %s = %s" % (tree.split_feature, split_feature_value))
+                # print("Split on %s = %s" % (tree.split_feature, split_feature_value))
             if split_feature_value == 0:
-                #如果数据在该特征上的值为0，交给左子树来预测
                 return # TODO
             else:
-                #如果数据在该特征上的值为0，交给右子树来预测
                 return # TODO    
     
     def count_leaves(self):
@@ -355,58 +271,28 @@ class MyDecisionTree(BaseEstimator):
 
 m = MyDecisionTree(max_depth = 10, min_error = 1e-15)
 
-
-
-
 m.fit(trainX, trainY)
-
-
-
 
 m.score(testX, testY)
 
-
-
-
 m.count_leaves()
-
-
-
 
 model_1 = # TODO
 model_2 = # TODO
 model_3 = # TODO
 
-
-
-
 model_1.fit(trainX, trainY)
 model_2.fit(trainX, trainY)
 model_3.fit(trainX, trainY)
-
-
-
 
 print("model_1 training accuracy :", model_1.score(trainX, trainY))
 print("model_2 training accuracy :", model_2.score(trainX, trainY))
 print("model_3 training accuracy :", model_3.score(trainX, trainY))
 
-
-
-
 print("model_1 testing accuracy :", model_1.score(testX, testY))
 print("model_2 testing accuracy :", model_2.score(testX, testY))
 print("model_3 testing accuracy :", model_3.score(testX, testY))
 
-
-
-
 print("model_1 complexity is: ", model_1.count_leaves())
 print("model_2 complexity is: ", model_2.count_leaves())
 print("model_3 complexity is: ", model_3.count_leaves())
-
-
-
-
-
-
