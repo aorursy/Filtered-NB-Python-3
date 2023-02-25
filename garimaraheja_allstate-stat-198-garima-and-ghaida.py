@@ -23,13 +23,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-
-
-Load Data
-
-
-
-
 # Supress unnecessary warnings so that presentation looks clean
 import warnings
 warnings.filterwarnings('ignore')
@@ -56,13 +49,6 @@ pandas.set_option('display.max_columns', None)
 print(dataset.head(5))
 
 #Learning : cat1 to cat116 contain alphabets
-
-
-
-
-Statistics
-
-
 
 
 #EXPLORATION STATISTICS: Find the skew of the distribution
@@ -340,20 +326,14 @@ with open("submission.csv", "w") as subfile:
 
 
 #need to do
-4 points for interpretation of any kind
-3 points for thoroughness (did you fully grasp what your model is telling you about the data?)
-3 points for comparing different models 
-
-
-
-
-Model Evaluation
-
+# 4 points for interpretation of any kind
+# 3 points for thoroughness (did you fully grasp what your model is telling you about the data?)
+# 3 points for comparing different models 
 
 
 
 #need to do
 
-7 points for correct out-of-sample test accuracy to the public leaderboard accuracy (within a reasonable threshold)  
-3 points for demonstrating that your local test accuracy is correlated with the public leaderboard accuracy
+# 7 points for correct out-of-sample test accuracy to the public leaderboard accuracy (within a reasonable threshold)  
+# 3 points for demonstrating that your local test accuracy is correlated with the public leaderboard accuracy
 
