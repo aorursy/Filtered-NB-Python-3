@@ -25,7 +25,6 @@ data.head()
 population = data['population_total']
 male = data['population_male']
 female = data['population_female']
-
     
 
 
