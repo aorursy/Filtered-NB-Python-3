@@ -79,5 +79,5 @@ step_1.check()
 
 # Keep Going
 
-You are ready for **[Machine Learning Competitions](https://www.kaggle.com/kernels/fork/1259198).**
+# You are ready for **[Machine Learning Competitions](https://www.kaggle.com/kernels/fork/1259198).**
 
