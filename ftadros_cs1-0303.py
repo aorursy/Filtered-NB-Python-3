@@ -10,11 +10,11 @@ print("\n\nTop of the training data:")
 print(train.head())
 
 print("\n\nSummary statistics of training data")
-print(train.describe()train.describe())
+# print(train.describe()train.describe())
 
 #Any files you save will be available in the output tab below
 train.to_csv('copy_of_the_training_data.csv', index=False)
 
 x=1
-
+x
 
