@@ -106,7 +106,7 @@ learn.fit_one_cycle(6, lr)
 
 
 
-Then we unfreeze and train the whole model, with lower lr.
+# Then we unfreeze and train the whole model, with lower lr.
 
 
 
