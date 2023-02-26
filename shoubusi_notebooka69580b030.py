@@ -56,7 +56,7 @@ feature_data = pd.DataFrame(feature_data, columns=feats)
 
 
 matplotlib.rcParams['figure.figsize'] = (8, 8)
-feature_data.hist(bins=40);
+feature_data.hist(bins=40)
 
 
 
@@ -69,7 +69,7 @@ Y_train = np.log1p(train.loc[:, 'casual':'count'])
 
 
 
-Y_train.hist(bins=30);
+Y_train.hist(bins=30)
 
 
 
@@ -81,5 +81,5 @@ from time import time
 
 
 
-cat ../input/sampleSubmission.csv
+# cat ../input/sampleSubmission.csv
 

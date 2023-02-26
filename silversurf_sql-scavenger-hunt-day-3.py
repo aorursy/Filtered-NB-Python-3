@@ -48,7 +48,7 @@ print(accidents_by_day)
 
 
 
-Display a few rows to glance over the data.
+# Display a few rows to glance over the data.
 
 
 
