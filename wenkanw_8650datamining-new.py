@@ -319,12 +319,10 @@ corpus = ['this is the first document',
            'is this the first document']
 vocabulary = ['this', 'document', 'first', 'is', 'second', 'the',
               'and', 'one']
-                 ('tfid', TfidfTransformer()).fit(X_train)
 # pipe['count'].transform(corpus).toarray()
 print(len(pipe['tfid'].idf_))
 # print(X_train)
 
-                 ('tfid', TfidfTransformer()).fit(X_test)
 # pipe['count'].transform(corpus).toarray()
 print(len(pipe1['tfid'].idf_))
 # print(X_test)
@@ -429,7 +427,7 @@ class Smote:
     def _populate(self,N,i,nnarray):
         for j in range(N):
 #             print('j',j)
-            nn=random.randint(0,self.k-1)  #包括end
+            nn=random.randint(0,self.k-1) 
             dif=self.samples[nnarray[nn]]-self.samples[i]
             gap=random.random()
             self.synthetic[self.newindex]=self.samples[i]+gap*dif
