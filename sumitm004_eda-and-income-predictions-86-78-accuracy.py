@@ -426,127 +426,125 @@ print ("Test data set size : ", X_test.shape)
 
 
 
-# # Plotting the feature importances using the Boosted Gradient Descent
-# from xgboost import XGBClassifier
-# from xgboost import plot_importance
+# Plotting the feature importances using the Boosted Gradient Descent
+from xgboost import XGBClassifier
+from xgboost import plot_importance
 
-# # Training the model
-# model = XGBClassifier()
-# model_importance = model.fit(X_train, y_train)
+# Training the model
+model = XGBClassifier()
+model_importance = model.fit(X_train, y_train)
 
-# # Plotting the Feature importance bar graph
-# plt.rcParams['figure.figsize'] = [14,12]
-# sns.set(style = 'darkgrid')
-# plot_importance(model_importance);
-
-
-
-
-# # Training the model_1
-# logistic = LogisticRegression(C = 0.5, max_iter = 500)
-# model_1 = logistic.fit(X_train, y_train)
-
-# # Predictions
-# pred_1 = model_1.predict(X_test)
-
-# print ("The accuracy of model 1 : ",accuracy_score(y_test, pred_1))
-# print ("The f1 score of model 1 : ", f1_score(y_test, pred_1, average = 'binary'))
+# Plotting the Feature importance bar graph
+plt.rcParams['figure.figsize'] = [14,12]
+sns.set(style = 'darkgrid')
+plot_importance(model_importance)
 
 
 
 
-# # Training the model_2
-# R_forest = RandomForestClassifier(n_estimators = 200)
-# model_2 = R_forest.fit(X_train, y_train)
+# Training the model_1
+logistic = LogisticRegression(C = 0.5, max_iter = 500)
+model_1 = logistic.fit(X_train, y_train)
 
-# # Predictions
-# pred_2 = model_2.predict(X_test)
+# Predictions
+pred_1 = model_1.predict(X_test)
 
-# print ("The accuracy of model 2 : ",accuracy_score(y_test, pred_2))
-# print ("The f1 score of model 2 : ", f1_score(y_test, pred_2, average = 'binary'))
-
-
-
-
-# # Training the model 3
-# boosted_gd = XGBClassifier(learning_rate = 0.35, n_estimator = 500)
-# model_3 = boosted_gd.fit(X_train, y_train)
-
-# # Predictions
-# pred_3 = model_3.predict(X_test)
-
-# print ("The accuracy of model 3 : ",accuracy_score(y_test, pred_3))
-# print ("The f1 score of model 3 : ", f1_score(y_test, pred_3, average = 'binary'))
+print("The accuracy of model 1 : ",accuracy_score(y_test, pred_1))
+print("The f1 score of model 1 : ", f1_score(y_test, pred_1, average = 'binary'))
 
 
 
 
-# # Training the model 4
-# NB = BernoulliNB(alpha = 0.3)
-# model_4 = NB.fit(X_train, y_train)
+# Training the model_2
+R_forest = RandomForestClassifier(n_estimators = 200)
+model_2 = R_forest.fit(X_train, y_train)
 
-# # Predictions
-# pred_4 = model_4.predict(X_test)
+# Predictions
+pred_2 = model_2.predict(X_test)
 
-# print ("The accuracy of model 4 : ",accuracy_score(y_test, pred_4))
-# print ("The f1 score of model 4 : ", f1_score(y_test, pred_4, average = 'binary'))
-
-
-
-
-# # Training the model 5
-# svc = SVC(kernel = 'rbf', max_iter = 1000, probability = True)
-# model_5 = svc.fit(X_train, y_train)
-
-# # Predictions
-# pred_5 = model_5.predict(X_test)
-
-# print ("The accuracy of model 5 : ",accuracy_score(y_test, pred_5))
-# print ("The f1 score of model 5 : ", f1_score(y_test, pred_5, average = 'binary'))
+print ("The accuracy of model 2 : ",accuracy_score(y_test, pred_2))
+print ("The f1 score of model 2 : ", f1_score(y_test, pred_2, average = 'binary'))
 
 
 
 
-# list_pred = [pred_1, pred_2, pred_3, pred_4, pred_5]
-# model_names = ["Logistic Regression", "Random Forest Classifier", "Boosted Gradient Descent", "Bernoulli NB", "SVC"]
+# Training the model 3
+boosted_gd = XGBClassifier(learning_rate = 0.35, n_estimator = 500)
+model_3 = boosted_gd.fit(X_train, y_train)
 
-# for i, predictions in enumerate(list_pred) :
-#     print ("Classification Report of ", model_names[i])
-#     print ()
-#     print (classification_report(y_test, predictions, target_names = ["<=50K", ">50K"]))
+# Predictions
+pred_3 = model_3.predict(X_test)
 
-
-
-
-# for i, pred in enumerate(list_pred) :
-#     print ("The Confusion Matrix of : ", model_names[i])
-#     print (pd.DataFrame(confusion_matrix(y_test, pred, labels = )))
-#     print ()
+print ("The accuracy of model 3 : ",accuracy_score(y_test, pred_3))
+print ("The f1 score of model 3 : ", f1_score(y_test, pred_3, average = 'binary'))
 
 
 
 
-# # ROC Curve for the classification models
+# Training the model 4
+NB = BernoulliNB(alpha = 0.3)
+model_4 = NB.fit(X_train, y_train)
 
-# models = [model_1, model_2, model_3, model_4, model_5]
+# Predictions
+pred_4 = model_4.predict(X_test)
 
-# # Setting the parameters for the ROC Curve
-# plt.rcParams['figure.figsize'] = [10,8]
-# plt.style.use("bmh")
+print ("The accuracy of model 4 : ",accuracy_score(y_test, pred_4))
+print ("The f1 score of model 4 : ", f1_score(y_test, pred_4, average = 'binary'))
 
-# color = ['red', 'blue', 'green', 'fuchsia', 'cyan']
-# plt.title("ROC CURVE", fontsize = 15)
-# plt.xlabel("Specificity", fontsize = 15)
-# plt.ylabel("Sensitivity", fontsize = 15)
-# i = 1
 
-# for i, model in enumerate(models) :
-#     prob = model.predict_proba(X_test)
-#     prob_positive = prob[:,1]
-#     fpr, tpr, threshold = roc_curve(y_test, prob_positive)
-#     plt.plot(fpr, tpr, color = color[i])
-#     plt.gca().legend(model_names, loc = 'lower right', frameon = True)
 
-# plt.plot([0,1],[0,1], linestyle = '--', color = 'black')
-# plt.show()
+
+# Training the model 5
+svc = SVC(kernel = 'rbf', max_iter = 1000, probability = True)
+model_5 = svc.fit(X_train, y_train)
+
+# Predictions
+pred_5 = model_5.predict(X_test)
+
+print ("The accuracy of model 5 : ",accuracy_score(y_test, pred_5))
+print ("The f1 score of model 5 : ", f1_score(y_test, pred_5, average = 'binary'))
+
+
+
+
+list_pred = [pred_1, pred_2, pred_3, pred_4, pred_5]
+model_names = ["Logistic Regression", "Random Forest Classifier", "Boosted Gradient Descent", "Bernoulli NB", "SVC"]
+
+for i, predictions in enumerate(list_pred) :
+    print ("Classification Report of ", model_names[i])
+    print (classification_report(y_test, predictions, target_names = ["<=50K", ">50K"]))
+
+
+
+
+for i, pred in enumerate(list_pred) :
+    print ("The Confusion Matrix of : ", model_names[i])
+    print (pd.DataFrame(confusion_matrix(y_test, pred, labels = )))
+
+
+
+
+# ROC Curve for the classification models
+
+models = [model_1, model_2, model_3, model_4, model_5]
+
+# Setting the parameters for the ROC Curve
+plt.rcParams['figure.figsize'] = [10,8]
+plt.style.use("bmh")
+
+color = ['red', 'blue', 'green', 'fuchsia', 'cyan']
+plt.title("ROC CURVE", fontsize = 15)
+plt.xlabel("Specificity", fontsize = 15)
+plt.ylabel("Sensitivity", fontsize = 15)
+i = 1
+
+for i, model in enumerate(models) :
+    prob = model.predict_proba(X_test)
+    prob_positive = prob[:,1]
+    fpr, tpr, threshold = roc_curve(y_test, prob_positive)
+    plt.plot(fpr, tpr, color = color[i])
+    plt.gca().legend(model_names, loc = 'lower right', frameon = True)
+
+plt.plot([0,1],[0,1], linestyle = '--', color = 'black')
+plt.show()
 
