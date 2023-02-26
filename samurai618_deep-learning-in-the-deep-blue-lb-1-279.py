@@ -34,7 +34,7 @@ CHANNELS = 3
 
 # Loading and Preprocessing Data
 
-Not much processing, other than resizing to 90x160, but you will probably want to run larger images on a GPU for a higher score. I am also keeping track of the labels as I loop through each image folder.  
+# Not much processing, other than resizing to 90x160, but you will probably want to run larger images on a GPU for a higher score. I am also keeping track of the labels as I loop through each image folder.  
 
 
 
