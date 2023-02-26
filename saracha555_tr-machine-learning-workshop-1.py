@@ -52,8 +52,8 @@ df['Sex'] = df['Sex'].apply(sexConvDict.get).astype(int)
 
 
 
-**Decision Tree**
-no need standardisation/normalisation
+# **Decision Tree**
+# no need standardisation/normalisation
 
 
 
@@ -101,7 +101,7 @@ confusion_matrix(y_test, y_predict)
 
 
 
-Accuracy score
+# Accuracy score
 
 
 
@@ -112,7 +112,7 @@ accuracy_score(y_test, y_predict)
 
 
 
-Normalisation
+# Normalisation
 
 
 
@@ -165,7 +165,7 @@ y_predict = clf.predict(X_std_test)
 
 
 
-Confusion Matrix
+# Confusion Matrix
 
 
 
