@@ -10,8 +10,6 @@ from learntools.sql.ex1 import *
 print("Setup Complete")
 
 
-
-
 from google.cloud import bigquery
 
 # Create a "Client" object
@@ -33,9 +31,6 @@ num_tables = 0  #create a variable to store the number of tables
 for table in tables:   #create a loop that 1) goes through each tables and 
     num_tables += 1    #2) adds 1 to the total number of tables  
 print(num_tables)      #get a readout of the total number of tables. 
-    
-
-
 
 
 num_tables  
@@ -80,7 +75,7 @@ q_2.check()
 
 
 # Write the code here to explore the data so you can find the answer
-I can already see the schema above
+# I can already see the schema above
 
 
 
