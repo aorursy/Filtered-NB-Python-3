@@ -42,7 +42,7 @@ from fastai.vision import *
 
 
 class MyDataset(TensorDataset):
-    "Sample numpy array dataset"
+    # "Sample numpy array dataset"
     def __init__(self, x, y):
         self.x, self.y = x, y
         self.c = 10
@@ -81,7 +81,7 @@ data = ImageDataBunch.from_df('/root/', df,  size=26)
 
 
 
-"data.show_batch(rows=3, figsize=(5,5))
+# "data.show_batch(rows=3, figsize=(5,5))
 
 
 
