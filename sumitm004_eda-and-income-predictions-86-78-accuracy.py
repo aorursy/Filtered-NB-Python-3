@@ -519,7 +519,7 @@ for i, predictions in enumerate(list_pred) :
 
 for i, pred in enumerate(list_pred) :
     print ("The Confusion Matrix of : ", model_names[i])
-    print (pd.DataFrame(confusion_matrix(y_test, pred, labels = )))
+    print (pd.DataFrame(confusion_matrix(y_test, pred)))
 
 
 
