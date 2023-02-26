@@ -267,161 +267,161 @@ df_fin
 
 
 
-# sns.set(style = 'whitegrid')
-# plt.rcParams['figure.figsize'] = [20,10]
-# # Dropping the United States Row as there's a disparity between US and other Countries
-# df_fin = df_fin.drop([38])
+sns.set(style = 'whitegrid')
+plt.rcParams['figure.figsize'] = [20,10]
+# Dropping the United States Row as there's a disparity between US and other Countries
+df_fin = df_fin.drop([38])
 
-# # This Bar plot shows which country's people after US make more than 50K a year
+# This Bar plot shows which country's people after US make more than 50K a year
 
-# sns_ = sns.barplot(x = df_fin['Countries'], y = df_fin['>50K'], data = df_fin, palette = 'winter')
-# sns_.title.set_text("People who're earning more than 50K")
-# plt.setp(sns_.get_xticklabels(), rotation = 90)
+sns_ = sns.barplot(x = df_fin['Countries'], y = df_fin['>50K'], data = df_fin, palette = 'winter')
+sns_.title.set_text("People who're earning more than 50K")
+plt.setp(sns_.get_xticklabels(), rotation = 90)
 
 
 
 
-# # This Bar plot shows which country's people after US make less than 50K a year
+# This Bar plot shows which country's people after US make less than 50K a year
 
-# sns__ = sns.barplot(x = df_fin['Countries'], y = df_fin['<=50K'], data = df_fin, palette = 'winter')
-# sns__.title.set_text("People who're earning less than 50K")
+sns__ = sns.barplot(x = df_fin['Countries'], y = df_fin['<=50K'], data = df_fin, palette = 'winter')
+sns__.title.set_text("People who're earning less than 50K")
 
-# plt.setp(sns__.get_xticklabels(), rotation = 90)
+plt.setp(sns__.get_xticklabels(), rotation = 90)
 
 
 
 
-# # Setting Parameters
-# plt.rcParams['figure.figsize'] = [15,15]
-# sns.set(style = 'darkgrid')
+# Setting Parameters
+plt.rcParams['figure.figsize'] = [15,15]
+sns.set(style = 'darkgrid')
 
-# # This Violin plot show how capital gain, loss, hours per week and education vary with the race of the people
-# plt.subplot(2,2,1)
-# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.gain'], data = df_adult_eda)
-# plt.subplot(2,2,2)
-# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.loss'], data = df_adult_eda)
-# plt.subplot(2,2,3)
-# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['hours.per.week'], data = df_adult_eda)
-# plt.subplot(2,2,4)
-# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['education.num'], data = df_adult_eda)
+# This Violin plot show how capital gain, loss, hours per week and education vary with the race of the people
+plt.subplot(2,2,1)
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.gain'], data = df_adult_eda)
+plt.subplot(2,2,2)
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.loss'], data = df_adult_eda)
+plt.subplot(2,2,3)
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['hours.per.week'], data = df_adult_eda)
+plt.subplot(2,2,4)
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['education.num'], data = df_adult_eda)
 
 
 
 
-# # Setting Parameters
-# plt.rcParams['figure.figsize'] = [15,8]
-# fig, ax = plt.subplots(1,2)
+# Setting Parameters
+plt.rcParams['figure.figsize'] = [15,8]
+fig, ax = plt.subplots(1,2)
 
-# # Setting axes Labels and Titles
-# ax[0].set_ylabel("No. of People")
-# ax[0].set_xlabel("Relationship Status")
-# ax[1].set_xlabel("Relationship Status")
-# ax[0].title.set_text("People who're earning less than 50K")
-# ax[1].title.set_text("People who're earning more than 50K")
+# Setting axes Labels and Titles
+ax[0].set_ylabel("No. of People")
+ax[0].set_xlabel("Relationship Status")
+ax[1].set_xlabel("Relationship Status")
+ax[0].title.set_text("People who're earning less than 50K")
+ax[1].title.set_text("People who're earning more than 50K")
 
-# # Grouping people according to their Income and Relationship Status 
-# rel_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K',['relationship']].groupby('relationship').size()
-# rel_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K',['relationship']].groupby('relationship').size()
+# Grouping people according to their Income and Relationship Status 
+rel_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K',['relationship']].groupby('relationship').size()
+rel_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K',['relationship']].groupby('relationship').size()
 
-# # This barplot shows the No.of people earning more or less than 50K according to their Relationship Status
-# sns_rel_1 = sns.barplot(x = list(rel_less.index), y = list(rel_less), ax = ax[0])
-# sns_rel_2= sns.barplot(x = list(rel_more.index), y = list(rel_more), ax = ax[1])
+# This barplot shows the No.of people earning more or less than 50K according to their Relationship Status
+sns_rel_1 = sns.barplot(x = list(rel_less.index), y = list(rel_less), ax = ax[0])
+sns_rel_2= sns.barplot(x = list(rel_more.index), y = list(rel_more), ax = ax[1])
 
-# plt.setp(sns_rel_1.get_xticklabels(), rotation = 60)
-# plt.setp(sns_rel_2.get_xticklabels(), rotation = 60)
+plt.setp(sns_rel_1.get_xticklabels(), rotation = 60)
+plt.setp(sns_rel_2.get_xticklabels(), rotation = 60)
 
 
 
 
-# # Setting axes Labels and Titles 
-# fig, ax = plt.subplots(1,2)
-# ax[0].set_xlabel('Race')
-# ax[1].set_xlabel('Race')
-# ax[0].set_ylabel('No. of People')
-# ax[0].title.set_text("People who're earning less than 50K")
-# ax[1].title.set_text("People who're earning more than 50K")
+# Setting axes Labels and Titles 
+fig, ax = plt.subplots(1,2)
+ax[0].set_xlabel('Race')
+ax[1].set_xlabel('Race')
+ax[0].set_ylabel('No. of People')
+ax[0].title.set_text("People who're earning less than 50K")
+ax[1].title.set_text("People who're earning more than 50K")
 
-# # Grouping People according to their race and income
-# race_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K'].groupby('race').size()
-# race_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K'].groupby('race').size()
+# Grouping People according to their race and income
+race_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K'].groupby('race').size()
+race_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K'].groupby('race').size()
 
-# # This barplot shows the no.of people earning more or less than 50K according to their races
-# sns_race_1 = sns.barplot(x = list(race_less.index), y = list(race_less), ax = ax[0],
-#                          order = ['White', 'Black','Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
-# sns_race_2 = sns.barplot(x = list(race_more.index), y = list(race_more), ax = ax[1],
-#                         order = ['White', 'Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
+# This barplot shows the no.of people earning more or less than 50K according to their races
+sns_race_1 = sns.barplot(x = list(race_less.index), y = list(race_less), ax = ax[0],
+                         order = ['White', 'Black','Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
+sns_race_2 = sns.barplot(x = list(race_more.index), y = list(race_more), ax = ax[1],
+                        order = ['White', 'Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
 
-# plt.setp(sns_race_1.get_xticklabels(), rotation = 90)
-# plt.setp(sns_race_2.get_xticklabels(), rotation = 90)
+plt.setp(sns_race_1.get_xticklabels(), rotation = 90)
+plt.setp(sns_race_2.get_xticklabels(), rotation = 90)
 
 
 
 
-# # Copying the eda adult dataFrame and reseting the index
-# df_adult = df_adult_eda.copy()
+# Copying the eda adult dataFrame and reseting the index
+df_adult = df_adult_eda.copy()
 
-# df_adult = df_adult.reset_index(drop = True)
-# df_adult.head()
+df_adult = df_adult.reset_index(drop = True)
+df_adult.head()
 
 
 
 
-# df_adult.describe()
+df_adult.describe()
 
 
 
 
-# # Removing the unkown occupations
-# df_adult = df_adult[df_adult.occupation != '?']
+# Removing the unkown occupations
+df_adult = df_adult[df_adult.occupation != '?']
 
-# print (df_adult['occupation'].value_counts())
+print (df_adult['occupation'].value_counts())
 
 
 
 
-# df_adult.head()
+df_adult.head()
 
 
 
 
-# # Changing the income column into Numerical Value
-# df_adult['income'] = df_adult['income'].map({'<=50K':0, '>50K':1})
+# Changing the income column into Numerical Value
+df_adult['income'] = df_adult['income'].map({'<=50K':0, '>50K':1})
 
 
 
 
-# df_adult['income'].value_counts()
+df_adult['income'].value_counts()
 
 
 
 
-# # Changing the Categorical Values to Numerical values using the sklearns Label Encoder
-# from sklearn.preprocessing import LabelEncoder
+# Changing the Categorical Values to Numerical values using the sklearns Label Encoder
+from sklearn.preprocessing import LabelEncoder
 
-# categorical_features = list(df_adult.select_dtypes(include=['object']).columns)
-# label_encoder_feat = {}
-# for i, feature in enumerate(categorical_features):
-#     label_encoder_feat[feature] = LabelEncoder()
-#     df_adult[feature] = label_encoder_feat[feature].fit_transform(df_adult[feature])
+categorical_features = list(df_adult.select_dtypes(include=['object']).columns)
+label_encoder_feat = {}
+for i, feature in enumerate(categorical_features):
+    label_encoder_feat[feature] = LabelEncoder()
+    df_adult[feature] = label_encoder_feat[feature].fit_transform(df_adult[feature])
 
-# df_adult.head()
+df_adult.head()
 
 
 
 
-# # Shuffling the Data Set
-# from sklearn.utils import shuffle
-# df_adult = shuffle(df_adult)
+# Shuffling the Data Set
+from sklearn.utils import shuffle
+df_adult = shuffle(df_adult)
 
-# # Splitting the data set into train and test set
-# from sklearn.model_selection import train_test_split
+# Splitting the data set into train and test set
+from sklearn.model_selection import train_test_split
 
-# features_ = df_adult.drop(columns = ['income', 'education.num'])
-# target = df_adult['income']
-# X_train, X_test, y_train, y_test = train_test_split(features_, target, test_size = 0.3,random_state = 0)
+features_ = df_adult.drop(columns = ['income', 'education.num'])
+target = df_adult['income']
+X_train, X_test, y_train, y_test = train_test_split(features_, target, test_size = 0.3,random_state = 0)
 
-# print ("Train data set size : ", X_train.shape)
-# print ("Test data set size : ", X_test.shape)
+print ("Train data set size : ", X_train.shape)
+print ("Test data set size : ", X_test.shape)
 
 
 
