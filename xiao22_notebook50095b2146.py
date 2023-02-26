@@ -99,5 +99,5 @@ class SGD:
     def __init__(self, lr=0.01):
         pass
     
-    def update(self, param, )
+    # def update(self, param, )
 

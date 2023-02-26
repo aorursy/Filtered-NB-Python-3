@@ -45,7 +45,7 @@ print(header)
 
 
 
-header = l[:-1].split(',')
+# header = l[:-1].split(',')
 
 
 
@@ -76,5 +76,5 @@ f.seek(0)
 
 
 
-dados = [x[:-1].split(',') for ]
+# dados = [x[:-1].split(',') for ]
 

@@ -367,13 +367,6 @@ oof_df.to_csv('oof_df.csv', index=False)
 submission.to_csv('submission.csv', index=False)
 
 
-
-
-
-
-
-
-
 # get_ipython().system('pip install optuna')
 import optuna.integration.lightgbm as opt_lgb
 
@@ -386,20 +379,20 @@ targets = ['reactivity', 'deg_Mg_pH10', 'deg_Mg_50C']
 num_round = 10000
 
 for t in targets:
-  params = {'objective': 'regression',
+    params = {'objective': 'regression',
           'boosting': 'gbdt',
           'metric': 'rmse',
           'seed' : SEEDS}
-  print(f'- tuning for {t}')
-  lgb_train = lgb.Dataset(train_opt[features], train_opt[t])
-  lgb_valid = lgb.Dataset(val_opt[features], val_opt[t])
+    print(f'- tuning for {t}')
+    lgb_train = lgb.Dataset(train_opt[features], train_opt[t])
+    lgb_valid = lgb.Dataset(val_opt[features], val_opt[t])
 
-  best = opt_lgb.train(params, lgb_train, num_boost_round=num_round,
+    best = opt_lgb.train(params, lgb_train, num_boost_round=num_round,
                         valid_names=["train", "valid"], valid_sets=[lgb_train, lgb_valid],
                         verbose_eval = 0,  early_stopping_rounds = 150)
-  pprint.pprint(best.params)
-  bestps.append(best.params)
-  print('')
+    pprint.pprint(best.params)
+    bestps.append(best.params)
+    print('')
 
 
 

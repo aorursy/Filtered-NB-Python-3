@@ -319,12 +319,12 @@ corpus = ['this is the first document',
            'is this the first document']
 vocabulary = ['this', 'document', 'first', 'is', 'second', 'the',
               'and', 'one']
-                 ('tfid', TfidfTransformer())]).fit(X_train)
+                 ('tfid', TfidfTransformer()).fit(X_train)
 # pipe['count'].transform(corpus).toarray()
 print(len(pipe['tfid'].idf_))
 # print(X_train)
 
-                 ('tfid', TfidfTransformer())]).fit(X_test)
+                 ('tfid', TfidfTransformer()).fit(X_test)
 # pipe['count'].transform(corpus).toarray()
 print(len(pipe1['tfid'].idf_))
 # print(X_test)
@@ -532,12 +532,6 @@ def balance_data(sin_i,sin_t, in_sin_i,in_sin_t,method ='downsampling', test_sin
 
 
     return train_i,train_t
-
-
-
-
-#method ='',或‘undersampling’, 'oversampling'.  这不要用SMOTE，主要是SMOTE只能用于continuous data, 这里的数据类型不对
-#如果用 method='' default,  insincere 和sincere data 各自生成sample_size 的量
 
 new_x,new_y = balance_data(sincere_x,sincere_y, insincere_x,insincere_y,method ='', test_sin_sample= 0,test_insin_sample= 0,sample_size=140000)
 len(new_x), len(new_y)
@@ -880,13 +874,6 @@ model1.add(Dense(1, activation='sigmoid'))
 model1.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 model1.summary()
-
-
-
-
-    ('tfidf', TfidfVectorizer(max_df=0.5, min_df=20, stop_words = 'english')),
-    ('clf', model1(batch_size=512, epochs=5, validation_data=(X_test, y_test), verbose = 1))
-])
 X_train, X_test, y_train, y_test = train_test_split(df_train.text, df_train.target, test_size=0.1, random_state=1)
 
 prediction = pipeline.predict(X_test)

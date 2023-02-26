@@ -458,7 +458,7 @@ class ResnetBuilder(object):
         Returns:
             The keras `Model`.
         """
-        _handle_dim_ordering()
+        # _handle_dim_ordering()
         if len(input_shape) != 3:
             raise Exception("Input shape should be a tuple (nb_channels, nb_rows, nb_cols)")
 
@@ -575,7 +575,7 @@ plt.hist(y_primary)
 data = np.fromfile('../input/train-jpg/',
 dtype=np.float32)
 data.shape
-(60940800,)
+# (60940800,)
 data.reshape((50,1104,104))
 
 

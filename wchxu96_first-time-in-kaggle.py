@@ -132,9 +132,3 @@ evr[evr < 0.95].shape
 
 
 pca_data = PCA(n_components=178).fit_transform(std_data)
-
-
-
-
-def accuracy()
-
