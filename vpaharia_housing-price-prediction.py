@@ -20,7 +20,7 @@ housing_combined = pd.concat([housing, housing_test], axis=0,ignore_index=True)
 
 
 
-print(housing_combined[( housing_combined['PoolQC'].isnull() == True )                        & (housing_combined['PoolArea'] > 0 )][['PoolQC', 'PoolArea']])
+print(housing_combined[( housing_combined['PoolQC'].isnull() == True )                    
 sb.boxplot(x='PoolQC', y='PoolArea', data=housing_combined)
 
 
@@ -55,7 +55,7 @@ housing_combined['GarageYrBlt'] = housing_combined['GarageYrBlt'].fillna(housing
 
 
 #mark this house without 'GarageCars' as without garage
-print(housing_combined[housing_combined['GarageCars'].isnull() == True]      [['GarageArea','GarageFinish','GarageCars','GarageType','GarageQual','GarageCond']])
+print(housing_combined[housing_combined['GarageCars'].isnull() == True]  
 housing_combined.loc[2576,'GarageCars'] = 0
 housing_combined.loc[2576,'GarageArea'] = 0
 
@@ -78,7 +78,7 @@ housing_combined['GarageFinish'] = housing_combined['GarageFinish'].fillna('None
 
 
 
-print(housing_combined[(housing_combined['MasVnrArea'].isnull() == False)                  & (housing_combined['MasVnrType'].isnull() == True)]['MasVnrArea'])
+print(housing_combined[(housing_combined['MasVnrArea'].isnull() == False) 
 
 sb.countplot(housing_combined['MasVnrType'])
 housing_combined.loc[2610,'MasVnrType'] = 'BrkCmn'
@@ -94,7 +94,7 @@ sb.distplot(housing_combined['LotFrontage'].dropna())
 lotFrontageByNeighborhood = housing_combined.groupby(['Neighborhood'])['LotFrontage'].mean()
 import math
 
-housing_combined['LotFrontage'] = housing_combined.apply(lambda row:                                  lotFrontageByNeighborhood[row['Neighborhood']] if math.isnan(row['LotFrontage'])                                 else row['LotFrontage'], axis=1)
+housing_combined['LotFrontage'] = housing_combined.apply(lambda row:lotFrontageByNeighborhood[row['Neighborhood']] if math.isnan(row['LotFrontage'])                                 else row['LotFrontage'], axis=1)
 
 
 
@@ -385,10 +385,6 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.preprocessing import StandardScaler
 
 param_grid = {'alpha' : [0.0001,0.001,0.01,0.1,1,10,100,1000]}
-
-    #('select',SelectFromModel(ExtraTreesRegressor(n_estimators=300))),
-    ('Scaler', StandardScaler()),
-    ('ridge',GridSearchCV(Ridge(), param_grid, cv=5))])
 
 print('Best score: {}'.format(pipelineRidge.steps[1][1].best_score_))
 print('Best parameters: {}'.format(pipelineRidge.steps[1][1].best_params_))

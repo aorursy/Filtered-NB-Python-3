@@ -267,286 +267,286 @@ df_fin
 
 
 
-sns.set(style = 'whitegrid')
-plt.rcParams['figure.figsize'] = [20,10]
-# Dropping the United States Row as there's a disparity between US and other Countries
-df_fin = df_fin.drop([38])
+# sns.set(style = 'whitegrid')
+# plt.rcParams['figure.figsize'] = [20,10]
+# # Dropping the United States Row as there's a disparity between US and other Countries
+# df_fin = df_fin.drop([38])
 
-# This Bar plot shows which country's people after US make more than 50K a year
+# # This Bar plot shows which country's people after US make more than 50K a year
 
-sns_ = sns.barplot(x = df_fin['Countries'], y = df_fin['>50K'], data = df_fin, palette = 'winter')
-sns_.title.set_text("People who're earning more than 50K")
-plt.setp(sns_.get_xticklabels(), rotation = 90)
+# sns_ = sns.barplot(x = df_fin['Countries'], y = df_fin['>50K'], data = df_fin, palette = 'winter')
+# sns_.title.set_text("People who're earning more than 50K")
+# plt.setp(sns_.get_xticklabels(), rotation = 90)
 
 
 
 
-# This Bar plot shows which country's people after US make less than 50K a year
+# # This Bar plot shows which country's people after US make less than 50K a year
 
-sns__ = sns.barplot(x = df_fin['Countries'], y = df_fin['<=50K'], data = df_fin, palette = 'winter')
-sns__.title.set_text("People who're earning less than 50K")
+# sns__ = sns.barplot(x = df_fin['Countries'], y = df_fin['<=50K'], data = df_fin, palette = 'winter')
+# sns__.title.set_text("People who're earning less than 50K")
 
-plt.setp(sns__.get_xticklabels(), rotation = 90)
+# plt.setp(sns__.get_xticklabels(), rotation = 90)
 
 
 
 
-# Setting Parameters
-plt.rcParams['figure.figsize'] = [15,15]
-sns.set(style = 'darkgrid')
+# # Setting Parameters
+# plt.rcParams['figure.figsize'] = [15,15]
+# sns.set(style = 'darkgrid')
 
-# This Violin plot show how capital gain, loss, hours per week and education vary with the race of the people
-plt.subplot(2,2,1)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.gain'], data = df_adult_eda)
-plt.subplot(2,2,2)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.loss'], data = df_adult_eda)
-plt.subplot(2,2,3)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['hours.per.week'], data = df_adult_eda)
-plt.subplot(2,2,4)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['education.num'], data = df_adult_eda)
+# # This Violin plot show how capital gain, loss, hours per week and education vary with the race of the people
+# plt.subplot(2,2,1)
+# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.gain'], data = df_adult_eda)
+# plt.subplot(2,2,2)
+# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.loss'], data = df_adult_eda)
+# plt.subplot(2,2,3)
+# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['hours.per.week'], data = df_adult_eda)
+# plt.subplot(2,2,4)
+# sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['education.num'], data = df_adult_eda)
 
 
 
 
-# Setting Parameters
-plt.rcParams['figure.figsize'] = [15,8]
-fig, ax = plt.subplots(1,2)
+# # Setting Parameters
+# plt.rcParams['figure.figsize'] = [15,8]
+# fig, ax = plt.subplots(1,2)
 
-# Setting axes Labels and Titles
-ax[0].set_ylabel("No. of People")
-ax[0].set_xlabel("Relationship Status")
-ax[1].set_xlabel("Relationship Status")
-ax[0].title.set_text("People who're earning less than 50K")
-ax[1].title.set_text("People who're earning more than 50K")
+# # Setting axes Labels and Titles
+# ax[0].set_ylabel("No. of People")
+# ax[0].set_xlabel("Relationship Status")
+# ax[1].set_xlabel("Relationship Status")
+# ax[0].title.set_text("People who're earning less than 50K")
+# ax[1].title.set_text("People who're earning more than 50K")
 
-# Grouping people according to their Income and Relationship Status 
-rel_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K',['relationship']].groupby('relationship').size()
-rel_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K',['relationship']].groupby('relationship').size()
+# # Grouping people according to their Income and Relationship Status 
+# rel_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K',['relationship']].groupby('relationship').size()
+# rel_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K',['relationship']].groupby('relationship').size()
 
-# This barplot shows the No.of people earning more or less than 50K according to their Relationship Status
-sns_rel_1 = sns.barplot(x = list(rel_less.index), y = list(rel_less), ax = ax[0])
-sns_rel_2= sns.barplot(x = list(rel_more.index), y = list(rel_more), ax = ax[1])
+# # This barplot shows the No.of people earning more or less than 50K according to their Relationship Status
+# sns_rel_1 = sns.barplot(x = list(rel_less.index), y = list(rel_less), ax = ax[0])
+# sns_rel_2= sns.barplot(x = list(rel_more.index), y = list(rel_more), ax = ax[1])
 
-plt.setp(sns_rel_1.get_xticklabels(), rotation = 60)
-plt.setp(sns_rel_2.get_xticklabels(), rotation = 60)
+# plt.setp(sns_rel_1.get_xticklabels(), rotation = 60)
+# plt.setp(sns_rel_2.get_xticklabels(), rotation = 60)
 
 
 
 
-# Setting axes Labels and Titles 
-fig, ax = plt.subplots(1,2)
-ax[0].set_xlabel('Race')
-ax[1].set_xlabel('Race')
-ax[0].set_ylabel('No. of People')
-ax[0].title.set_text("People who're earning less than 50K")
-ax[1].title.set_text("People who're earning more than 50K")
+# # Setting axes Labels and Titles 
+# fig, ax = plt.subplots(1,2)
+# ax[0].set_xlabel('Race')
+# ax[1].set_xlabel('Race')
+# ax[0].set_ylabel('No. of People')
+# ax[0].title.set_text("People who're earning less than 50K")
+# ax[1].title.set_text("People who're earning more than 50K")
 
-# Grouping People according to their race and income
-race_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K'].groupby('race').size()
-race_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K'].groupby('race').size()
+# # Grouping People according to their race and income
+# race_less = df_adult_eda.loc[df_adult_eda['income'] == '<=50K'].groupby('race').size()
+# race_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K'].groupby('race').size()
 
-# This barplot shows the no.of people earning more or less than 50K according to their races
-sns_race_1 = sns.barplot(x = list(race_less.index), y = list(race_less), ax = ax[0],
-                         order = ['White', 'Black','Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
-sns_race_2 = sns.barplot(x = list(race_more.index), y = list(race_more), ax = ax[1],
-                        order = ['White', 'Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
+# # This barplot shows the no.of people earning more or less than 50K according to their races
+# sns_race_1 = sns.barplot(x = list(race_less.index), y = list(race_less), ax = ax[0],
+#                          order = ['White', 'Black','Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
+# sns_race_2 = sns.barplot(x = list(race_more.index), y = list(race_more), ax = ax[1],
+#                         order = ['White', 'Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
 
-plt.setp(sns_race_1.get_xticklabels(), rotation = 90)
-plt.setp(sns_race_2.get_xticklabels(), rotation = 90)
+# plt.setp(sns_race_1.get_xticklabels(), rotation = 90)
+# plt.setp(sns_race_2.get_xticklabels(), rotation = 90)
 
 
 
 
-# Copying the eda adult dataFrame and reseting the index
-df_adult = df_adult_eda.copy()
+# # Copying the eda adult dataFrame and reseting the index
+# df_adult = df_adult_eda.copy()
 
-df_adult = df_adult.reset_index(drop = True)
-df_adult.head()
+# df_adult = df_adult.reset_index(drop = True)
+# df_adult.head()
 
 
 
 
-df_adult.describe()
+# df_adult.describe()
 
 
 
 
-# Removing the unkown occupations
-df_adult = df_adult[df_adult.occupation != '?']
+# # Removing the unkown occupations
+# df_adult = df_adult[df_adult.occupation != '?']
 
-print (df_adult['occupation'].value_counts())
+# print (df_adult['occupation'].value_counts())
 
 
 
 
-df_adult.head()
+# df_adult.head()
 
 
 
 
-# Changing the income column into Numerical Value
-df_adult['income'] = df_adult['income'].map({'<=50K':0, '>50K':1})
+# # Changing the income column into Numerical Value
+# df_adult['income'] = df_adult['income'].map({'<=50K':0, '>50K':1})
 
 
 
 
-df_adult['income'].value_counts()
+# df_adult['income'].value_counts()
 
 
 
 
-# Changing the Categorical Values to Numerical values using the sklearns Label Encoder
-from sklearn.preprocessing import LabelEncoder
+# # Changing the Categorical Values to Numerical values using the sklearns Label Encoder
+# from sklearn.preprocessing import LabelEncoder
 
-categorical_features = list(df_adult.select_dtypes(include=['object']).columns)
-label_encoder_feat = {}
-for i, feature in enumerate(categorical_features):
-    label_encoder_feat[feature] = LabelEncoder()
-    df_adult[feature] = label_encoder_feat[feature].fit_transform(df_adult[feature])
+# categorical_features = list(df_adult.select_dtypes(include=['object']).columns)
+# label_encoder_feat = {}
+# for i, feature in enumerate(categorical_features):
+#     label_encoder_feat[feature] = LabelEncoder()
+#     df_adult[feature] = label_encoder_feat[feature].fit_transform(df_adult[feature])
 
-df_adult.head()
+# df_adult.head()
 
 
 
 
-# Shuffling the Data Set
-from sklearn.utils import shuffle
-df_adult = shuffle(df_adult)
+# # Shuffling the Data Set
+# from sklearn.utils import shuffle
+# df_adult = shuffle(df_adult)
 
-# Splitting the data set into train and test set
-from sklearn.model_selection import train_test_split
+# # Splitting the data set into train and test set
+# from sklearn.model_selection import train_test_split
 
-features_ = df_adult.drop(columns = ['income', 'education.num'])
-target = df_adult['income']
-X_train, X_test, y_train, y_test = train_test_split(features_, target, test_size = 0.3,random_state = 0)
+# features_ = df_adult.drop(columns = ['income', 'education.num'])
+# target = df_adult['income']
+# X_train, X_test, y_train, y_test = train_test_split(features_, target, test_size = 0.3,random_state = 0)
 
-print ("Train data set size : ", X_train.shape)
-print ("Test data set size : ", X_test.shape)
+# print ("Train data set size : ", X_train.shape)
+# print ("Test data set size : ", X_test.shape)
 
 
 
 
-# Plotting the feature importances using the Boosted Gradient Descent
-from xgboost import XGBClassifier
-from xgboost import plot_importance
+# # Plotting the feature importances using the Boosted Gradient Descent
+# from xgboost import XGBClassifier
+# from xgboost import plot_importance
 
-# Training the model
-model = XGBClassifier()
-model_importance = model.fit(X_train, y_train)
+# # Training the model
+# model = XGBClassifier()
+# model_importance = model.fit(X_train, y_train)
 
-# Plotting the Feature importance bar graph
-plt.rcParams['figure.figsize'] = [14,12]
-sns.set(style = 'darkgrid')
-plot_importance(model_importance);
+# # Plotting the Feature importance bar graph
+# plt.rcParams['figure.figsize'] = [14,12]
+# sns.set(style = 'darkgrid')
+# plot_importance(model_importance);
 
 
 
 
-# Training the model_1
-logistic = LogisticRegression(C = 0.5, max_iter = 500)
-model_1 = logistic.fit(X_train, y_train)
+# # Training the model_1
+# logistic = LogisticRegression(C = 0.5, max_iter = 500)
+# model_1 = logistic.fit(X_train, y_train)
 
-# Predictions
-pred_1 = model_1.predict(X_test)
+# # Predictions
+# pred_1 = model_1.predict(X_test)
 
-print ("The accuracy of model 1 : ",accuracy_score(y_test, pred_1))
-print ("The f1 score of model 1 : ", f1_score(y_test, pred_1, average = 'binary'))
+# print ("The accuracy of model 1 : ",accuracy_score(y_test, pred_1))
+# print ("The f1 score of model 1 : ", f1_score(y_test, pred_1, average = 'binary'))
 
 
 
 
-# Training the model_2
-R_forest = RandomForestClassifier(n_estimators = 200)
-model_2 = R_forest.fit(X_train, y_train)
+# # Training the model_2
+# R_forest = RandomForestClassifier(n_estimators = 200)
+# model_2 = R_forest.fit(X_train, y_train)
 
-# Predictions
-pred_2 = model_2.predict(X_test)
+# # Predictions
+# pred_2 = model_2.predict(X_test)
 
-print ("The accuracy of model 2 : ",accuracy_score(y_test, pred_2))
-print ("The f1 score of model 2 : ", f1_score(y_test, pred_2, average = 'binary'))
+# print ("The accuracy of model 2 : ",accuracy_score(y_test, pred_2))
+# print ("The f1 score of model 2 : ", f1_score(y_test, pred_2, average = 'binary'))
 
 
 
 
-# Training the model 3
-boosted_gd = XGBClassifier(learning_rate = 0.35, n_estimator = 500)
-model_3 = boosted_gd.fit(X_train, y_train)
+# # Training the model 3
+# boosted_gd = XGBClassifier(learning_rate = 0.35, n_estimator = 500)
+# model_3 = boosted_gd.fit(X_train, y_train)
 
-# Predictions
-pred_3 = model_3.predict(X_test)
+# # Predictions
+# pred_3 = model_3.predict(X_test)
 
-print ("The accuracy of model 3 : ",accuracy_score(y_test, pred_3))
-print ("The f1 score of model 3 : ", f1_score(y_test, pred_3, average = 'binary'))
+# print ("The accuracy of model 3 : ",accuracy_score(y_test, pred_3))
+# print ("The f1 score of model 3 : ", f1_score(y_test, pred_3, average = 'binary'))
 
 
 
 
-# Training the model 4
-NB = BernoulliNB(alpha = 0.3)
-model_4 = NB.fit(X_train, y_train)
+# # Training the model 4
+# NB = BernoulliNB(alpha = 0.3)
+# model_4 = NB.fit(X_train, y_train)
 
-# Predictions
-pred_4 = model_4.predict(X_test)
+# # Predictions
+# pred_4 = model_4.predict(X_test)
 
-print ("The accuracy of model 4 : ",accuracy_score(y_test, pred_4))
-print ("The f1 score of model 4 : ", f1_score(y_test, pred_4, average = 'binary'))
+# print ("The accuracy of model 4 : ",accuracy_score(y_test, pred_4))
+# print ("The f1 score of model 4 : ", f1_score(y_test, pred_4, average = 'binary'))
 
 
 
 
-# Training the model 5
-svc = SVC(kernel = 'rbf', max_iter = 1000, probability = True)
-model_5 = svc.fit(X_train, y_train)
+# # Training the model 5
+# svc = SVC(kernel = 'rbf', max_iter = 1000, probability = True)
+# model_5 = svc.fit(X_train, y_train)
 
-# Predictions
-pred_5 = model_5.predict(X_test)
+# # Predictions
+# pred_5 = model_5.predict(X_test)
 
-print ("The accuracy of model 5 : ",accuracy_score(y_test, pred_5))
-print ("The f1 score of model 5 : ", f1_score(y_test, pred_5, average = 'binary'))
+# print ("The accuracy of model 5 : ",accuracy_score(y_test, pred_5))
+# print ("The f1 score of model 5 : ", f1_score(y_test, pred_5, average = 'binary'))
 
 
 
 
-list_pred = [pred_1, pred_2, pred_3, pred_4, pred_5]
-model_names = ["Logistic Regression", "Random Forest Classifier", "Boosted Gradient Descent", "Bernoulli NB", "SVC"]
+# list_pred = [pred_1, pred_2, pred_3, pred_4, pred_5]
+# model_names = ["Logistic Regression", "Random Forest Classifier", "Boosted Gradient Descent", "Bernoulli NB", "SVC"]
 
-for i, predictions in enumerate(list_pred) :
-    print ("Classification Report of ", model_names[i])
-    print ()
-    print (classification_report(y_test, predictions, target_names = ["<=50K", ">50K"]))
+# for i, predictions in enumerate(list_pred) :
+#     print ("Classification Report of ", model_names[i])
+#     print ()
+#     print (classification_report(y_test, predictions, target_names = ["<=50K", ">50K"]))
 
 
 
 
-for i, pred in enumerate(list_pred) :
-    print ("The Confusion Matrix of : ", model_names[i])
-    print (pd.DataFrame(confusion_matrix(y_test, pred, labels = )))
-    print ()
+# for i, pred in enumerate(list_pred) :
+#     print ("The Confusion Matrix of : ", model_names[i])
+#     print (pd.DataFrame(confusion_matrix(y_test, pred, labels = )))
+#     print ()
 
 
 
 
-# ROC Curve for the classification models
+# # ROC Curve for the classification models
 
-models = [model_1, model_2, model_3, model_4, model_5]
+# models = [model_1, model_2, model_3, model_4, model_5]
 
-# Setting the parameters for the ROC Curve
-plt.rcParams['figure.figsize'] = [10,8]
-plt.style.use("bmh")
+# # Setting the parameters for the ROC Curve
+# plt.rcParams['figure.figsize'] = [10,8]
+# plt.style.use("bmh")
 
-color = ['red', 'blue', 'green', 'fuchsia', 'cyan']
-plt.title("ROC CURVE", fontsize = 15)
-plt.xlabel("Specificity", fontsize = 15)
-plt.ylabel("Sensitivity", fontsize = 15)
-i = 1
+# color = ['red', 'blue', 'green', 'fuchsia', 'cyan']
+# plt.title("ROC CURVE", fontsize = 15)
+# plt.xlabel("Specificity", fontsize = 15)
+# plt.ylabel("Sensitivity", fontsize = 15)
+# i = 1
 
-for i, model in enumerate(models) :
-    prob = model.predict_proba(X_test)
-    prob_positive = prob[:,1]
-    fpr, tpr, threshold = roc_curve(y_test, prob_positive)
-    plt.plot(fpr, tpr, color = color[i])
-    plt.gca().legend(model_names, loc = 'lower right', frameon = True)
+# for i, model in enumerate(models) :
+#     prob = model.predict_proba(X_test)
+#     prob_positive = prob[:,1]
+#     fpr, tpr, threshold = roc_curve(y_test, prob_positive)
+#     plt.plot(fpr, tpr, color = color[i])
+#     plt.gca().legend(model_names, loc = 'lower right', frameon = True)
 
-plt.plot([0,1],[0,1], linestyle = '--', color = 'black')
-plt.show()
+# plt.plot([0,1],[0,1], linestyle = '--', color = 'black')
+# plt.show()
 
