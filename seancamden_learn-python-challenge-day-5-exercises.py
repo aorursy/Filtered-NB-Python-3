@@ -36,73 +36,73 @@ has_lucky_number(nums)
 
 
 
-# def has_lucky_number(nums):
-#     """Return whether the given list of numbers is lucky. A lucky list contains
-#     at least one number divisible by 7.
-#     """
-#     for num in nums:
-#         if num % 7 == 0:
-#             return True
-#     return False
-# q1.check()
+def has_lucky_number(nums):
+    """Return whether the given list of numbers is lucky. A lucky list contains
+    at least one number divisible by 7.
+    """
+    for num in nums:
+        if num % 7 == 0:
+            return True
+    return False
+q1.check()
 
 
 
 
-# q1.hint()
-# #q1.solution()
+q1.hint()
+#q1.solution()
 
 
 
 
-# # [1, 2, 3, 4] > 2
+# [1, 2, 3, 4] > 2
 
 
 
 
-# # def elementwise_greater_than(L, thresh):
-#     """Return a list with the same length as L, where the value at index i is 
-#     True if L[i] is greater than thresh, and False otherwise.
+# def elementwise_greater_than(L, thresh):
+    # """Return a list with the same length as L, where the value at index i is 
+    # True if L[i] is greater than thresh, and False otherwise.
     
-#     >>> elementwise_greater_than([1, 2, 3, 4], 2)
-#     [False, False, True, True]
-#     """
-#     # return [t > thresh for t in L]
+    # >>> elementwise_greater_than([1, 2, 3, 4], 2)
+    # [False, False, True, True]
+    # """
+    # return [t > thresh for t in L]
 
-# # q2.check()
-
-
-
-
-# #q2.solution()
+# q2.check()
 
 
 
 
-# def menu_is_boring(meals):
-#     """Given a list of meals served over some period of time, return True if the
-#     same meal has ever been served two days in a row, and False otherwise.
-#     """
-#     print(meals)
-#     if len(meals) > 1:
-#         for i in meals:
-#             m1 = meals[-1]
-#             m2 = meals[-2]
-#             print(m1,m2,len(meals),sep="/")
-#             if m1 == m2:
-#                 return True
-#             else:
-#                 meals.pop()
-#         return False
-#     else:
-#         return False
-# q3.check()
+#q2.solution()
 
 
 
 
-# q3.hint()
-# #q3.solution()
+def menu_is_boring(meals):
+    """Given a list of meals served over some period of time, return True if the
+    same meal has ever been served two days in a row, and False otherwise.
+    """
+    print(meals)
+    if len(meals) > 1:
+        for i in meals:
+            m1 = meals[-1]
+            m2 = meals[-2]
+            print(m1,m2,len(meals),sep="/")
+            if m1 == m2:
+                return True
+            else:
+                meals.pop()
+        return False
+    else:
+        return False
+q3.check()
+
+
+
+
+q3.hint()
+#q3.solution()
 
 
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
-Python Premier - Part 1 
-1. Assignments and Expressions
-2. Conditionals
-3. Loops
-4. Python Data Structures -  Strings,Lists,Tuples,Sets,Dictionary
-5. Comphrensions
-6. Functions
+# Python Premier - Part 1 
+# 1. Assignments and Expressions
+# 2. Conditionals
+# 3. Loops
+# 4. Python Data Structures -  Strings,Lists,Tuples,Sets,Dictionary
+# 5. Comphrensions
+# 6. Functions
 
 
 # A Sample Program 
@@ -32,18 +32,18 @@ while year <= numyears:
 
 a = 100
 
-1. Assignment operator simply creates association between name and Value
-2. Names can refer to different data types during program execution
-3. Reassignment binds the name to new value and the old binding is lost 
-4. A newline terminates each individual statement.You also can use a semicolon to separate statements. Assignment statement forms
-Operation                         Interpretation
-spam = 'Spam'                     Basic form
-spam, ham = 'yum', 'YUM'          Tuple assignment (positional)
-[spam, ham] = ['yum', 'YUM']      List assignment (positional)
-a, b, c, d = 'spam'               Sequence assignment, generalized
-a, *b = 'spam'                    Extended sequence unpacking (Python 3.X)
-spam = ham = 'lunch'              Multiple-target assignment
-spams += 42                       Augmented assignment (equivalent to spams = spams + 42)
+# 1. Assignment operator simply creates association between name and Value
+# 2. Names can refer to different data types during program execution
+# 3. Reassignment binds the name to new value and the old binding is lost 
+# 4. A newline terminates each individual statement.You also can use a semicolon to separate statements. Assignment statement forms
+# Operation                         Interpretation
+# spam = 'Spam'                     Basic form
+# spam, ham = 'yum', 'YUM'          Tuple assignment (positional)
+# [spam, ham] = ['yum', 'YUM']      List assignment (positional)
+# a, b, c, d = 'spam'               Sequence assignment, generalized
+# a, *b = 'spam'                    Extended sequence unpacking (Python 3.X)
+# spam = ham = 'lunch'              Multiple-target assignment
+# spams += 42                       Augmented assignment (equivalent to spams = spams + 42)
 
 
 

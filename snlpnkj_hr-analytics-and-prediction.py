@@ -100,7 +100,7 @@ b
 
 
 
-see here:  https://github.com/sunilpankaj/Human-Resources-Analytics-project-using-python-
+# see here:  https://github.com/sunilpankaj/Human-Resources-Analytics-project-using-python-
 
 
 

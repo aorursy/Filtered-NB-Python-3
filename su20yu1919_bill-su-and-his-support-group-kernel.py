@@ -28,14 +28,7 @@ clicks_train = pd.read_csv("../input/clicks_train.csv")
 sample_submission = pd.read_csv("../input/sample_submission.csv")
 
 # Any results you write to the current directory are saved as output.
-
-
-
-
 clicks_train.head()
-
-
-
 
 # Get Training and Testing Sets
 ids = clicks_train.display_id.unique()
@@ -44,17 +37,11 @@ valid = clicks_train[clicks_train.display_id.isin(ids)]
 train = clicks_train[~clicks_train.display_id.isin(ids)]
 print(valid.shape, train.shape)
 
-
-
-
 # Initialize Things
 reg = 10
 count = train[train.clicked==1].ad_id.value_counts()
 count_all = train.ad_id.value_counts()
 del train
-
-
-
 
 # functions
 def get_prob(k):
@@ -68,23 +55,17 @@ def srt(x):
     ad_ids = sorted(ad_ids, key=get_prob, reverse =True)
     return " ".join(map(str, ad_ids))
 
-
-
-
 # If Evaluation Stage
 Eval = False
 if Eval = True
-    from ml_metrics import mapk
+    # from ml_metrics import mapk
 
     y = valid[valid.clicked == 1].ad_id.values
-    y = [[_] for _ in y]
+    # y = [[_] for _ in y]
     p = valid.groupby('display_id').ad_id.apply(list)
-    p = [sorted(x, key=get_prob, reverse=True) for x in p]
+    # p = [sorted(x, key=get_prob, reverse=True) for x in p]
 
     print (mapk(y, p, k=12))
-
-
-
 
 ## If you want to submit
 sample_submission['ad_id'] = sample_submission.ad_id.apply(lambda x: srt(x))
