@@ -18,7 +18,6 @@ destinations = pd.read_csv("../input/destinations.csv")
 #train_data = pd.read_csv("../input/train.csv")
 with open("../input/train.csv", 'r') as csv_file:
     csv_dict_reader = csv.DictReader(csv_file)
-    for i in range(
 test_data = pd.read_csv("../input/test.csv")
 
 

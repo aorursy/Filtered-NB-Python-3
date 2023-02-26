@@ -33,7 +33,7 @@ import matplotlib.pyplot as plt
 
 
 #Reading the dataset.
-    data = pd.read_csv(r'/kaggle/input/new-york-city-airbnb-open-data/AB_NYC_2019.csv')
+data = pd.read_csv('/kaggle/input/new-york-city-airbnb-open-data/AB_NYC_2019.csv')
 
 
 

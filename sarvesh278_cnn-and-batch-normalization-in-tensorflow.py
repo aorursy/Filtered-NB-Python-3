@@ -245,5 +245,5 @@ np.savetxt('Digit_Recogniser.csv',
 
 sess.close()
 
-This model achieved an accuracy of 0.99143
-Also note that, some part of the code has been adapted from Martin Gorner tutorial for deep learning and tensor flow
+# This model achieved an accuracy of 0.99143
+# Also note that, some part of the code has been adapted from Martin Gorner tutorial for deep learning and tensor flow
