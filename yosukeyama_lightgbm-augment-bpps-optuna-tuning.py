@@ -150,17 +150,17 @@ looptype_encmap = {'S':0, 'E':1, 'H':2, 'I':3, 'X':4, 'M':5, 'B':6}
 enc_targets = ['sequence', 'structure', 'predicted_loop_type']
 enc_maps = [sequence_encmap, structure_encmap, looptype_encmap]
 
-# for t,m in zip(enc_targets, enc_maps):
-#     for c in [c for c in train_data.columns if t in c]:
-#         #train_data[c] = train_data[c].replace(m)
-#         test_data[c] = test_data[c].replace(m)
+for t,m in zip(enc_targets, enc_maps):
+    for c in [c for c in train_data.columns if t in c]:
+        #train_data[c] = train_data[c].replace(m)
+        test_data[c] = test_data[c].replace(m)
 
 
 
 
 # I recommend you save both the dataset. Because, it takes long to generate these.
 test_data.to_cav('aug_test_df_2.csv', index=False)
-train_data.to_csv('aug_train_df_2.csvv' index=False)
+train_data.to_csv('aug_train_df_2.csvv', index=False)
 
 
 
