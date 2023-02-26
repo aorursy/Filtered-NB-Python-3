@@ -57,5 +57,5 @@ df_tr.loc[age_miss_index]
 
 
 
-age_miss=df_tr.iloc[age_miss)index]
+age_miss=df_tr.iloc[(age_miss)index]
 
