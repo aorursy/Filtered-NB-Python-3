@@ -107,57 +107,55 @@ q3.hint()
 
 
 
-# play_slot_machine()
+play_slot_machine()
 
 
 
 
-# def estimate_average_slot_payout(n_runs):
-#     """Run the slot machine n_runs times and return the average net profit per run.
-#     Example calls (note that return value is nondeterministic!):
-#     >>> estimate_average_slot_payout(1)
-#     -1
-#     >>> estimate_average_slot_payout(1)
-#     0.5
-#     """
-#     runs = [play_slot_machine() for i in range(n_runs)]
-#     avg = (sum(runs) - n_runs) / n_runs
+def estimate_average_slot_payout(n_runs):
+    """Run the slot machine n_runs times and return the average net profit per run.
+    Example calls (note that return value is nondeterministic!):
+    >>> estimate_average_slot_payout(1)
+    -1
+    >>> estimate_average_slot_payout(1)
+    0.5
+    """
+    runs = [play_slot_machine() for i in range(n_runs)]
+    avg = (sum(runs) - n_runs) / n_runs
+    return avg
 
-#     return avg
-
-# # account for $1 per run
-# estimate_average_slot_payout(1000000)
-
-
-
-
-# q4.solution()
+# account for $1 per run
+estimate_average_slot_payout(1000000)
 
 
 
 
-# def slots_survival_probability(start_balance, n_spins, n_simulations):
-#     """Return the approximate probability (as a number between 0 and 1) that we can complete the 
-#     given number of spins of the slot machine before running out of money, assuming we start 
-#     with the given balance. Estimate the probability by running the scenario the specified number of times.
+q4.solution()
+
+
+
+
+def slots_survival_probability(start_balance, n_spins, n_simulations):
+    """Return the approximate probability (as a number between 0 and 1) that we can complete the 
+    given number of spins of the slot machine before running out of money, assuming we start 
+    with the given balance. Estimate the probability by running the scenario the specified number of times.
     
-#     >>> slots_survival_probability(10.00, 10, 1000)
-#     1.0
-#     >>> slots_survival_probability(1.00, 2, 1000)
-#     .25
-#     favorable outcomes versus total outcomes
-#     start_balance + winnings = total_spins
-#     """
-#     if start_balance >= n_spins:
-#         p = 1.0
-#         return p
-#     elif start_balance < n_spins:
+    >>> slots_survival_probability(10.00, 10, 1000)
+    1.0
+    >>> slots_survival_probability(1.00, 2, 1000)
+    .25
+    favorable outcomes versus total outcomes
+    start_balance + winnings = total_spins
+    """
+    if start_balance >= n_spins:
+        p = 1.0
+        return p
 
-# #q5.check()
-# slots_survival_probability(10,12,1000000)
-
+#q5.check()
+slots_survival_probability(10,12,1000000)
 
 
 
-# q5.solution()
+
+q5.solution()
 

@@ -272,13 +272,13 @@ def d(x1,y1,x2,y2):
     return val
 angle=[]
 print(len(arr))
-def 
-    return (acos(((d(arr[i][0],arr[i][1],arr[i+1][0],arr[i+1][1])**2+
-                        d(arr[i][0],arr[i][1],arr[i+2][0],arr[i+2][1])**2-
-                        d(arr[i+1][0],arr[i+1][1],arr[i+2][0],arr[i+2][1])**2)/
-    (2*d(arr[i][0],arr[i][1],arr[i+1][0],arr[i+1][1]
-    *d(arr[i][0],arr[i][1],arr[i+2][0],arr[i+2][1])))
-    )))
+# def 
+#     return (acos(((d(arr[i][0],arr[i][1],arr[i+1][0],arr[i+1][1])**2+
+#                         d(arr[i][0],arr[i][1],arr[i+2][0],arr[i+2][1])**2-
+#                         d(arr[i+1][0],arr[i+1][1],arr[i+2][0],arr[i+2][1])**2)/
+#     (2*d(arr[i][0],arr[i][1],arr[i+1][0],arr[i+1][1]
+#     *d(arr[i][0],arr[i][1],arr[i+2][0],arr[i+2][1])))
+#     )))
 print(angle)
 print(len(angle))
 

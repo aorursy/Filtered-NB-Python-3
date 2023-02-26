@@ -241,7 +241,7 @@ print(len(index_less))
 
 
 # Checking which Countries are not in the list
-[country for country in index_less if country not in index_more]
+# [country for country in index_less if country not in index_more]
 
 
 
@@ -276,8 +276,7 @@ df_fin = df_fin.drop([38])
 
 sns_ = sns.barplot(x = df_fin['Countries'], y = df_fin['>50K'], data = df_fin, palette = 'winter')
 sns_.title.set_text("People who're earning more than 50K")
-
-plt.setp(sns_.get_xticklabels(), rotation = 90);
+plt.setp(sns_.get_xticklabels(), rotation = 90)
 
 
 
@@ -287,7 +286,7 @@ plt.setp(sns_.get_xticklabels(), rotation = 90);
 sns__ = sns.barplot(x = df_fin['Countries'], y = df_fin['<=50K'], data = df_fin, palette = 'winter')
 sns__.title.set_text("People who're earning less than 50K")
 
-plt.setp(sns__.get_xticklabels(), rotation = 90);
+plt.setp(sns__.get_xticklabels(), rotation = 90)
 
 
 
@@ -298,13 +297,13 @@ sns.set(style = 'darkgrid')
 
 # This Violin plot show how capital gain, loss, hours per week and education vary with the race of the people
 plt.subplot(2,2,1)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.gain'], data = df_adult_eda);
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.gain'], data = df_adult_eda)
 plt.subplot(2,2,2)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.loss'], data = df_adult_eda);
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['capital.loss'], data = df_adult_eda)
 plt.subplot(2,2,3)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['hours.per.week'], data = df_adult_eda);
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['hours.per.week'], data = df_adult_eda)
 plt.subplot(2,2,4)
-sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['education.num'], data = df_adult_eda);
+sns.violinplot(x = df_adult_eda['race'], y = df_adult_eda['education.num'], data = df_adult_eda)
 
 
 
@@ -328,8 +327,8 @@ rel_more = df_adult_eda.loc[df_adult_eda['income'] == '>50K',['relationship']].g
 sns_rel_1 = sns.barplot(x = list(rel_less.index), y = list(rel_less), ax = ax[0])
 sns_rel_2= sns.barplot(x = list(rel_more.index), y = list(rel_more), ax = ax[1])
 
-plt.setp(sns_rel_1.get_xticklabels(), rotation = 60);
-plt.setp(sns_rel_2.get_xticklabels(), rotation = 60);
+plt.setp(sns_rel_1.get_xticklabels(), rotation = 60)
+plt.setp(sns_rel_2.get_xticklabels(), rotation = 60)
 
 
 
@@ -352,8 +351,8 @@ sns_race_1 = sns.barplot(x = list(race_less.index), y = list(race_less), ax = ax
 sns_race_2 = sns.barplot(x = list(race_more.index), y = list(race_more), ax = ax[1],
                         order = ['White', 'Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo','Other'])
 
-plt.setp(sns_race_1.get_xticklabels(), rotation = 90);
-plt.setp(sns_race_2.get_xticklabels(), rotation = 90);
+plt.setp(sns_race_1.get_xticklabels(), rotation = 90)
+plt.setp(sns_race_2.get_xticklabels(), rotation = 90)
 
 
 

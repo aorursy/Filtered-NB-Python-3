@@ -55,17 +55,6 @@ def srt(x):
     ad_ids = sorted(ad_ids, key=get_prob, reverse =True)
     return " ".join(map(str, ad_ids))
 
-# If Evaluation Stage
-Eval = False
-if Eval = True
-    # from ml_metrics import mapk
-
-    y = valid[valid.clicked == 1].ad_id.values
-    # y = [[_] for _ in y]
-    p = valid.groupby('display_id').ad_id.apply(list)
-    # p = [sorted(x, key=get_prob, reverse=True) for x in p]
-
-    print (mapk(y, p, k=12))
 
 ## If you want to submit
 sample_submission['ad_id'] = sample_submission.ad_id.apply(lambda x: srt(x))

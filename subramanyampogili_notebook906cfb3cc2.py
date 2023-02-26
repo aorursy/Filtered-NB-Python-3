@@ -13,7 +13,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 from sklearn.cross_validation import train_test_split
 
-Using TensorFlow backend.
+# Using TensorFlow backend.
 
 
 
@@ -29,7 +29,7 @@ y = np.load('../input/train.csv')
 
 
 
-X_train, X_test, y_train, y_test =     train_test_split(X, y, test_size=TEST_SIZE, random_state=11)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=TEST_SIZE, random_state=11)
 
 
 
@@ -77,5 +77,5 @@ hist = model.fit(
                 mode='max'
             )
         ]
-     )
+    )
 

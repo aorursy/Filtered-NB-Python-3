@@ -97,11 +97,11 @@ while year <= numyears:
     print year, principal 
     year += 1
 
-1.Format strings contain ordinary text and special formatting-character sequences such as “%d”, “%s”, and “%f”.
-2.They specify the formatting of a particular type of data such as an integer, string, or floating-point number.
-3.The special character sequences can also contain modifiers that specify a width and precision. 
+# 1.Format strings contain ordinary text and special formatting-character sequences such as “%d”, “%s”, and “%f”.
+# 2.They specify the formatting of a particular type of data such as an integer, string, or floating-point number.
+# 3.The special character sequences can also contain modifiers that specify a width and precision. 
 
-For example :  “%3d” formats an integer right-aligned in a column of width 3, and “%0.2f” formats a floating-point number so that only two digits appear after the decimal point.
+# For example :  “%3d” formats an integer right-aligned in a column of width 3, and “%0.2f” formats a floating-point number so that only two digits appear after the decimal point.
 
 
 # Calculating Simple Interest
@@ -115,19 +115,19 @@ while year <= numyears:
     print "%10d %10.3f" % (year,principal) 
     year += 1
 
-   Python Program Heirearchy
-1. Programs are composed of modules. 
-2. Modules contain statements.
-3. Statements contain expressions.
-4. Expressions create and process objects.Common Python expression statements
+#    Python Program Heirearchy
+# 1. Programs are composed of modules. 
+# 2. Modules contain statements.
+# 3. Statements contain expressions.
+# 4. Expressions create and process objects.Common Python expression statements
 
-Operation                     Interpretation
+# Operation                     Interpretation
 
-spam(eggs, ham)               Function calls
-spam.ham(eggs)                Method calls
-spam                          Printing variables in the interactive interpreter
-print(a, b, c, sep='')        Printing operations in Python 3.X
-yield x ** 2                  Yielding expression statements
+# spam(eggs, ham)               Function calls
+# spam.ham(eggs)                Method calls
+# spam                          Printing variables in the interactive interpreter
+# print(a, b, c, sep='')        Printing operations in Python 3.X
+# yield x ** 2                  Yielding expression statements
 
 
 
@@ -337,11 +337,11 @@ float(a)
 b = 12.0
 type(b)
 
-Octal literals (base 8)
-A number prefixed by a 0 (zero) will be interpreted as an octal number
+# Octal literals (base 8)
+# A number prefixed by a 0 (zero) will be interpreted as an octal number
 
 
-a = 010
+a = 10
 
 
 
@@ -691,22 +691,22 @@ b = set([1,2,3,4,5,6,7,8,9,11,22])
 
 
 
-a | b      # Union 
+# a | b      # Union 
 
 
 
 
-a & b     # intersection
+# a & b     # intersection
 
 
 
 
-b - a   # difference
+# b - a   # difference
 
 
 
 
-a ^ b  # not in both
+# a ^ b  # not in both
 
 
 
@@ -746,7 +746,7 @@ en_de
 
 
 
-'blue' in en_de
+# 'blue' in en_de
 
 
 
@@ -831,7 +831,7 @@ for i in a:
 
 
 
-[i**2 for i in a if i < 6] 
+# [i**2 for i in a if i < 6] 
 
 
 
@@ -974,12 +974,12 @@ filter(lambda op : len(op) < 6,ops)
 
 # reduce
 
-If seq = [ s1, s2, s3, ... , sn ], calling reduce(func, seq) works like this:
+# If seq = [ s1, s2, s3, ... , sn ], calling reduce(func, seq) works like this:
     
-At first the first two elements of seq will be applied to func, i.e. func(s1,s2) The list on which reduce() works looks now like this: [ func(s1, s2), s3, ... , sn ]
-In the next step func will be applied on the previous result and the third element of the list, i.e. func(func(s1, s2),s3)
-The list looks like this now: [ func(func(s1, s2),s3), ... , sn ]
-Continue like this until just one element is left and return this element as the result of reduce()
+# At first the first two elements of seq will be applied to func, i.e. func(s1,s2) The list on which reduce() works looks now like this: [ func(s1, s2), s3, ... , sn ]
+# In the next step func will be applied on the previous result and the third element of the list, i.e. func(func(s1, s2),s3)
+# The list looks like this now: [ func(func(s1, s2),s3), ... , sn ]
+# Continue like this until just one element is left and return this element as the result of reduce()
 
 
 reduce(lambda x,y: x+y, [47,11,42,13])

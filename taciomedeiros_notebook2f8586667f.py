@@ -45,12 +45,6 @@ print(header)
 
 
 
-
-l[-1]
-
-
-
-
 header = l[:-1].split(',')
 
 
