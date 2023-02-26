@@ -16,12 +16,12 @@ print('My dog is named "Pluto"')
 
 
 
-'Pluto's a planet!'
+# 'Pluto's a planet!'
 
 
 
 
-'Pluto\'s a planet!'
+# 'Pluto\'s a planet!'
 
 
 
@@ -202,12 +202,12 @@ planet_to_initial
 
 
 
-'Saturn' in planet_to_initial
+# 'Saturn' in planet_to_initial
 
 
 
 
-'Betelgeuse' in planet_to_initial
+# 'Betelgeuse' in planet_to_initial
 
 
 
