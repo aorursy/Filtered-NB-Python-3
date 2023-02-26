@@ -20,8 +20,8 @@ SEEDS = 42
 
 
 
-# def rmse(y_true, y_pred):
-#     return (mean_squared_error(y_true, y_pred))** .5
+def rmse(y_true, y_pred):
+    return (mean_squared_error(y_true, y_pred))** .5
 
 
 
@@ -37,107 +37,107 @@ test = pd.read_json('')
 
 
 
-# train_data = []
-# for mol_id in train['id'].unique():
-#     sample_data = train.loc[train['id'] == mol_id]
-#     sample_seq_length = sample_data.seq_length.values[0]
+train_data = []
+for mol_id in train['id'].unique():
+    sample_data = train.loc[train['id'] == mol_id]
+    sample_seq_length = sample_data.seq_length.values[0]
     
-#     for i in range(68):
-#         sample_dict = {'id' : sample_data['id'].values[0],
-#                        'id_seqpos' : sample_data['id'].values[0] + '_' + str(i),
-#                        'sequence' : sample_data['sequence'].values[0][i],
-#                        'structure' : sample_data['structure'].values[0][i],
-#                        'predicted_loop_type' : sample_data['predicted_loop_type'].values[0][i],
-#                        'reactivity' : sample_data['reactivity'].values[0][i],
-#                        'reactivity_error' : sample_data['reactivity_error'].values[0][i],
-#                        'deg_Mg_pH10' : sample_data['deg_Mg_pH10'].values[0][i],
-#                        'deg_error_Mg_pH10' : sample_data['deg_error_Mg_pH10'].values[0][i],
-#                        'deg_pH10' : sample_data['deg_pH10'].values[0][i],
-#                        'deg_error_pH10' : sample_data['deg_error_pH10'].values[0][i],
-#                        'deg_Mg_50C' : sample_data['deg_Mg_50C'].values[0][i],
-#                        'deg_error_Mg_50C' : sample_data['deg_error_Mg_50C'].values[0][i],
-#                        'deg_50C' : sample_data['deg_50C'].values[0][i],
-#                        'deg_error_50C' : sample_data['deg_error_50C'].values[0][i],
-#                        'bpps_sum' : sample_data['bpps_sum'].values[0][i],
-#                        'bpps_max' : sample_data['bpps_max'].values[0][i],
-#                        'bpps_nb' : sample_data['bpps_nb'].values[0][i]}
+    for i in range(68):
+        sample_dict = {'id' : sample_data['id'].values[0],
+                       'id_seqpos' : sample_data['id'].values[0] + '_' + str(i),
+                       'sequence' : sample_data['sequence'].values[0][i],
+                       'structure' : sample_data['structure'].values[0][i],
+                       'predicted_loop_type' : sample_data['predicted_loop_type'].values[0][i],
+                       'reactivity' : sample_data['reactivity'].values[0][i],
+                       'reactivity_error' : sample_data['reactivity_error'].values[0][i],
+                       'deg_Mg_pH10' : sample_data['deg_Mg_pH10'].values[0][i],
+                       'deg_error_Mg_pH10' : sample_data['deg_error_Mg_pH10'].values[0][i],
+                       'deg_pH10' : sample_data['deg_pH10'].values[0][i],
+                       'deg_error_pH10' : sample_data['deg_error_pH10'].values[0][i],
+                       'deg_Mg_50C' : sample_data['deg_Mg_50C'].values[0][i],
+                       'deg_error_Mg_50C' : sample_data['deg_error_Mg_50C'].values[0][i],
+                       'deg_50C' : sample_data['deg_50C'].values[0][i],
+                       'deg_error_50C' : sample_data['deg_error_50C'].values[0][i],
+                       'bpps_sum' : sample_data['bpps_sum'].values[0][i],
+                       'bpps_max' : sample_data['bpps_max'].values[0][i],
+                       'bpps_nb' : sample_data['bpps_nb'].values[0][i]}
         
         
-#         shifts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-#         shift_cols = ['sequence', 'structure', 'predicted_loop_type']
-#         for shift,col in itertools.product(shifts, shift_cols):
-#             if i - shift >= 0:
-#                 sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
-#             else:
-#                 sample_dict['b'+str(shift)+'_'+col] = -1
+        shifts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        shift_cols = ['sequence', 'structure', 'predicted_loop_type']
+        for shift,col in itertools.product(shifts, shift_cols):
+            if i - shift >= 0:
+                sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
+            else:
+                sample_dict['b'+str(shift)+'_'+col] = -1
             
-#             if i + shift <= sample_seq_length - 1:
-#                 sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
-#             else:
-#                 sample_dict['a'+str(shift)+'_'+col] = -1
+            if i + shift <= sample_seq_length - 1:
+                sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
+            else:
+                sample_dict['a'+str(shift)+'_'+col] = -1
 
-#         shift_cols_2 = ['bpps_sum', 'bpps_max', 'bpps_nb']
-#         for shift,col in itertools.product(shifts, shift_cols_2):
-#             if i - shift >= 0:
-#                 sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
-#             else:
-#                 sample_dict['b'+str(shift)+'_'+col] = -999
+        shift_cols_2 = ['bpps_sum', 'bpps_max', 'bpps_nb']
+        for shift,col in itertools.product(shifts, shift_cols_2):
+            if i - shift >= 0:
+                sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
+            else:
+                sample_dict['b'+str(shift)+'_'+col] = -999
             
-#             if i + shift <= sample_seq_length - 1:
-#                 sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
-#             else:
-#                 sample_dict['a'+str(shift)+'_'+col] = -999
+            if i + shift <= sample_seq_length - 1:
+                sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
+            else:
+                sample_dict['a'+str(shift)+'_'+col] = -999
         
         
-#         train_data.append(sample_dict)
-# train_data = pd.DataFrame(train_data)
-# train_data.head()
+        train_data.append(sample_dict)
+train_data = pd.DataFrame(train_data)
+train_data.head()
 
 
 
 
-# test_data = []
-# for mol_id in test['id'].unique():
-#     sample_data = test.loc[test['id'] == mol_id]
-#     sample_seq_length = sample_data.seq_length.values[0]
-#     for i in range(sample_seq_length):
-#         sample_dict = {'id' : sample_data['id'].values[0],
-#                        'id_seqpos' : sample_data['id'].values[0] + '_' + str(i),
-#                        'sequence' : sample_data['sequence'].values[0][i],
-#                        'structure' : sample_data['structure'].values[0][i],
-#                        'predicted_loop_type' : sample_data['predicted_loop_type'].values[0][i],
-#                        'bpps_sum' : sample_data['bpps_sum'].values[0][i],
-#                        'bpps_max' : sample_data['bpps_max'].values[0][i],
-#                        'bpps_nb' : sample_data['bpps_nb'].values[0][i]}
+test_data = []
+for mol_id in test['id'].unique():
+    sample_data = test.loc[test['id'] == mol_id]
+    sample_seq_length = sample_data.seq_length.values[0]
+    for i in range(sample_seq_length):
+        sample_dict = {'id' : sample_data['id'].values[0],
+                       'id_seqpos' : sample_data['id'].values[0] + '_' + str(i),
+                       'sequence' : sample_data['sequence'].values[0][i],
+                       'structure' : sample_data['structure'].values[0][i],
+                       'predicted_loop_type' : sample_data['predicted_loop_type'].values[0][i],
+                       'bpps_sum' : sample_data['bpps_sum'].values[0][i],
+                       'bpps_max' : sample_data['bpps_max'].values[0][i],
+                       'bpps_nb' : sample_data['bpps_nb'].values[0][i]}
         
-#         shifts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-#         shift_cols = ['sequence', 'structure', 'predicted_loop_type']
-#         for shift,col in itertools.product(shifts, shift_cols):
-#             if i - shift >= 0:
-#                 sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
-#             else:
-#                 sample_dict['b'+str(shift)+'_'+col] = -1
+        shifts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        shift_cols = ['sequence', 'structure', 'predicted_loop_type']
+        for shift,col in itertools.product(shifts, shift_cols):
+            if i - shift >= 0:
+                sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
+            else:
+                sample_dict['b'+str(shift)+'_'+col] = -1
             
-#             if i + shift <= sample_seq_length - 1:
-#                 sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
-#             else:
-#                 sample_dict['a'+str(shift)+'_'+col] = -1
+            if i + shift <= sample_seq_length - 1:
+                sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
+            else:
+                sample_dict['a'+str(shift)+'_'+col] = -1
 
-#         shift_cols_2 = ['bpps_sum', 'bpps_max', 'bpps_nb']
-#         for shift,col in itertools.product(shifts, shift_cols_2):
-#             if i - shift >= 0:
-#                 sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
-#             else:
-#                 sample_dict['b'+str(shift)+'_'+col] = -999
+        shift_cols_2 = ['bpps_sum', 'bpps_max', 'bpps_nb']
+        for shift,col in itertools.product(shifts, shift_cols_2):
+            if i - shift >= 0:
+                sample_dict['b'+str(shift)+'_'+col] = sample_data[col].values[0][i-shift]
+            else:
+                sample_dict['b'+str(shift)+'_'+col] = -999
             
-#             if i + shift <= sample_seq_length - 1:
-#                 sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
-#             else:
-#                 sample_dict['a'+str(shift)+'_'+col] = -999
+            if i + shift <= sample_seq_length - 1:
+                sample_dict['a'+str(shift)+'_'+col] = sample_data[col].values[0][i+shift]
+            else:
+                sample_dict['a'+str(shift)+'_'+col] = -999
         
-#         test_data.append(sample_dict)
-# test_data = pd.DataFrame(test_data)
-# test_data.head()
+        test_data.append(sample_dict)
+test_data = pd.DataFrame(test_data)
+test_data.head()
 
 
 
@@ -150,10 +150,10 @@ looptype_encmap = {'S':0, 'E':1, 'H':2, 'I':3, 'X':4, 'M':5, 'B':6}
 enc_targets = ['sequence', 'structure', 'predicted_loop_type']
 enc_maps = [sequence_encmap, structure_encmap, looptype_encmap]
 
-for t,m in zip(enc_targets, enc_maps):
-    for c in [c for c in train_data.columns if t in c]:
-        #train_data[c] = train_data[c].replace(m)
-        test_data[c] = test_data[c].replace(m)
+# for t,m in zip(enc_targets, enc_maps):
+#     for c in [c for c in train_data.columns if t in c]:
+#         #train_data[c] = train_data[c].replace(m)
+#         test_data[c] = test_data[c].replace(m)
 
 
 
