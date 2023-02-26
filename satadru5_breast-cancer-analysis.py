@@ -401,11 +401,11 @@ classification_model(model,data,prediction_var,outcome_var)
 
 
 
-* It was a detailed comparison of machine learning models
-In next segment I will try to explain the tuning of parameter for different models
-Then using those parameter we will try to forecast**
-Tuning Parameters using grid search CV
-Lets Start with decision tree classifier Tuning the parameters means using the best parameter for predict there are many parameters need to model a Machine learning Algorithm for decision tree classifier refer this link Link
+# * It was a detailed comparison of machine learning models
+# In next segment I will try to explain the tuning of parameter for different models
+# Then using those parameter we will try to forecast**
+# Tuning Parameters using grid search CV
+# Lets Start with decision tree classifier Tuning the parameters means using the best parameter for predict there are many parameters need to model a Machine learning Algorithm for decision tree classifier refer this link Link
 
 
 
@@ -451,12 +451,12 @@ Classification_model_gridsearchCV(model,param_grid,data_X,data_y)
 
 
 
-observation
-the score increase to 95 %
-Seems to be good
-Lets do with KNN
-link for KNN Link
-if you are a beginner please follow the link it will be very much useful
+# observation
+# the score increase to 95 %
+# Seems to be good
+# Lets do with KNN
+# link for KNN Link
+# if you are a beginner please follow the link it will be very much useful
 
 
 
@@ -478,10 +478,10 @@ the bset estimator is
 KNeighborsClassifier(algorithm='auto', leaf_size=1, metric='minkowski',
            metric_params=None, n_jobs=1, n_neighbors=21, p=2,
            weights='uniform')
-The best score is 
-0.929648241206
-Try with SVM
-link
+# The best score is 
+# 0.929648241206
+# Try with SVM
+# link
 
 
 
@@ -501,5 +501,5 @@ Classification_model_gridsearchCV(model,param_grid,data_X,data_y)
 
 
 
-So we have seen best model what we are seeing is RandomForest.
+# So we have seen best model what we are seeing is RandomForest.
 

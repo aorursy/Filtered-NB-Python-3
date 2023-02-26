@@ -43,7 +43,7 @@ imshow(firstImage)
 # Flatten each image
 data = data.reshape(data.shape[0], data.shape[1] * data.shape[2])     # 64 X 64 = 4096
 # Flattened 64 X 64 array
-data.shape `
+data.shape
 
 
 
