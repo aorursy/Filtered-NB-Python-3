@@ -5,7 +5,8 @@
 
 # SETUP. You don't need to worry for now about what this code does or how it works. If you're ever curious about the 
 # code behind these exercises, it's available under an open source license here: https://github.com/Kaggle/learntools/
-import sys; sys.path.insert(0, '../input/learntools/pseudo_learntools')
+import sys
+sys.path.insert(0, '../input/learntools/pseudo_learntools')
 from learntools.python import binder; binder.bind(globals())
 from learntools.python.ex5 import *
 print('Setup complete.')
@@ -59,16 +60,16 @@ q1.hint()
 
 
 
-def elementwise_greater_than(L, thresh):
+# def elementwise_greater_than(L, thresh):
     """Return a list with the same length as L, where the value at index i is 
     True if L[i] is greater than thresh, and False otherwise.
     
     >>> elementwise_greater_than([1, 2, 3, 4], 2)
     [False, False, True, True]
     """
-    return [t > thresh for t in L]
+    # return [t > thresh for t in L]
 
-q2.check()
+# q2.check()
 
 
 

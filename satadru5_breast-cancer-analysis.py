@@ -472,9 +472,9 @@ Classification_model_gridsearchCV(model,param_grid,data_X,data_y)
 
 
 
-The best parameter found on development set is :
-{'leaf_size': 1, 'n_neighbors': 21, 'weights': 'uniform'}
-the bset estimator is 
+# The best parameter found on development set is :
+# {'leaf_size': 1, 'n_neighbors': 21, 'weights': 'uniform'}
+# the bset estimator is 
 KNeighborsClassifier(algorithm='auto', leaf_size=1, metric='minkowski',
            metric_params=None, n_jobs=1, n_neighbors=21, p=2,
            weights='uniform')
