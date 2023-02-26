@@ -101,7 +101,7 @@ data.drop([  'url',
              'additives_en',
              'no_nutriments',
              'image_url',
-             'image_small_url', axis=1, inplace=True)
+             'image_small_url', axis=1, inplace=True])
 
 
 

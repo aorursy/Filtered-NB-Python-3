@@ -122,9 +122,9 @@ sns.lmplot(x='Age',y='Fare',hue='Pclass',data=train[train['Fare']<500])
 
 
 
-Not surprisingly class and fare are correlated. And so are age and class. Very few children below the age of 10 were in first class. It seems there was no special fare for children. 
+# Not surprisingly class and fare are correlated. And so are age and class. Very few children below the age of 10 were in first class. It seems there was no special fare for children. 
 
-The pattern however has some degree of complexity. A handfull passengers get to travel 1st class at a very cheap rate.
+# The pattern however has some degree of complexity. A handfull passengers get to travel 1st class at a very cheap rate.
 
 
 

@@ -23,23 +23,6 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 
 df = pd.read_csv('../input/train.csv')
 
-
-
-
-cd train-jpg
-
-
-
-
-cd ../input/train-jpg
-
-
-
-
 import os
 
-
-
-
-os.
 

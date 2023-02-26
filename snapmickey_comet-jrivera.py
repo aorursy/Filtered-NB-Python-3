@@ -48,9 +48,9 @@ data3.corr()
 
 
 
-Questions;
-1. Is there a correlation between the fear of getting up and the energy levels of young people
-2. Is there a correlation between the interest to have fun with friends and Self-Criticism
+# Questions;
+# 1. Is there a correlation between the fear of getting up and the energy levels of young people
+# 2. Is there a correlation between the interest to have fun with friends and Self-Criticism
 
-3. Is there a correlation between the young person's view on cheating in school and the person's number of siblings
+# 3. Is there a correlation between the young person's view on cheating in school and the person's number of siblings
 

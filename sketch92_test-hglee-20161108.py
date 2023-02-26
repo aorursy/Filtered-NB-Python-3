@@ -127,12 +127,12 @@ df_mindate['mindate_id_diff_reverse'] = midr
 #def mcc(tp, tn, fp, fn):
 #    sup = tp * tn - fp * fn
 #    inf = (tp + fp) * (tp + fn) * (tn + fp) * (tn + fn)
-    if inf == 0:
-        return 0
-    else:
+    # if inf == 0:
+    #     return 0
+    # else:
     
 #        return sup / np.sqrt(inf)
-        return sup / inf
+        # return sup / inf
 
 
 def eval_mcc(y_true, y_prob, show=False):
@@ -345,7 +345,7 @@ def Train():
                         )
         limit = clf.best_iteration+1
         # limit = clf.best_ntree_limit
-        predictions =             clf.predict(dvisibletrain, ntree_limit=limit)
+        predictions = clf.predict(dvisibletrain, ntree_limit=limit)
 
         best_proba, best_mcc, y_pred = eval_mcc(train.Response,
                                                 predictions,
