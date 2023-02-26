@@ -85,5 +85,5 @@ print(knn(1))
 
 
 
-mean_absolute_error(m.predict(X_val)
+mean_absolute_error(m.predict(X_val))
 
