@@ -104,7 +104,6 @@ test_data[test_data['molecule_name']=='dsgdb9nsd_000004']
 
 
 
-85003+45772
 
 
 
@@ -153,7 +152,7 @@ pot_ener.head()
 
 
 
-list_of_mols_train=
+
 train_data['potential_energy']=pot_ener['molecule_name']==i
 
 
@@ -176,33 +175,7 @@ scc[scc['molecule_name']=='dsgdb9nsd_000001']
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 structures.groupby(['molecule_name','atom'])['atom'].size()
-
-
-
-
-
-
 
 
 

@@ -19,9 +19,7 @@ df = pd.read_csv('../input/clicks_train.csv', iterator=True, chunksize=10000)
 
 
 adcount = {}
-for data in df:
-    for d in data.iter
-    adcount[data]
+
 
 
 

@@ -79,10 +79,6 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 
 
 
-Load tarin and test image dataset
-
-
-
 
 train = pd.read_csv("../input/train.csv")
 test_images=pd.read_csv("../input/test.csv")
@@ -167,7 +163,7 @@ train_labels
 for i in range(6, 9):
     plt.subplot(330 + (i+1))
     plt.imshow(train_images[i], cmap=plt.get_cmap('gray'))
-    plt.title(train_labels[i]);
+    plt.title(train_labels[i])
 
 
 
@@ -209,11 +205,11 @@ test_images[4]
 
 
 
-**One Hot encoding of labels.**
+# **One Hot encoding of labels.**
 
-A one-hot vector is a vector which is 0 in most dimensions, and 1 in a single dimension. In this case, the nth digit will be represented as a vector which is 1 in the nth dimension.
+# A one-hot vector is a vector which is 0 in most dimensions, and 1 in a single dimension. In this case, the nth digit will be represented as a vector which is 1 in the nth dimension.
 
-For example, 3 would be [0,0,0,1,0,0,0,0,0,0].
+# For example, 3 would be [0,0,0,1,0,0,0,0,0,0].
 
 
 

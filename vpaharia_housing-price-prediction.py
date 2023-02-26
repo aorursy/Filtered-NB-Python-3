@@ -19,8 +19,7 @@ housing_combined = pd.concat([housing, housing_test], axis=0,ignore_index=True)
 
 
 
-
-print(housing_combined[( housing_combined['PoolQC'].isnull() == True )                    
+              
 sb.boxplot(x='PoolQC', y='PoolArea', data=housing_combined)
 
 
@@ -55,7 +54,6 @@ housing_combined['GarageYrBlt'] = housing_combined['GarageYrBlt'].fillna(housing
 
 
 #mark this house without 'GarageCars' as without garage
-print(housing_combined[housing_combined['GarageCars'].isnull() == True]  
 housing_combined.loc[2576,'GarageCars'] = 0
 housing_combined.loc[2576,'GarageArea'] = 0
 
@@ -78,7 +76,6 @@ housing_combined['GarageFinish'] = housing_combined['GarageFinish'].fillna('None
 
 
 
-print(housing_combined[(housing_combined['MasVnrArea'].isnull() == False) 
 
 sb.countplot(housing_combined['MasVnrType'])
 housing_combined.loc[2610,'MasVnrType'] = 'BrkCmn'

@@ -142,5 +142,4 @@ print(classification_report(y_test, y_pred))
 import pickle
 with open ("model_pickle", "wb") as f:
     pickle.dump(clf,f)
-with open ()
 
