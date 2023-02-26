@@ -17,5 +17,4 @@ regr = linear_model.LinearRegression()
 
 
 store_ids = set(train["Store"])
-for store_id in store_ids:
     

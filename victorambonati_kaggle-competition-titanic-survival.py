@@ -100,117 +100,117 @@ full_df.loc[ full_df['Embarked'].isnull(), 'Embarked_Num' ] = 1
 
 
 
-# Keep track of what was he missing value
-full_df['AgeIsNull'] = pd.isnull(full_df.Age).astype(int)
+# # Keep track of what was he missing value
+# full_df['AgeIsNull'] = pd.isnull(full_df.Age).astype(int)
 
-#Fill the missing value with the median value of people having same class and gender.
-full_df['AgeFill'] = full_df['Age']
-median_ages = np.zeros((2,3))
-for i in range(0, 2):
-    for j in range(0, 3):
-        median_ages[i,j] = full_df[(full_df['Gender'] == i) &                               (full_df['Pclass'] == j+1)]['Age'].dropna().median()
-        full_df.loc[ (full_df.Age.isnull()) & (full_df.Gender == i) & (full_df.Pclass == j+1),         'AgeFill'] = median_ages[i,j]
+# #Fill the missing value with the median value of people having same class and gender.
+# full_df['AgeFill'] = full_df['Age']
+# median_ages = np.zeros((2,3))
+# for i in range(0, 2):
+#     for j in range(0, 3):
+#         median_ages[i,j] = full_df[(full_df['Gender'] == i) &                               (full_df['Pclass'] == j+1)]['Age'].dropna().median()
+#         full_df.loc[ (full_df.Age.isnull()) & (full_df.Gender == i) & (full_df.Pclass == j+1),         'AgeFill'] = median_ages[i,j]
 
-# plot old Age and new Age values
-fig, axs = plt.subplots(1,2)
-full_df['Age'][~np.isnan(full_df['Age'])].hist(ax=axs[0], bins=16)
-full_df['AgeFill'].hist(ax=axs[1], bins=16)
-
-
-
-
-# get average, std, and number of NaN values
-average_age_titanic   = full_df["Age"].mean()
-std_age_titanic       = full_df["Age"].std()
-count_nan_age_titanic = full_df["Age"].isnull().sum()
-
-# generate random numbers between (mean - std) & (mean + std)
-rand_1 = np.random.randint(average_age_titanic - std_age_titanic, average_age_titanic + 
-                           std_age_titanic, size = count_nan_age_titanic)
-
-# fill NaN values in Age column with random values generated
-full_df.loc[np.isnan(full_df["Age"]), "AgeFill"] = rand_1
-
-# plot old Age and new Age values
-fig, axs = plt.subplots(1,2)
-full_df['Age'][~np.isnan(full_df['Age'])].hist(ax=axs[0], bins=16)
-full_df['AgeFill'].hist(ax=axs[1], bins=16)
+# # plot old Age and new Age values
+# fig, axs = plt.subplots(1,2)
+# full_df['Age'][~np.isnan(full_df['Age'])].hist(ax=axs[0], bins=16)
+# full_df['AgeFill'].hist(ax=axs[1], bins=16)
 
 
 
 
-Ahhh ! This method seems better because the repartition seems similar this time.
-Let's create new feature with Age: Child.
+# # get average, std, and number of NaN values
+# average_age_titanic   = full_df["Age"].mean()
+# std_age_titanic       = full_df["Age"].std()
+# count_nan_age_titanic = full_df["Age"].isnull().sum()
+
+# # generate random numbers between (mean - std) & (mean + std)
+# rand_1 = np.random.randint(average_age_titanic - std_age_titanic, average_age_titanic + 
+#                            std_age_titanic, size = count_nan_age_titanic)
+
+# # fill NaN values in Age column with random values generated
+# full_df.loc[np.isnan(full_df["Age"]), "AgeFill"] = rand_1
+
+# # plot old Age and new Age values
+# fig, axs = plt.subplots(1,2)
+# full_df['Age'][~np.isnan(full_df['Age'])].hist(ax=axs[0], bins=16)
+# full_df['AgeFill'].hist(ax=axs[1], bins=16)
 
 
 
 
-full_df['Child'] = (full_df['Age'] < 18).astype(int)
-print( full_df[["Child", "Sex", "Survived"]].groupby(['Child', 'Sex'],as_index=False).mean() )
+# Ahhh ! This method seems better because the repartition seems similar this time.
+# Let's create new feature with Age: Child.
 
 
 
 
-full_df['Mother'] = ((full_df['Gender'] == 0) & (full_df['AgeFill'] > 18) & (full_df['Title'] == "Miss")).astype(int)
-print( full_df[["Mother", "Survived"]].groupby(['Mother'],as_index=False).mean() )
-print( full_df[["Sex", "Survived"]].groupby(['Sex'],as_index=False).mean() )
+# full_df['Child'] = (full_df['Age'] < 18).astype(int)
+# print( full_df[["Child", "Sex", "Survived"]].groupby(['Child', 'Sex'],as_index=False).mean() )
 
 
 
 
-print (full_df.info() )
+# full_df['Mother'] = ((full_df['Gender'] == 0) & (full_df['AgeFill'] > 18) & (full_df['Title'] == "Miss")).astype(int)
+# print( full_df[["Mother", "Survived"]].groupby(['Mother'],as_index=False).mean() )
+# print( full_df[["Sex", "Survived"]].groupby(['Sex'],as_index=False).mean() )
 
 
 
 
-full_df = full_df.drop(['Age', 'Cabin', 'Embarked', 'Name', 'Sex', 'Ticket', 'Title'], axis=1)
+# print (full_df.info() )
 
 
 
 
-# Create the train and test set for our algorithms
-train_df = full_df[0:890]
-test_df = full_df[891:1309]
-X_train = train_df.drop(['Survived', 'PassengerId'],axis=1)
-Y_train = train_df["Survived"]
-X_test  = test_df.drop(['Survived', 'PassengerId'],axis=1).copy()
+# full_df = full_df.drop(['Age', 'Cabin', 'Embarked', 'Name', 'Sex', 'Ticket', 'Title'], axis=1)
 
 
 
 
-# Random Forest
-random_forest = RandomForestClassifier(n_estimators=100)
-forest = random_forest.fit(X_train, Y_train)
-Y_pred = random_forest.predict(X_test)
-#random_forest.score(X_train, Y_train)
+# # Create the train and test set for our algorithms
+# train_df = full_df[0:890]
+# test_df = full_df[891:1309]
+# X_train = train_df.drop(['Survived', 'PassengerId'],axis=1)
+# Y_train = train_df["Survived"]
+# X_test  = test_df.drop(['Survived', 'PassengerId'],axis=1).copy()
 
 
 
 
-# Logistic regression
-logreg = LogisticRegression()
-logreg.fit(X_train, Y_train)
-Y_pred = logreg.predict(X_test)
-logreg.score(X_train, Y_train)
+# # Random Forest
+# random_forest = RandomForestClassifier(n_estimators=100)
+# forest = random_forest.fit(X_train, Y_train)
+# Y_pred = random_forest.predict(X_test)
+# #random_forest.score(X_train, Y_train)
 
 
 
 
-coeff_df = pd.DataFrame(X_train.columns)
-coeff_df.columns = ['Features']
-coeff_df["Coefficient Estimate"] = pd.Series(forest.feature_importances_)
-
-# preview
-coeff_df.sort_values(["Coefficient Estimate"], ascending=False)
-
+# # Logistic regression
+# logreg = LogisticRegression()
+# logreg.fit(X_train, Y_train)
+# Y_pred = logreg.predict(X_test)
+# logreg.score(X_train, Y_train)
 
 
 
-output = Y_pred.astype(int)
-ids = test_df['PassengerId'].values
-predictions_file = open("titanic_predict.csv", "w") # Python 3
-open_file_object = csv.writer(predictions_file)
-open_file_object.writerow(["PassengerId","Survived"])
-open_file_object.writerows(zip(ids, output))
-predictions_file.close()
+
+# coeff_df = pd.DataFrame(X_train.columns)
+# coeff_df.columns = ['Features']
+# coeff_df["Coefficient Estimate"] = pd.Series(forest.feature_importances_)
+
+# # preview
+# coeff_df.sort_values(["Coefficient Estimate"], ascending=False)
+
+
+
+
+# output = Y_pred.astype(int)
+# ids = test_df['PassengerId'].values
+# predictions_file = open("titanic_predict.csv", "w") # Python 3
+# open_file_object = csv.writer(predictions_file)
+# open_file_object.writerow(["PassengerId","Survived"])
+# open_file_object.writerows(zip(ids, output))
+# predictions_file.close()
 

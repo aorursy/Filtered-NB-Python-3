@@ -70,5 +70,5 @@ data.dftypes()
 
 
 
-dtypes(data
+dtypes(data)
 
