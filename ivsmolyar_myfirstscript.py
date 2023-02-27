@@ -4,6 +4,4 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 train = pd.read_csv("../input/train.csv", nrows=1)
-print (train.[[11]])
-
 

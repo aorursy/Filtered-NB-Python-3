@@ -17,12 +17,6 @@ df.head(10)
 
 
 
-
-df.iloc[2]
-
-
-
-
 df.loc['BADL']
 
 
@@ -74,16 +68,6 @@ df[['state', 'acres']][:3]
 
 
 
-df.state.iloc[2]
-
-
-
-
-df.state.iloc[[2]]
-
-
-
-
 (df.state == 'UT').head(3)
 
 
@@ -92,9 +76,6 @@ df.state.iloc[[2]]
 df[df.state == 'UT']
 
 
-
-
-df[(df.latitude > 60) | (df.acres > 10**6)].head(3)
 
 
 

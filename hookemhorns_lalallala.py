@@ -70,31 +70,31 @@ model = MLPClassifier(hidden_layer_sizes=(32,32), activation='relu', algorithm='
 
 
 
-    mean_auc = 0.0
-    n = 2  # number of folds in strattified cv
-    kfolder=StratifiedKFold(y_train, n_folds= n,shuffle=True, random_state=51)     
-    i=0
-    for train_index, test_index in kfolder: # for each train and test pair of indices in the kfolder object
-        # creaning and validation sets
-        X_tr, X_cv = X_train.iloc[list(train_index)], X_train.iloc[list(test_index)]
-        y_tr, y_cv = np.array(y_train)[train_index], np.array(y_train)[test_index]
-        # do scalling
-        scaler=StandardScaler()
-        X_tr = scaler.fit_transform(X_tr)
-        X_cv = scaler.transform(X_cv)
+mean_auc = 0.0
+n = 2  # number of folds in strattified cv
+kfolder=StratifiedKFold(y_train, n_folds= n,shuffle=True, random_state=51)     
+i=0
+for train_index, test_index in kfolder: # for each train and test pair of indices in the kfolder object
+    # creaning and validation sets
+    X_tr, X_cv = X_train.iloc[list(train_index)], X_train.iloc[list(test_index)]
+    y_tr, y_cv = np.array(y_train)[train_index], np.array(y_train)[test_index]
+    # do scalling
+    scaler=StandardScaler()
+    X_tr = scaler.fit_transform(X_tr)
+    X_cv = scaler.transform(X_cv)
 
-        # train model
-        model.fit(X_tr,y_tr)
-        #  make predictions in probabilities
-        preds=model.predict_proba(X_cv)[:,1]
+    # train model
+    model.fit(X_tr,y_tr)
+    #  make predictions in probabilities
+    preds=model.predict_proba(X_cv)[:,1]
 
-        # compute AUC metric for this CV fold
-        roc_auc = roc_auc_score(y_cv, preds)
-        print ("AUC (fold %d/%d): %f" % (i + 1, n, roc_auc))
-        mean_auc += roc_auc
-        i+=1
+    # compute AUC metric for this CV fold
+    roc_auc = roc_auc_score(y_cv, preds)
+    print ("AUC (fold %d/%d): %f" % (i + 1, n, roc_auc))
+    mean_auc += roc_auc
+    i+=1
         
-    mean_auc/=n
-    print (" Average AUC: %s" % str(mean_auc) ) 
+mean_auc/=n
+print (" Average AUC: %s" % str(mean_auc) ) 
 
 

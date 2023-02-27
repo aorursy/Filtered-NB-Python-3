@@ -166,7 +166,7 @@ def preprocess(patient_folder_path, resampling=True, fill_lung_structures=True):
 
 
 
-This plots every scan into pdfs, 50 scans per pdf.
+# This plots every scan into pdfs, 50 scans per pdf.
 
 
 

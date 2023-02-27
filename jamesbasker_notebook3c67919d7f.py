@@ -9,6 +9,3 @@ import pandas_datareader as data
 
 
 
-
-df = pd.
-
