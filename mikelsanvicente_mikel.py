@@ -25,8 +25,6 @@ for email in data:
         break
 print('\n',Senders)
 
-[sender for sender in Senders if sender!='']
-
 df_aliases = pd.read_csv('../input/Aliases.csv', index_col=0)
 df_emails = pd.read_csv('../input/Emails.csv', index_col=0)
 df_email_receivers = pd.read_csv('../input/EmailReceivers.csv', index_col=0)

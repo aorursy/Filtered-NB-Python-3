@@ -133,7 +133,7 @@ titanic_data.dtypes
 
 
 
-Data visulization: 
+# Data visulization: 
 
 
 
@@ -218,7 +218,7 @@ titanic_data.head()
 titanic_data = pd.get_dummies(titanic_data , drop_first=True)
 titanic_data.head()
 
-Train Data:
+# Train Data:
 #1:Defining the predicted variable and the independed variables.
 #2:splitting data into  training and testing .
 #3:Creating a model.

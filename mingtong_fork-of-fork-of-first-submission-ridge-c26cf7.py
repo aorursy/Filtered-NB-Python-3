@@ -64,12 +64,6 @@ numeric_feats = train.dtypes[train.dtypes != "object"].index
 
 skewed_feats = train[numeric_feats].apply(lambda x: skew(x.dropna())) #compute skewness
 skewed_feats = skewed_feats[skewed_feats > 0.75]
-skewed_feats = skewed_feats.index
-
-
-
-
-'SalePrice' in skewed_feats
 
 
 
@@ -276,6 +270,6 @@ output.to_csv('xgboost_selested9features.csv', index=False)
 
 
 
-xgboost parameters from 
-https://www.kaggle.com/zenstat/house-prices-advanced-regression-techniques/xgboost-lasso-copied/code
+# xgboost parameters from 
+# https://www.kaggle.com/zenstat/house-prices-advanced-regression-techniques/xgboost-lasso-copied/code
 

@@ -75,14 +75,14 @@ to_smash(1)
 
 ## 3. <span title="A bit spicy" style="color: darkgreen ">🌶️</span>
 
-In the main lesson we talked about deciding whether we're prepared for the weather. I said that I'm safe from today's weather if...
-- I have an umbrella...
-- or if the rain isn't too heavy and I have a hood...
-- otherwise, I'm still fine unless it's raining *and* it's a workday
+# In the main lesson we talked about deciding whether we're prepared for the weather. I said that I'm safe from today's weather if...
+# - I have an umbrella...
+# - or if the rain isn't too heavy and I have a hood...
+# - otherwise, I'm still fine unless it's raining *and* it's a workday
 
-get_ipython().set_next_input('The function below uses our first attempt at turning this logic into a Python expression. I claimed that there was a bug in that code. Can you find it');get_ipython().run_line_magic('pinfo', 'it')
+# get_ipython().set_next_input('The function below uses our first attempt at turning this logic into a Python expression. I claimed that there was a bug in that code. Can you find it');get_ipython().run_line_magic('pinfo', 'it')
 
-To prove that `prepared_for_weather` is buggy, come up with a set of inputs where it returns the wrong answer.
+# To prove that `prepared_for_weather` is buggy, come up with a set of inputs where it returns the wrong answer.
 
 
 

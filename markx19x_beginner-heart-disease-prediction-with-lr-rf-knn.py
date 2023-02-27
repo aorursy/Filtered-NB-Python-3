@@ -208,7 +208,7 @@ plt.subplots_adjust(hspace=0.4)
 
 
 fig = plt.figure(figsize=(16,8))
-We wouldsns.heatmap(hd.corr().sort_values("target", ascending=False)[["target"]], annot=True) #select only the target feature and sort the correlation
+# We wouldsns.heatmap(hd.corr().sort_values("target", ascending=False)[["target"]], annot=True) #select only the target feature and sort the correlation
 
 
 
