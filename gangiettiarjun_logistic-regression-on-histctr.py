@@ -27,19 +27,16 @@ library("caret")
 # Select contextual Ads (OnjectType=3), results in 190.157.735 entries
 # Warning: Takes a few minutes
 trainSearchStreamContextual <- fetch(db, "select HistCTR, IsClick from trainSearchStream where ObjectType=3", 10 * million)
-m <- nrow(trainSearchStreamContextual)
 
 # Create stratified sample 
-sampleRatio <- sampleSize / m
-sampleIndex <- createDataPartition(trainSearchStreamContextual$IsClick, p = sampleRatio, list=FALSE)
+
 trainSearchStreamContextualSample <- trainSearchStreamContextual[as.vector(sampleIndex), ]
 
 # Compare click-ratio in full set and sample to verify stratification
-print(paste("Clickratio full dataset:", sum(trainSearchStreamContextual$IsClick)/m))
-print(paste("Clickratio sample:", sum(trainSearchStreamContextualSample$IsClick)/sampleSize))
+
 
 # Create stratified random split ...
-trainSampleIndex <- createDataPartition(y = trainSearchStreamContextualSample$IsClick, p = .80, list = FALSE)
+
 
 # ... and partition data-set into train- and validation-set
 trainSearchStreamContextualTrainSample <- trainSearchStreamContextualSample[as.vector(trainSampleIndex),]
@@ -53,14 +50,14 @@ summary(model)
 
 # ... and predict data on validation data-set
 prediction <- predict(model, trainSearchStreamContextualValidationSample, type="response")
-print(logloss(trainSearchStreamContextualValidationSample$IsClick, prediction))
+
 
 # ----- Predict submission dataset ---------------------------------------------
 
 testSearchStreamContextual <- fetch(db, "select TestId, HistCTR from testSearchStream where ObjectType=3")
 prediction <- predict(model, testSearchStreamContextual, type="response")
 
-submissionData <- data.frame(ID=testSearchStreamContextual$TestId, IsClick=prediction)
+
 submissionFile <- paste0("glm", format(Sys.time(), "%Y-%m-%d-%H:%M:%S"), ".csv")
 #write.csv(submissionData, submissionFile, sep=",", dec=".", col.names=TRUE, row.names=FALSE)
 
