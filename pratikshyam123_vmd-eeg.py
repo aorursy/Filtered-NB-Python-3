@@ -156,21 +156,10 @@ def vmd(channel, s, dirc_,imp_features,trial):
 
 
 
-ls
-
-
-
-
 path_src = "/kaggle/input/vmd111/"
 
 onlyfiles = [d for d in listdir(path_src) if isfile(join(path_src, d))] 
 print(onlyfiles)
-
-
-
-
-cd /kaggle/working/
-
 
 
 

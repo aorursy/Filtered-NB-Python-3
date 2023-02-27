@@ -51,48 +51,48 @@ plt.xlim(0,168)
 
 plt.show()
 
-    one_place = data.loc[data['place_id'] == 9129780742]
+one_place = data.loc[data['place_id'] == 9129780742]
     
-    h = np.zeros(10080//60)
-    for i in one_place["time"]:
-        h[(i%10080//60)] = h[(i%10080//60)] + 1
+h = np.zeros(10080//60)
+for i in one_place["time"]:
+    h[(i%10080//60)] = h[(i%10080//60)] + 1
     
-    plt.plot(h)
-    plt.show()
+plt.plot(h)
+plt.show()
 
 
-    one_place = data.loc[data['place_id'] == 1623394281]
+one_place = data.loc[data['place_id'] == 1623394281]
     
-    h = np.zeros(10080//60)
-    for i in one_place["time"]:
-        h[(i%10080//60)] = h[(i%10080//60)] + 1
+h = np.zeros(10080//60)
+for i in one_place["time"]:
+    h[(i%10080//60)] = h[(i%10080//60)] + 1
     
-    plt.plot(h)
-    plt.show() 
+plt.plot(h)
+plt.show() 
 
-    one_place = data.loc[data['place_id'] == 1308450003]
+one_place = data.loc[data['place_id'] == 1308450003]
     
-    h = np.zeros(10080//60)
-    for i in one_place["time"]:
-        h[(i%10080//60)] = h[(i%10080//60)] + 1
+h = np.zeros(10080//60)
+for i in one_place["time"]:
+    h[(i%10080//60)] = h[(i%10080//60)] + 1
     
-    plt.plot(h)
-    plt.show() 
+plt.plot(h)
+plt.show() 
 
-    one_place = data.loc[data['place_id'] == 4371034975]
+one_place = data.loc[data['place_id'] == 4371034975]
     
-    h = np.zeros(10080//60)
-    for i in one_place["time"]:
-        h[(i%10080//60)] = h[(i%10080//60)] + 1
+h = np.zeros(10080//60)
+for i in one_place["time"]:
+    h[(i%10080//60)] = h[(i%10080//60)] + 1
     
-    plt.plot(h)
-    plt.show() 
+plt.plot(h)
+plt.show() 
 
-    one_place = data.loc[data['place_id'] == 7698408658]
+one_place = data.loc[data['place_id'] == 7698408658]
     
-    h = np.zeros(10080//60)
-    for i in one_place["time"]:
-        h[(i%10080//60)] = h[(i%10080//60)] + 1
+h = np.zeros(10080//60)
+for i in one_place["time"]:
+    h[(i%10080//60)] = h[(i%10080//60)] + 1
     
-    plt.plot(h)
-    plt.show() 
+plt.plot(h)
+plt.show() 

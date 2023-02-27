@@ -228,35 +228,35 @@ print (EmbarkedSurvival_3)
 
 
 
-WHAT MIGHT HAVE CAUSED A HIGHER RATE OF SURVIVAL FOR CHERBOURG STATION
------------------------------------------------------------------------
+# WHAT MIGHT HAVE CAUSED A HIGHER RATE OF SURVIVAL FOR CHERBOURG STATION
+# -----------------------------------------------------------------------
 
-Looking at above two summaries of data we can say that, percentage of first class passengers boarded from Cherbourg is very high compared to other stations.
+# Looking at above two summaries of data we can say that, percentage of first class passengers boarded from Cherbourg is very high compared to other stations.
 
-Percentage of first class passenger boarded from different stations.
+# Percentage of first class passenger boarded from different stations.
 
-Cherbourg   = 85/(85+17+66) = 50.6%
-Queenstown  = 2/(2+3+72) = .03 %
-Southampton = 127/(127+164+353) = 19.7%
+# Cherbourg   = 85/(85+17+66) = 50.6%
+# Queenstown  = 2/(2+3+72) = .03 %
+# Southampton = 127/(127+164+353) = 19.7%
 
-If we look at the female passenger data, we can see Cherbourg and Queenstown have similar distribution, but Southampton had much less female passengers than other stations. This higher % of females in Cherbourg might have contribiuted to a higher survival rate.
+# If we look at the female passenger data, we can see Cherbourg and Queenstown have similar distribution, but Southampton had much less female passengers than other stations. This higher % of females in Cherbourg might have contribiuted to a higher survival rate.
 
-Percentage of female passengers boarded from different stations.
+# Percentage of female passengers boarded from different stations.
 
-Cherbourg   = 73/(73+95) = 43.4%
-Queenstown  = 36/(36+41) = 46%
-Southampton = 203/(203+441) = 31.5% 
+# Cherbourg   = 73/(73+95) = 43.4%
+# Queenstown  = 36/(36+41) = 46%
+# Southampton = 203/(203+441) = 31.5% 
 
-WHAT MIGHT NOT HAVE CAUSED A HIGHER RATE OF SURVIVAL FOR CHERBOURGH STATION
------------------------------------------------------------------------------
+# WHAT MIGHT NOT HAVE CAUSED A HIGHER RATE OF SURVIVAL FOR CHERBOURGH STATION
+# -----------------------------------------------------------------------------
 
-Percentage of child passegers is not higher in Cherbourg. So this mnight not have contributed.
+# Percentage of child passegers is not higher in Cherbourg. So this mnight not have contributed.
 
-Percentage of child passengers boarded from different stations.
+# Percentage of child passengers boarded from different stations.
 
-Cherbourg   = 9/130 = 6.9%
-Queenstown  = 4/28 = 14.2%
-Southampton = 49/554 = 8.8% 
+# Cherbourg   = 9/130 = 6.9%
+# Queenstown  = 4/28 = 14.2%
+# Southampton = 49/554 = 8.8% 
 
-We can make similar conclusion about Parch also. For Cherbourg and Southampton, we can see similar % of people whih Parch value of zero.
+# We can make similar conclusion about Parch also. For Cherbourg and Southampton, we can see similar % of people whih Parch value of zero.
 

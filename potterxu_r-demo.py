@@ -1,5 +1,3 @@
-train<-read.csv("../input/train_users_2.csv")
-
 #lapply(train,class)
 train$date_first_active<-substr(train$timestamp_first_active,1,8)
 head(train)
@@ -26,5 +24,3 @@ from subprocess import check_output
 print(check_output(["ls", "../input"]).decode("utf8"))
 
 # Any results you write to the current directory are saved as output.
-
--

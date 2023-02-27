@@ -121,7 +121,7 @@ def time_call(fn, arg):
     print(exitTime - entryTime)
     pass
 
-time_call(12, 43)x
+time_call(12, 43)
 
 
 

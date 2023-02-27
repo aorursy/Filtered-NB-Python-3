@@ -55,15 +55,6 @@ from PIL import Image
 
 
 os.listdir()
-
-
-
-
-
-
-
-
-
 cat_img = plt.imread('../input/train/cat.10.jpg')
 
 
@@ -118,13 +109,6 @@ K.set_image_dim_ordering('th')
 
 weights_path = './vgg16_weights.h5'
 top_model_weights_path = 'bottleneck_fc_model.h5'
-
-
-
-
-path = '../inpu'
-
-
 
 
 from keras.applications.vgg16 import VGG16

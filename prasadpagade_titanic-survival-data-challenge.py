@@ -60,7 +60,7 @@ sns.factorplot('Pclass', data=titanic_df,kind='count',hue='Sex')
 
 
 
-This tells us that there was more males in the 3rd class compartment 
+# This tells us that there was more males in the 3rd class compartment 
 
 
 

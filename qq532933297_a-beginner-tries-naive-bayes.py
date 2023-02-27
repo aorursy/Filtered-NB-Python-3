@@ -65,8 +65,8 @@ sample_x['distanceToCenterY'] = Data.Y-Data[Data.Category == C].Y.mean()
 from sklearn import cross_validation
 from sklearn.naive_bayes import GaussianNB
 
-trainX, cvX = cross_validation.train_test_split(x, test_size=0.3, random_state=0)
-trainY, cvY = cross_validation.train_test_split(y, test_size=0.3, random_state=0)
+trainX, cvX = cross_validation.train_test_split(x, test_size=0.3, random_state=0)
+trainY, cvY = cross_validation.train_test_split(y, test_size=0.3, random_state=0)
 
 #clf = linear_model.LogisticRegression(C=1.0, penalty='l1', tol=1e-6)
 clf = GaussianNB()
