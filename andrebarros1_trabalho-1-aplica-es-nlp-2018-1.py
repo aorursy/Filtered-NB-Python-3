@@ -90,66 +90,66 @@ X_test
 
 
 
-#verificar se proporção de dados do Target manteram a mesma
-#Foi utilizado o trabalho de : https://www.kaggle.com/sudosudoohio/stratified-kfold-xgboost-eda-tutorial-0-281
-import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
-import seaborn as sns
-sns.set(style='darkgrid')
+# #verificar se proporção de dados do Target manteram a mesma
+# #Foi utilizado o trabalho de : https://www.kaggle.com/sudosudoohio/stratified-kfold-xgboost-eda-tutorial-0-281
+# import matplotlib.pyplot as plt
+# get_ipython().run_line_magic('matplotlib', 'inline')
+# import seaborn as sns
+# sns.set(style='darkgrid')
 
-#imprimir a distribuição de targets para o dataset todo
-ax = sns.countplot(x = y ,palette="Set2")
-sns.set(font_scale=1.5)
-ax.set_xlabel(' ')
-ax.set_ylabel(' ')
-fig = plt.gcf()
-fig.set_size_inches(10,5)
-ax.set_ylim(top=6000)
-for p in ax.patches:
-    ax.annotate('{:.2f}%'.format(100*p.get_height()/len(y)), (p.get_x()+ 0.3, p.get_height()+10000))
+# #imprimir a distribuição de targets para o dataset todo
+# ax = sns.countplot(x = y ,palette="Set2")
+# sns.set(font_scale=1.5)
+# ax.set_xlabel(' ')
+# ax.set_ylabel(' ')
+# fig = plt.gcf()
+# fig.set_size_inches(10,5)
+# ax.set_ylim(top=6000)
+# for p in ax.patches:
+#     ax.annotate('{:.2f}%'.format(100*p.get_height()/len(y)), (p.get_x()+ 0.3, p.get_height()+10000))
 
-plt.title('Distribuição das 4 categorias')
-plt.xlabel('Categorias')
-plt.ylabel('Frequência [%]')
-display(plt.show())
-
-
+# plt.title('Distribuição das 4 categorias')
+# plt.xlabel('Categorias')
+# plt.ylabel('Frequência [%]')
+# display(plt.show())
 
 
-#imprimir a distribuição de targets para o dataset de treino
-targets = y_train
-ax = sns.countplot(x = targets ,palette="Set2")
-sns.set(font_scale=1.5)
-ax.set_xlabel(' ')
-ax.set_ylabel(' ')
-fig = plt.gcf()
-fig.set_size_inches(10,5)
-ax.set_ylim(top=5000)
-for p in ax.patches:
-    ax.annotate('{:.2f}%'.format(100*p.get_height()/len(targets)), (p.get_x()+ 0.3, p.get_height()+10000))
-plt.title('Distribuição de {} dados de treino'.format(X_train.shape))
-plt.xlabel('Reivindicação de seguro de automóvel no próximo ano')
-plt.ylabel('Frequência [%]')
-display(plt.show())
-display(print('{} % de treino'.format(100*X_train.shape[0]/df_train_1.shape[0])))
+
+
+# #imprimir a distribuição de targets para o dataset de treino
+# targets = y_train
+# ax = sns.countplot(x = targets ,palette="Set2")
+# sns.set(font_scale=1.5)
+# ax.set_xlabel(' ')
+# ax.set_ylabel(' ')
+# fig = plt.gcf()
+# fig.set_size_inches(10,5)
+# ax.set_ylim(top=5000)
+# for p in ax.patches:
+#     ax.annotate('{:.2f}%'.format(100*p.get_height()/len(targets)), (p.get_x()+ 0.3, p.get_height()+10000))
+# plt.title('Distribuição de {} dados de treino'.format(X_train.shape))
+# plt.xlabel('Reivindicação de seguro de automóvel no próximo ano')
+# plt.ylabel('Frequência [%]')
+# display(plt.show())
+# display(print('{} % de treino'.format(100*X_train.shape[0]/df_train_1.shape[0])))
           
-#imprimir a distribuição de targets para o dataset de teste
-targets = y_test
-ax = sns.countplot(x = targets ,palette="Set2")
-sns.set(font_scale=1.5)
-ax.set_xlabel(' ')
-ax.set_ylabel(' ')
-fig = plt.gcf()
-fig.set_size_inches(10,5)
-ax.set_ylim(top=6000)
-for p in ax.patches:
-    ax.annotate('{:.2f}%'.format(100*p.get_height()/len(targets)), (p.get_x()+ 0.3, p.get_height()+10000))
+# #imprimir a distribuição de targets para o dataset de teste
+# targets = y_test
+# ax = sns.countplot(x = targets ,palette="Set2")
+# sns.set(font_scale=1.5)
+# ax.set_xlabel(' ')
+# ax.set_ylabel(' ')
+# fig = plt.gcf()
+# fig.set_size_inches(10,5)
+# ax.set_ylim(top=6000)
+# for p in ax.patches:
+#     ax.annotate('{:.2f}%'.format(100*p.get_height()/len(targets)), (p.get_x()+ 0.3, p.get_height()+10000))
 
-plt.title('Distribuição de {} dados de treino'.format(X_train.shape))
-plt.xlabel('Reivindicação de seguro de automóvel no próximo ano')
-plt.ylabel('Frequência [%]')
-display(plt.show())
-display(print('{} % de treino'.format(100*X_test.shape[0]/df_train_1.shape[0])))
+# plt.title('Distribuição de {} dados de treino'.format(X_train.shape))
+# plt.xlabel('Reivindicação de seguro de automóvel no próximo ano')
+# plt.ylabel('Frequência [%]')
+# display(plt.show())
+# display(print('{} % de treino'.format(100*X_test.shape[0]/df_train_1.shape[0])))
 
 
 
