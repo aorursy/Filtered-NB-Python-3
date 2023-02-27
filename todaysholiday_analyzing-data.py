@@ -3,7 +3,7 @@
 
 
 
-d <- read.csv('../input/movie_metadata.csv')
+# d <- read.csv('../input/movie_metadata.csv')
 str(d)
 attach(d)
 
@@ -24,10 +24,10 @@ plot(table(title_year))
 c=rep(0,101)
 i=1
 for(e in 1916:2016){
-h<-sum(title_year==e,na.rm=TRUE)
-j<-sum(budget[title_year==e],na.rm=TRUE)
-c[i]<-j/h
-i=i+1
+    h<-sum(title_year==e,na.rm=TRUE)
+    j<-sum(budget[title_year==e],na.rm=TRUE)
+    c[i]<-j/h
+    i=i+1
 }
 e=1916:2016
 plot(e,c,xlab="Year",ylab="Average money on movie")
@@ -45,8 +45,8 @@ plot(e,c,xlab="Year",ylab="Average money on movie")
 c=rep(0,101)
 i=1
 for(e in 1916:2016){
-c[i]<- mean(imdb_score[title_year==e],na.rm=TRUE)
-i=i+1
+    c[i]<- mean(imdb_score[title_year==e],na.rm=TRUE)
+    i=i+1
 }
 e=1916:2016
 plot(e,c,xlab="Year",ylab="Average IMDB")
@@ -71,10 +71,10 @@ plot(num_voted_users,imdb_score)
 
 
 
-CS<- which(gross-budget >0)
+# CS<- which(gross-budget >0)
 #the number of hit movies
 length(CS)
-FL<- which(gross-budget <0)
+# FL<- which(gross-budget <0)
 #the number of flop movies
 length(FL)
 #mean of hit movies IMDB score
