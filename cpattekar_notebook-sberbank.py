@@ -520,7 +520,7 @@ if run3 == True:
 
 
 
-if run3 == True:
+# if run3 == True:
     #print(df_train.loc[df_train.full_sq == 30, 'full_sq'])
 
 
@@ -533,7 +533,7 @@ if run3 == True:
 
 
 
-if run3 == True:
+# if run3 == True:
     #print(df_test['id'][:10])
     #df_test.head()
     #df_train.head()
@@ -541,7 +541,7 @@ if run3 == True:
 
 
 
-if run3 == True:
+# if run3 == True:
     #print(df_train.loc[df_train.full_sq == 30, 'price_doc'],  df_train.loc[df_train.full_sq == 30, 'full_sq'])
 
 
@@ -563,7 +563,7 @@ if run3 == True:
 
 
 
-if run3 == True:
+# if run3 == True:
     #df_all.describe
 
 
@@ -622,7 +622,7 @@ if run3 == True:
 
 
 
-if run3 == True:
+# if run3 == True:
     #df_obj = df_all.select_dtypes(include=['object'])
 
     #X_all = np.c_[
@@ -634,7 +634,7 @@ if run3 == True:
 
 
 
-if run3 == True:
+# if run3 == True:
     #X_train = X_all[:num_train]
     #X_test = X_all[num_train:]
 

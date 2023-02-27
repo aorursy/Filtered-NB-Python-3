@@ -211,7 +211,7 @@ print(massive_sorted.iloc[-4:-1])
 
 ## Factor Plot: School Size and...?
 
-Examining the trend of aggregate crime versus school size revealed grouping in the data. We can use a factor plot to explore other factors.
+# Examining the trend of aggregate crime versus school size revealed grouping in the data. We can use a factor plot to explore other factors.
 
 
 

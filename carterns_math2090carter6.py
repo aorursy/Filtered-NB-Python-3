@@ -87,11 +87,11 @@ def performTests(data,numberOfObservations,numberOfDivisions,n_trees,showStd1,sh
     plt.figure() #create a new figure
     plotByTrainingSetSize(n_obsInTrainingSet,scoresListByTrainingSet,scoresByTrainingSet,stdByTrainingSet,showStd2)
         
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 
-    sdf=list(range(3500,42000+1,3500))
-print(sdf)
+#     sdf=list(range(3500,42000+1,3500))
+# print(sdf)
 
 

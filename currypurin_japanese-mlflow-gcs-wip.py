@@ -33,11 +33,6 @@ mlflow.log_param('lgb_params', {'objective': 'regression',
 
 
 
-ls mlruns/1
-
-
-
-
 for i in Path('./mlruns/1/').glob('*'):
     if str(i).split('/')[-1] != 'meta.yaml':
         run_id = str(i).split('/')[-1]
@@ -59,9 +54,6 @@ from google.cloud import storage
 storage_client = storage.Client(project=PROJECT_ID)
 
 
-
-
-# このファイルを送る
 for f in Path(f'./mlruns/1/{run_id}').glob('**/*'):
     if f.is_file():
         print(f)
