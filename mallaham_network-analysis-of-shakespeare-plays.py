@@ -71,7 +71,7 @@ plt.show()
 
 
 
-Number of lines in each play
+# Number of lines in each play
 
 
 

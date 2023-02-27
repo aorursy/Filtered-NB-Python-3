@@ -138,17 +138,17 @@ train['Survived'] = train['Survived'].astype(int)
 
 train.dtypes
 
- pclass_frame  = pd.get_dummies(train['Pclass'],prefix='Class')
- pclass_frame.dtypes
- pclass_frame.head()
+pclass_frame  = pd.get_dummies(train['Pclass'],prefix='Class')
+pclass_frame.dtypes
+pclass_frame.head()
 
 
 
- pclass_frame = pclass_frame.drop(['Class_3'], axis=1)
+pclass_frame = pclass_frame.drop(['Class_3'], axis=1)
 train = train.join(pclass_frame)
 
- sex_frame  = pd.get_dummies(train['Sex'])
- sex_frame = sex_frame.drop(['male'], axis=1)
+sex_frame  = pd.get_dummies(train['Sex'])
+sex_frame = sex_frame.drop(['male'], axis=1)
 
  
 
@@ -175,7 +175,7 @@ clf.fit(train_Array, labels)
 logreg = lm.LogisticRegression(C=1e5)
 logreg.fit(train_Array,labels)
 
-test = pd.read_csv("../input/test.csv", dtype={"Age": np.float64}, )
+test = pd.read_csv("../input/test.csv", dtype={"Age": np.float64})
 
 
 train.dtypes
@@ -185,11 +185,11 @@ test.dtypes
 
 predictors = ['Age','SibSp','Parch','Fare','Class_1','Class_2','female']
 
- test_sex_frame  = pd.get_dummies(test['Sex'])
- test_sex_frame = test_sex_frame.drop(['male'], axis=1)
+test_sex_frame  = pd.get_dummies(test['Sex'])
+test_sex_frame = test_sex_frame.drop(['male'], axis=1)
 test = test.join(test_sex_frame)
- test_pclass_frame  = pd.get_dummies(test['Pclass'],prefix='Class')
- test_pclass_frame = test_pclass_frame.drop(['Class_3'], axis=1)
+test_pclass_frame  = pd.get_dummies(test['Pclass'],prefix='Class')
+test_pclass_frame = test_pclass_frame.drop(['Class_3'], axis=1)
 test = test.join(test_pclass_frame)
 
 test = test.drop(['Pclass','Sex'],axis = 1)

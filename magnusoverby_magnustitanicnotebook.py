@@ -114,7 +114,7 @@ percentSurvived_females = np.sum(survived_females)/len(survived_females)
 print(percentSurvived_males)
 print(percentSurvived_females)
 scale = [0.05*x for x in range(20)]
-plt.bar([,[percentSurvived_males,percentSurvived_females])
+plt.bar([,[percentSurvived_males,percentSurvived_females]])
 plt.show()
 
 
@@ -122,19 +122,3 @@ plt.show()
 
 titstanic  = titanic[titanic["Sex"]=="female"]
 titstanic.head(1)
-
-
-
-
-
-
-
-
-
-[x for x in range(20)]*0
-
-
-
-
-
-

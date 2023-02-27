@@ -41,16 +41,16 @@ plt.imshow(slice, cmap=plt.cm.gray)
 
 
 def read_ct_scan(folder_name):
-        # Read the slices from the dicom file
-        slices = [dicom.read_file(folder_name + filename) for filename in os.listdir(folder_name)]
+    # Read the slices from the dicom file
+    slices = [dicom.read_file(folder_name + filename) for filename in os.listdir(folder_name)]
         
-        # Sort the dicom slices in their respective order
-        slices.sort(key=lambda x: int(x.InstanceNumber))
+    # Sort the dicom slices in their respective order
+    slices.sort(key=lambda x: int(x.InstanceNumber))
         
-        # Get the pixel values for all the slices
-        slices = np.stack([s.pixel_array for s in slices])
-        slices[slices == -2000] = 0
-        return slices
+    # Get the pixel values for all the slices
+    slices = np.stack([s.pixel_array for s in slices])
+    slices[slices == -2000] = 0
+    return slices
 
 
 

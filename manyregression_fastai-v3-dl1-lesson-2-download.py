@@ -3,7 +3,7 @@
 
 
 
-https://github.com/fastai/course-v3/blob/master/nbs/dl1/lesson2-download.ipynb
+# https://github.com/fastai/course-v3/blob/master/nbs/dl1/lesson2-download.ipynb
 
 
 
@@ -132,7 +132,7 @@ learn.save('stage-2')
 
 
 
-learn.load('stage-2');
+learn.load('stage-2')
 
 
 

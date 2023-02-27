@@ -54,7 +54,7 @@ def load_data(data_dir):
 
 
 class simple_knn():
-    "a simple kNN with L2 distance"
+    # "a simple kNN with L2 distance"
 
     def __init__(self):
         pass

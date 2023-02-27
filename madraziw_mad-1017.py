@@ -40,7 +40,7 @@ pd.concat((first.iloc[diff], last.iloc[diff]),axis=1)
 
 
 
-At this scale, you can actually see the finite resolution of the lat/lon values.
-trtrt
+# At this scale, you can actually see the finite resolution of the lat/lon values.
+# trtrt
 ### Now we can try plotting the same for male/female, and show average age per grid
 

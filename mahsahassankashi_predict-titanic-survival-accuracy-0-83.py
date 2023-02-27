@@ -3,48 +3,48 @@
 
 
 
-Get start with Titannic and raise up accuacy up to 0.83
+# Get start with Titannic and raise up accuacy up to 0.83
 
-**1. Investigataion about data correlation and make a decision for specific formula **
+# **1. Investigataion about data correlation and make a decision for specific formula **
 
-I thought and tried to remember Titanic movie, then based on my knowledge 
-I took a look at train and test files to make fundamental assumption and hypothesis
- 
-**2. Configuration and installation**
+# I thought and tried to remember Titanic movie, then based on my knowledge 
+# I took a look at train and test files to make fundamental assumption and hypothesis
+#  
+# **2. Configuration and installation**
 
-I used Aaconda and Spider 3.1.4
-python 3.6.1 
-numpy-1.11.3+mkl-cp36-cp36m-win_amd64.whl
-scikit_learn-0.18.1-cp36-cp36m-win_amd64.whl
- 
-**3.  Make it clean and organized data in train and test files by writing code**
+# I used Aaconda and Spider 3.1.4
+# python 3.6.1 
+# numpy-1.11.3+mkl-cp36-cp36m-win_amd64.whl
+# scikit_learn-0.18.1-cp36-cp36m-win_amd64.whl
+#  
+# **3.  Make it clean and organized data in train and test files by writing code**
 
-because I needed float and int to train and predict
-I did it for sex, embark
-for example, I replaced male with one and female with zero
- 
-I tried to fill null value 
-because "Age" was important feature in Titanic to rescue "according to movie and history people 
-less than 15 and older than 50 had better chance to save their life"
- 
-I filled it with median of age based on pclass, sex, title
-I extract by split from title field to gain title such as Mr, Miss, and etc
- 
-I also filled null cells in fare and embark by average other similar value.
- 
-**4. feature Selection**
-I used also rom which features are important and also trials and errors
-I removed name 
-but I used cabin and ticket (although after cleaning and converting to float by my formula) but they 
-reduced scores , so I decided to omit them
- 
-**5. Make a decision to use Random Forest Classifier which is embed inside sklearn in python library**
+# because I needed float and int to train and predict
+# I did it for sex, embark
+# for example, I replaced male with one and female with zero
+#  
+# I tried to fill null value 
+# because "Age" was important feature in Titanic to rescue "according to movie and history people 
+# less than 15 and older than 50 had better chance to save their life"
+#  
+# I filled it with median of age based on pclass, sex, title
+# I extract by split from title field to gain title such as Mr, Miss, and etc
+#  
+# I also filled null cells in fare and embark by average other similar value.
+#  
+# **4. feature Selection**
+# I used also rom which features are important and also trials and errors
+# I removed name 
+# but I used cabin and ticket (although after cleaning and converting to float by my formula) but they 
+# reduced scores , so I decided to omit them
+#  
+# **5. Make a decision to use Random Forest Classifier which is embed inside sklearn in python library**
 
-I used  Random Forest Classifier because it is the best besides SVM in deep learning.
-It has multitude decision tree during training period 
-it is same or scaling and different for transformation of feature values 
-because it can handle irrelevant features such as age and class has no relevant to each other
-it is a solution for making average or multiple decision tree and can diminish variance.
+# I used  Random Forest Classifier because it is the best besides SVM in deep learning.
+# It has multitude decision tree during training period 
+# it is same or scaling and different for transformation of feature values 
+# because it can handle irrelevant features such as age and class has no relevant to each other
+# it is a solution for making average or multiple decision tree and can diminish variance.
 
 
 

@@ -158,7 +158,7 @@ SELECT
   EXTRACT(DAYOFYEAR FROM start_time) as day_of_year,
   COUNT(1) as num_rides
 FROM
-  `bigquery-public-data.austin_bikeshare.bikeshare_trips` 
+  'bigquery-public-data.austin_bikeshare.bikeshare_trips'
 WHERE (start_station_name NOT IN ('10th & Red River',
                                  '11th & Salina',
                                  '11th & Salina ',
@@ -202,12 +202,12 @@ import numpy as np
 
 daily_riders = dict()
 for y in range(2013,2020):
-    # extract 1 year
-    daily_riders[y] = overall_daily_riders_re_sampled[overall_daily_riders_re_sampled['year']==y]
-    # retrieve dates
-    daily_riders[y]['date'] = '1901-01-01'
-    for i in range(len(daily_riders[y])):
-        daily_riders[y]['date'].iloc[i] =datetime(daily_riders[y]['year'].iloc[i], daily_riders[y]['month'].iloc[i], daily_riders[y]['day'].iloc[i])
+  # extract 1 year
+  daily_riders[y] = overall_daily_riders_re_sampled[overall_daily_riders_re_sampled['year']==y]
+  # retrieve dates
+  daily_riders[y]['date'] = '1901-01-01'
+  for i in range(len(daily_riders[y])):
+    daily_riders[y]['date'].iloc[i] =datetime(daily_riders[y]['year'].iloc[i], daily_riders[y]['month'].iloc[i], daily_riders[y]['day'].iloc[i])
 
 
 

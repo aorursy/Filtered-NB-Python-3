@@ -304,10 +304,6 @@ print('Saved file: ' + filename)
 
 
 
-ls ../
-
-
-
 
 
 
