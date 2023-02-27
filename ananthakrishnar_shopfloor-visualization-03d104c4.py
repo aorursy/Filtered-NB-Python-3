@@ -24,90 +24,90 @@ for (station in paste0("S",0:51))
   }
 }
 
-#limit data to only when passed through station X
-dtStations = dtDate[,!grepl("L",colnames(dtDate)),with=F]
+# #limit data to only when passed through station X
+# dtStations = dtDate[,!grepl("L",colnames(dtDate)),with=F]
 
-#melt data to go from wide to long format
-dtStationsM = melt(dtStations,id.vars=c("Id"))
+# #melt data to go from wide to long format
+# dtStationsM = melt(dtStations,id.vars=c("Id"))
 
-#join with numeric to have Response
-dtStationsM %>%
-  left_join(dtNum, by = "Id") -> dtStationsM
+# #join with numeric to have Response
+# dtStationsM %>%
+#   left_join(dtNum, by = "Id") -> dtStationsM
 
-#remove NA entries - these are plentiful as after melting each station-job combination has its own row
-dtStationsM %>%
-  filter(!is.na(value)) -> dtStationsMFiltered
+# #remove NA entries - these are plentiful as after melting each station-job combination has its own row
+# dtStationsM %>%
+#   filter(!is.na(value)) -> dtStationsMFiltered
 
-#sort entries by ascending time
-dtStationsMFiltered %>%
-  arrange(value) -> dtStationsMFiltered
+# #sort entries by ascending time
+# dtStationsMFiltered %>%
+#   arrange(value) -> dtStationsMFiltered
 
-#imports for plotting
-require(GGally)
-library(network)
-library(sna)
-library(ggplot2)
+# #imports for plotting
+# require(GGally)
+# library(network)
+# library(sna)
+# library(ggplot2)
 
-#plotting format
-options(repr.plot.width=5, repr.plot.height=15)
+# #plotting format
+# options(repr.plot.width=5, repr.plot.height=15)
 
-#for each row obtain the subsequent statoin
-dtStationsMFiltered %>%
-  group_by(Id) %>%
-  mutate(nextStation = lead(variable)) -> edgelistsComplete
+# #for each row obtain the subsequent statoin
+# dtStationsMFiltered %>%
+#   group_by(Id) %>%
+#   mutate(nextStation = lead(variable)) -> edgelistsComplete
 
-#for each id find the first node to be entered 
-edgelistsComplete %>%
-  group_by(Id) %>%
-  filter(!(variable %in% nextStation)) %>%
-  ungroup() %>%
-  select(variable,Response) -> startingPoints
+# #for each id find the first node to be entered 
+# edgelistsComplete %>%
+#   group_by(Id) %>%
+#   filter(!(variable %in% nextStation)) %>%
+#   ungroup() %>%
+#   select(variable,Response) -> startingPoints
 
-#prior to each starting point insert an edge from a common origin
-colnames(startingPoints) = c("nextStation","Response")
-startingPoints$variable = "S"
-edgelistsComplete %>%
-  select(variable,nextStation,Response) -> paths
+# #prior to each starting point insert an edge from a common origin
+# colnames(startingPoints) = c("nextStation","Response")
+# startingPoints$variable = "S"
+# edgelistsComplete %>%
+#   select(variable,nextStation,Response) -> paths
 
-#for each id find the row where there is no next station (last station to be visited)
-#fill this station with Response value
-paths[is.na(nextStation)]$nextStation = paste("Result",paths[is.na(nextStation)]$Response)
+# #for each id find the row where there is no next station (last station to be visited)
+# #fill this station with Response value
+# paths[is.na(nextStation)]$nextStation = paste("Result",paths[is.na(nextStation)]$Response)
 
-#combine data
-paths = rbind(startingPoints,paths)
-paths = select(paths,-Response)
-paths$nextStation = as.character(paths$nextStation)
-paths$variable = as.character(paths$variable)
+# #combine data
+# paths = rbind(startingPoints,paths)
+# paths = select(paths,-Response)
+# paths$nextStation = as.character(paths$nextStation)
+# paths$variable = as.character(paths$variable)
 
-#rename columns for plotting
-colnames(paths) <- c("Target","Source")
+# #rename columns for plotting
+# colnames(paths) <- c("Target","Source")
 
-#flip columns in a costly way because ggnet is a little dumb and I am lazy
-pathshelp = select(paths,Source)
-pathshelp$Target = paths$Target
-paths=pathshelp
+# #flip columns in a costly way because ggnet is a little dumb and I am lazy
+# pathshelp = select(paths,Source)
+# pathshelp$Target = paths$Target
+# paths=pathshelp
 
-#create network from edgelist
-net = network(as.data.frame(na.omit(paths)),
-              directed = TRUE)
+# #create network from edgelist
+# net = network(as.data.frame(na.omit(paths)),
+#               directed = TRUE)
 
-#create a station-line mapping lookup
-LineStations = NULL
-for (station in unique(paths$Source)){
-  if(station!="S")
-  {
-  x=paste0("_",station,"_")
-  y=head(colnames(dtDate)[which(grepl(x,colnames(dtDate)))],1)
-  y=strsplit(y,"_")[[1]][1]
-  LineStations = rbind(LineStations,data.frame(Node=station,Line=y))
-  }
-}
-LineStations = rbind(LineStations,data.frame(Node=c("Result 1","Result 0","S"),Line=c("Outcome","Outcome","START")))
+# #create a station-line mapping lookup
+# LineStations = NULL
+# for (station in unique(paths$Source)){
+#   if(station!="S")
+#   {
+#   x=paste0("_",station,"_")
+#   y=head(colnames(dtDate)[which(grepl(x,colnames(dtDate)))],1)
+#   y=strsplit(y,"_")[[1]][1]
+#   LineStations = rbind(LineStations,data.frame(Node=station,Line=y))
+#   }
+# }
+# LineStations = rbind(LineStations,data.frame(Node=c("Result 1","Result 0","S"),Line=c("Outcome","Outcome","START")))
 
-#merge station-line mapping into graph for coloring purposes
-x = data.frame(Node = network.vertex.names(net))
-x = merge(x, LineStations, by = "Node", sort = FALSE)$Line
-net %v% "line" = as.character(x)
+# #merge station-line mapping into graph for coloring purposes
+# x = data.frame(Node = network.vertex.names(net))
+# x = merge(x, LineStations, by = "Node", sort = FALSE)$Line
+# net %v% "line" = as.character(x)
 
 # #setup station coordinates analogue to @JohnM
 # nodeCoordinates=data.frame(label=c("S","S0","S1","S2","S3","S4","S5","S6",

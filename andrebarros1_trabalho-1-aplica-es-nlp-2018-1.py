@@ -38,7 +38,7 @@ from sklearn.svm import SVC
 
 
 
-qtd_palavras = Pipeline([('qtd_palavras', Qtdpalavras()),('Scaler', MinMaxScaler()])
+qtd_palavras = Pipeline([('qtd_palavras', Qtdpalavras()),('Scaler', MinMaxScaler())])
 qtd_palavras.fit_transform(dataset.words) 
 
 
