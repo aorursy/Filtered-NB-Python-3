@@ -19,7 +19,3 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 # Any results you write to the current directory are saved as output.
 
 
-
-
-val a =10
-

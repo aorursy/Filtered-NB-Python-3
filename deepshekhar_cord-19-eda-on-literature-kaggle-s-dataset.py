@@ -43,31 +43,31 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 
 
 
-len(title_list)
+# len(title_list)
 
 
 
 
-from collections import Counter
-word_could_dict = Counter(title_list)
-stop_words = set(STOPWORDS).union(set(stopwords.words('english')))
-#print(stop_words)
-wordcloud = WordCloud(width = 1000, height = 500, stopwords = stop_words).generate_from_frequencies(word_could_dict)
+# from collections import Counter
+# word_could_dict = Counter(title_list)
+# stop_words = set(STOPWORDS).union(set(stopwords.words('english')))
+# #print(stop_words)
+# wordcloud = WordCloud(width = 1000, height = 500, stopwords = stop_words).generate_from_frequencies(word_could_dict)
 
-plt.figure(figsize=(15,8))
-plt.imshow(wordcloud)
-plt.axis("off")
-plt.show()
-
-
+# plt.figure(figsize=(15,8))
+# plt.imshow(wordcloud)
+# plt.axis("off")
+# plt.show()
 
 
-df = pd.read_csv('/kaggle/input/CORD-19-research-challenge/metadata.csv')
-df.head()
-kaggle(/input/CORD-19-research-challenge/json_schema.txt)
-kaggle(/input/CORD-19-research-challenge/metadata.csv)
-kaggle(/input/CORD-19-research-challenge/COVID.DATA.LIC.AGMT.pdf)
-kaggle(/input/CORD-19-research-challenge/metadata.readme)
+
+
+# df = pd.read_csv('/kaggle/input/CORD-19-research-challenge/metadata.csv')
+# df.head()
+# kaggle(/input/CORD-19-research-challenge/json_schema.txt)
+# kaggle(/input/CORD-19-research-challenge/metadata.csv)
+# kaggle(/input/CORD-19-research-challenge/COVID.DATA.LIC.AGMT.pdf)
+# kaggle(/input/CORD-19-research-challenge/metadata.readme)
 
 
 

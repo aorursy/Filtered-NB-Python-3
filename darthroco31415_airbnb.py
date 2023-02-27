@@ -66,7 +66,7 @@ X1=pd.get_dummies(data=X1,columns=["neighbourhood_group","room_type"],drop_first
 
 X1.head()
 
- from sklearn.model_selection import train_test_split as tts
+from sklearn.model_selection import train_test_split as tts
 
 
 X_train, X_test, y_train, y_test = tts(X1,Y, test_size=0.2, random_state=42)

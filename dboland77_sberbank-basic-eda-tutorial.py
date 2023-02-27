@@ -30,7 +30,6 @@ macro_df = pd.read_csv('../input/macro.csv', parse_dates=['timestamp'])
 # What number does the row numbering start from?
 # Are there any missing values (NaN is the symbol for Not A Number - and represents missing values)?
 
-train_df. 
 
 
 
@@ -54,16 +53,13 @@ macro_df.head()
 # Fill in the missing shape method below after the period.
 # Enclosing this in print() ensures that the result is printed.
 # Do the train and test data have the same number of columns?  If not, why not?
-print(train_df.)
-print(test_df.)
-print(macro_df.)
+
 
 
 
 
 # In the line below, fill in the 'dtypes' method after the period
 # What type are most of the data fields?
-data_types = train_df.
 print(data_types)
 
 

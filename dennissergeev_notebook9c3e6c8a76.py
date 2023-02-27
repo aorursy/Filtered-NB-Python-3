@@ -63,10 +63,6 @@ g = df.groupby('Cover_Type')
 
 
 
-g.
-
-
-
 
 afig, ax = plt.subplots(figsize=(10, 7))
 h = ax.scatter(df['Elevation'], df['Slope'], c=df['Cover_Type'],

@@ -324,7 +324,7 @@ for i in range(len(sampled_images)):
 
 
 
-You might want to rotate, flip, or otherwise modify the images for training purposes. Note that the dimensions of the image changes:
+# You might want to rotate, flip, or otherwise modify the images for training purposes. Note that the dimensions of the image changes:
 
 
 

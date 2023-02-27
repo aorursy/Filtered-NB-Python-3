@@ -59,7 +59,7 @@ jobTitlesByYear.sort_values("2011",axis=0, ascending=False)[:30].plot(kind='bar'
 
 jobnames=salaries['JobTitle']
 from nltk.tokenize import RegexpTokenizer
-tokenizer = RegexpTokenizer(r'\w+')
+# tokenizer = RegexpTokenizer(r'\w+')
 wordsinjobs=""
 for word in jobnames:
     wordsinjobs=wordsinjobs+word
@@ -67,7 +67,7 @@ tokens=tokenizer.tokenize(wordsinjobs)
 vectorizer=CountVectorizer(tokens)
 dtm=vectorizer.fit_transform(salaries['JobTitle'])
 
-jobwords = salaries.JobTitle.str.split(r'[ -]',expand=True)
+# jobwords = salaries.JobTitle.str.split(r'[ -]',expand=True)
 #jobwords
 
 jobnamesByYear=pd.DataFrame([sal2011['JobTitle'], sal2012['JobTitle'], sal2013['JobTitle'], sal2014['JobTitle']], index=[2011, 2012,2013,2014])
@@ -78,7 +78,7 @@ jobnamesByYear
 
 #Feature extraction
 Cvect=CountVectorizer(max_df=0.95, min_df=2, max_features=30,
-                                stop_words='english');
+                                stop_words='english')
 X = Cvect.fit_transform(salaries.JobTitle)
 
 
@@ -86,17 +86,8 @@ X = Cvect.fit_transform(salaries.JobTitle)
 def professional_features(listOfWords):
     if ('department' in listOfWords):
         return listOfWords[listOfWords.index('department')-1]
-    elif 
+
         
-    
 
-    
-jobwords 
-
-
-    
-jobwords
-
-'iii' in jobwords
 
 

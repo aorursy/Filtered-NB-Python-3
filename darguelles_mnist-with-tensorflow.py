@@ -107,7 +107,6 @@ def weight_variable(shape):
 
 x_image = tf.reshape(x, [-1,28,28,1])
 conv = tf.nn.conv2d(x_image, weight_variable([5, 5, 1, 32]), strides=[1, 1, 1, 1], padding='SAME')
-In [12]:
 conv = tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 conv.eval(feed_dict={x:data[0]})
 
