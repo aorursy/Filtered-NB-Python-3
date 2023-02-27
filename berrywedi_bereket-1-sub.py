@@ -28,7 +28,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 #work directory
-os.getcwd
+# os.getcwd
 
 
 
@@ -180,7 +180,7 @@ df[["SibSp", "Survived"]].groupby(['SibSp'], as_index=False).mean().sort_values(
 
 
 df.describe()
-through visualization we observ
+# through visualization we observ
 
 
 

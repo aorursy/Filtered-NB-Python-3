@@ -77,7 +77,7 @@ trans <- structure(list(phone_brand = c("<U+4E09><U+661F>", "<U+5929><U+8BED>",
                                         "<U+5FB7><U+8D5B>", "<U+68A6><U+7C73>", "<U+4E50><U+89C6>", "<U+5C0F><U+6768><U+6811>", 
                                         "<U+7EBD><U+66FC>", "<U+90A6><U+534E>", "E<U+6D3E>", "<U+6613><U+6D3E>", 
                                         "<U+666E><U+8010><U+5C14>", "<U+6B27><U+65B0>", "<U+897F><U+7C73>", 
-                                        "<U+6D77><U+5C14>", "<U+6CE2><U+5BFC>", "<U+7CEF><U+7C73>", "<U+552F><U+7C73>", train %>%
+                                        "<U+6D77><U+5C14>", "<U+6CE2><U+5BFC>", "<U+7CEF><U+7C73>", "<U+552F><U+7C73>")))
   group_by(phone_brand) %>% 
   summarise(PERCENT_MALE = 100 *(mean(gender == 'M') - mean(train$gender == 'M')), n = n()) %>%
   filter(n > 30) %>% 

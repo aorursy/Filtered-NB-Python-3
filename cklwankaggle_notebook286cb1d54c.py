@@ -20,12 +20,6 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 
 
 
-
-
-
-
-
-
 library(xgboost)
 library(readr)
 library(stringr)
@@ -34,8 +28,8 @@ library(car)
 
 train=read.csv("../input/train.csv")
 test=read.csv("../input/test.csv")
-y=train$revenue
-Id=test$Id
+# y=train$revenue
+# Id=test$Id
 
 
 

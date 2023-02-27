@@ -67,7 +67,7 @@ kv_mpi_rgn_loc = kv_mpi_rgn_loc[kv_mpi_rgn_loc.geo!='(1000.0, 1000.0)']
 # for an appropriate conversion measure
 
 # We have 67 unique currencies in the dataset.
-print('We have ",kv_loans["currency"].nunique()," unique currencies in the dataset.")
+print("We have ",kv_loans["currency"].nunique()," unique currencies in the dataset.")
 # The best path forward in this direction is probably to make some kind of crosswalk between
 # currencies in the loans dataset and currencies in the World Bank's PPP numbers ...
 

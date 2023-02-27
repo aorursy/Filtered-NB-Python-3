@@ -634,10 +634,10 @@ numbers = [
 
 
 
-block_head:
-    1st block line
-    2nd block line
-    ...
+# block_head:
+#     1st block line
+#     2nd block line
+#     ...
 
 
 
@@ -940,10 +940,6 @@ def main():
 
 
 
-PYTHONPATH=/foo python game.py
-
-
-
 
 import os
 os.environ['PYTHONPATH']='/foo'
@@ -985,13 +981,6 @@ import foo.bar
 
 
 from foo import bar
-
-
-
-
-__init__.py:
-
-__all__ = ["bar"]
 
 
 

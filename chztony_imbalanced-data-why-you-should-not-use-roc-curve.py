@@ -104,10 +104,10 @@ PlotViolins(12,23)
 
 
 # Model building
-Let's start with a vanilla Logistic Regression since it seems like for some of the features, a sigmoid curve can sort of separate the classes.sns.pairplot(data=pd.concat([df.loc[:,'hour'],df.loc[:,'V1':'V6'],df.loc[:,'Class']],axis=1),
-             hue='Class',
-             diag_kind='kde',
-             plot_kws={'alpha':0.2})
+# Let's start with a vanilla Logistic Regression since it seems like for some of the features, a sigmoid curve can sort of separate the classes.sns.pairplot(data=pd.concat([df.loc[:,'hour'],df.loc[:,'V1':'V6'],df.loc[:,'Class']],axis=1),
+#              hue='Class',
+#              diag_kind='kde',
+#              plot_kws={'alpha':0.2})
 
 
 

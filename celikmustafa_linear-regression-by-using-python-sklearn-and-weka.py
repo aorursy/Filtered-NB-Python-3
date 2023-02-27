@@ -21,9 +21,9 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 
 
 
-I have published my implementation over github.
-You can check it from [here][1] https://celikmustafa89.github.io/usedCarDatabase/
+# I have published my implementation over github.
+# You can check it from [here][1] https://celikmustafa89.github.io/usedCarDatabase/
 
 
-  [1]: https://celikmustafa89.github.io/usedCarDatabase/
+#   [1]: https://celikmustafa89.github.io/usedCarDatabase/
 

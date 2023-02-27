@@ -12,7 +12,7 @@ data = np.array(data)
 
 
 
- print (data) 
+print (data) 
 
 data[0:15,5]
 

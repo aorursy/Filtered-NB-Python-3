@@ -340,7 +340,7 @@ knn.score(X_train, Y_train)
 
 
 
-Gaussian Naive Bayes
+# Gaussian Naive Bayes
 
 gaussian = GaussianNB()
 

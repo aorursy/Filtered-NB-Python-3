@@ -52,7 +52,3 @@ for i in range(len(data_tf)):
 data_tf
 
 
-
-
-data =data_tf.
-

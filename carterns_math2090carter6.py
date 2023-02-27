@@ -91,9 +91,7 @@ if __name__ == '__main__':
     main()
 
 
-    sdf=list(range(3500,42000+1,3
-
-500))
+    sdf=list(range(3500,42000+1,3500))
 print(sdf)
 
 
