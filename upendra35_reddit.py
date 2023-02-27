@@ -9,15 +9,6 @@ number = preprocessing.LabelEncoder()
 
 reddit=pd.read_csv("RedditShortDemoSurvey-1-Cleaned.csv")
 
-# def convert(data):
-#     number = preprocessing.LabelEncoder()
-#     data['Please.indicate.your.gender.'] = number.fit_transform(data.Please.indicate.your.gender.)
-#     data['Please.select.the.category.that.includes.your.age.'] = number.fit_transform(data.Please.select.the.category.that.includes.your.age.)
-#     data['What.is.your.marital.status.'] = number.fit_transform(data.What.is.your.marital.status.)
-#     data['What.best.describes.your.employment.status.'] = number.fit_transform(data.What.best.describes.your.employment.status.)
-#     data['Which.one.of.the.following.ranges.includes.your.total.yearly.household.income.before.taxes.'] = number.fit_transform(data.Which.one.of.the.following.ranges.includes.your.total.yearly.household.income.before.taxes.)
-#     data=data.fillna(0)
-#     return data
 
 reddit=convert(train)
 
