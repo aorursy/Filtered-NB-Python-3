@@ -17,6 +17,12 @@ df.head(10)
 
 
 
+
+df.iloc[2]
+
+
+
+
 df.loc['BADL']
 
 
@@ -52,11 +58,6 @@ df.State.head(3)
 
 
 
-df.Park Code
-
-
-
-
 df.columns = [col.replace(' ', '_').lower() for col in df.columns]
 print(df.columns)
 
@@ -68,13 +69,22 @@ df[['state', 'acres']][:3]
 
 
 
+df.state.iloc[2]
+
+
+
+
+df.state.iloc[[2]]
+
+
+
+
 (df.state == 'UT').head(3)
 
 
 
 
 df[df.state == 'UT']
-
 
 
 

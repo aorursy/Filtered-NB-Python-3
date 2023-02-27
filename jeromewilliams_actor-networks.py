@@ -45,7 +45,7 @@ for column in df2.columns:
         col1_name = column
         actor_name = col1_name[len('actor_1_name_'):]
         
-            df_new[actor_name] = df2[col1_name]
+        df_new[actor_name] = df2[col1_name]
 
 df_new.columns
 

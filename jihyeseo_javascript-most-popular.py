@@ -68,11 +68,11 @@ knownLangs.sort_values(ascending = False)
 
 
 
-javascript           0.796461 
-python               0.459481 
-java                 0.336521 
-c                    0.247752 
-c++                  0.221007
+# javascript           0.796461 
+# python               0.459481 
+# java                 0.336521 
+# c                    0.247752 
+# c++                  0.221007
 
 
 
@@ -88,14 +88,14 @@ firstLangs.value_counts()/len(df)
 
 
 
-javascript          0.342478
-python              0.116946 
-java                0.066777 
-go                  0.035164  
-c++                 0.017296 
-c                   0.013459 
-scala               0.008476 
-haskell             0.005154 
+# javascript          0.342478
+# python              0.116946 
+# java                0.066777 
+# go                  0.035164  
+# c++                 0.017296 
+# c                   0.013459 
+# scala               0.008476 
+# haskell             0.005154 
 
 
 

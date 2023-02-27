@@ -80,7 +80,7 @@ test = pd.read_csv(data_path+"test.csv",  usecols=['ncodpers'])
 
 
 
-test[test['ncodpers']==1050612].
+test[test['ncodpers']==1050612]
 
 
 

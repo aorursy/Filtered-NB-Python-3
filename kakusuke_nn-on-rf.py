@@ -67,12 +67,12 @@ n_batch = 100
 loop = 0
 
 def to_feed(images, labels=None, rf=0.8):
-    predicted = pd.get_dummies(clf.predict(images))
-    x = pd.concat([(images.reset_index(drop = True) - 126) * 1.0 / 255.0, predicted * rf], 1)
-    if labels is not None:
-      y_ = pd.get_dummies(labels)
-      return(x, y_)
-    return (x,)
+  predicted = pd.get_dummies(clf.predict(images))
+  x = pd.concat([(images.reset_index(drop = True) - 126) * 1.0 / 255.0, predicted * rf], 1)
+  if labels is not None:
+    y_ = pd.get_dummies(labels)
+    return(x, y_)
+  return (x,)
 
 
 for epoc in range(n_epoc):
@@ -105,7 +105,7 @@ import seaborn as sns
 sns.lmplot(x='epoc', y='accuracy', hue='type', data=pd.DataFrame(actuals, columns=['epoc', 'type', 'accuracy']))
 
 predict = tf.argmax(y,1)
-predication = pd.DataFrame(sess.run(predict, feed_dict=to_feed(test), columns=['Label'], index=(test.index + 1))
+predication = pd.DataFrame(sess.run(predict, feed_dict=to_feed(test), columns=['Label'], index=(test.index + 1)))
 predication.to_csv('output.csv', index=True, index_label='ImageId')
 
 

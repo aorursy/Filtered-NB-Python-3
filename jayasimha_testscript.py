@@ -13,7 +13,3 @@ print(test.head(n=5))
 
 
 
-np.
-
-
-

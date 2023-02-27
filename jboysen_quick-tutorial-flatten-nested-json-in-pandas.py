@@ -28,7 +28,6 @@ works_data.head(3)
 
 
 #flatten concerts column here
-concerts_data = 
 
 
 
