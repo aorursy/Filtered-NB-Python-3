@@ -22,7 +22,7 @@ train_df.head()
 
 
 
-print(train_df.iloc[1,6])
+# print(train_df.iloc[1,6])
 
 
 
