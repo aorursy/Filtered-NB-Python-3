@@ -38,7 +38,7 @@ len(providers)
 
 
 
-tbl['DRG Definition ID'] = (tbl['DRG Definition'][,:].split(' ')[0])
+# tbl['DRG Definition ID'] = (tbl['DRG Definition'][,:].split(' ')[0])
 
 
 
