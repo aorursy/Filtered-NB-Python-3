@@ -21,7 +21,7 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 
 
 
-GLBTC = pd.read_csv(os.path.join(os.path.dirname(__file__), "../input/GlobalLandTempuraturesByCity")
+GLBTC = pd.read_csv(os.path.join(os.path.dirname(__file__), "../input/GlobalLandTempuraturesByCity"))
 
 
 

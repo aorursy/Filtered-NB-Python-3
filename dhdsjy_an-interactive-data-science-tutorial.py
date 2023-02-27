@@ -6,40 +6,40 @@
 # **An Interactive Data Science Tutorial**
 
 
-*[Based on the Titanic competition on Kaggle](https://www.kaggle.com/c/titanic)*
+# *[Based on the Titanic competition on Kaggle](https://www.kaggle.com/c/titanic)*
 
-*by Helge Bjorland & Stian Eide*
+# *by Helge Bjorland & Stian Eide*
 
-*January 2017*
+# *January 2017*
 
----
+# ---
 
-## Content
+# ## Content
 
 
- 1. Business Understanding (5 min)
-     * Objective
-     * Description
- 2. Data Understanding (15 min)
-    * Import Libraries
-    * Load data
-    * Statistical summaries and visualisations
-    * Excersises
- 3. Data Preparation (5 min)
-    * Missing values imputation
-    * Feature Engineering
- 4. Modeling (5 min)
-     * Build the model
- 5. Evaluation (25 min)
-     * Model performance
-     * Feature importance
-     get_ipython().set_next_input('     * Who gets the best performing model');get_ipython().run_line_magic('pinfo', 'model')
- 6. Deployment  (5 min)
-     * Submit result to Kaggle leaderboard     
+#  1. Business Understanding (5 min)
+#      * Objective
+#      * Description
+#  2. Data Understanding (15 min)
+#     * Import Libraries
+#     * Load data
+#     * Statistical summaries and visualisations
+#     * Excersises
+#  3. Data Preparation (5 min)
+#     * Missing values imputation
+#     * Feature Engineering
+#  4. Modeling (5 min)
+#      * Build the model
+#  5. Evaluation (25 min)
+#      * Model performance
+#      * Feature importance
+#      get_ipython().set_next_input('     * Who gets the best performing model');get_ipython().run_line_magic('pinfo', 'model')
+#  6. Deployment  (5 min)
+#      * Submit result to Kaggle leaderboard     
 
-[*Adopted from Cross Industry Standard Process for Data Mining (CRISP-DM)*](http://www.sv-europe.com/crisp-dm-methodology/)
+# [*Adopted from Cross Industry Standard Process for Data Mining (CRISP-DM)*](http://www.sv-europe.com/crisp-dm-methodology/)
 
-get_ipython().system('[CripsDM](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/CRISP-DM_Process_Diagram.png/220px-CRISP-DM_Process_Diagram.png "Process diagram showing the relationship between the different phases of CRISP-DM")')
+# get_ipython().system('[CripsDM](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/CRISP-DM_Process_Diagram.png/220px-CRISP-DM_Process_Diagram.png "Process diagram showing the relationship between the different phases of CRISP-DM")')
 
 
 
@@ -182,9 +182,6 @@ plot_correlation_map( titanic )
 
 
 # Plot distributions of Age of passangers who survived or did not survive
-# 男性中，0-12年龄段中，存活率较大 ；（12-32）存活率越小；再过了一定年龄后，存活率跟年龄关系不大
-# 女性中，0-25存活率也较小；25-40 存活率较高 50以上存活率也较高
-# 30岁男性 25岁女性 70岁以上存活率都比较低
 plot_distribution( titanic , var = 'Age' , target = 'Survived' , row = 'Sex' )
 
 
@@ -192,14 +189,12 @@ plot_distribution( titanic , var = 'Age' , target = 'Survived' , row = 'Sex' )
 
 # Excersise 1
 # Plot distributions of Fare of passangers who survived or did not survive
-# fare越低，死亡率越高 100后无差别
 plot_distribution( titanic , var = 'Fare' , target = 'Survived' , row = 'Sex' )
 
 
 
 
 # Plot survival rate by Embarked
-# embark =c 存活率最高
 plot_categories( titanic , cat = 'Embarked' , target = 'Survived' )
 
 
@@ -207,7 +202,6 @@ plot_categories( titanic , cat = 'Embarked' , target = 'Survived' )
 
 # Excersise 2
 # Plot survival rate by Sex
-# 女性存活率比男性高
 plot_categories( titanic , cat = 'Sex' , target = 'Survived' )
 
 
@@ -215,7 +209,6 @@ plot_categories( titanic , cat = 'Sex' , target = 'Survived' )
 
 # Excersise 3
 # Plot survival rate by Pclass
-# 等级越高，存活率越高
 plot_categories( titanic , cat = 'Pclass' , target = 'Survived' )
 
 
@@ -223,7 +216,6 @@ plot_categories( titanic , cat = 'Pclass' , target = 'Survived' )
 
 # Excersise 4
 # Plot survival rate by SibSp
-# 亲人越多 存活率越低
 plot_categories( titanic , cat = 'SibSp' , target = 'Survived' )
 
 

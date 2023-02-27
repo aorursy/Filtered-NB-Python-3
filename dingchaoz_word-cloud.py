@@ -31,7 +31,7 @@ debate = debate.loc[debate.Date == "2016-09-26"]
 debate.Speaker.drop_duplicates()
 debate[(debate.Speaker == "CANDIDATES") & (debate.Text != "(CROSSTALK)")]
 debate[debate['Text'].str.contains("Wrong")]
-[x.count("China") for x in debate[debate['Text'].str.contains("China")].Text
+[x.count("China") for x in debate[debate['Text'].str.contains("China")].Text]
 
 
 
