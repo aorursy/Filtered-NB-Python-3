@@ -11,7 +11,7 @@ color = sns.color_palette()
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
-pd.options.mode.chained_assignment = None  # default='warn'
+# pd.options.mode.chained_assignment = None  # default='warn'
 
 
 
@@ -29,11 +29,11 @@ train_df.head()
 
 print(train_df.description[100007].split('w/'))
 print(train_df['features'][100007])
-feature_key = {'amenities':['garage', 'garden', 'fitness', 'laundry','rooftop']
-              'transit': ['1', '2', '3', '4', '5', '6', '7', 'A', 'C', 'E', 'B', 'D', 'F', 'M',
-                         'G', 'J', 'Z', 'L', 'S', 'N', 'Q', 'R', 'W']
-              'feature': ['kitchen', 'microwave', 'renovated', 'marble', 'bath tile', 'hardwood floors']
-              'fee': ['noo fee']}
+# feature_key = {'amenities':['garage', 'garden', 'fitness', 'laundry','rooftop']
+#               'transit': ['1', '2', '3', '4', '5', '6', '7', 'A', 'C', 'E', 'B', 'D', 'F', 'M',
+#                          'G', 'J', 'Z', 'L', 'S', 'N', 'Q', 'R', 'W']
+#               'feature': ['kitchen', 'microwave', 'renovated', 'marble', 'bath tile', 'hardwood floors']
+#               'fee': ['noo fee']}
 
 
 
