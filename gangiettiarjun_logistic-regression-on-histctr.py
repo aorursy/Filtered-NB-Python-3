@@ -32,15 +32,7 @@ fetch  <- function(db, query, n = -1) {
 
 # Loss-function to evaluate result
 # See https://www.kaggle.com/c/avito-context-ad-clicks/details/evaluation
-logloss <- function(y, yHat){
-  
-  threshold <- 10^(-15)
-  yHat <- pmax(pmin(yHat, 1-threshold), threshold)
-  
-  loss <- -mean(y*log(yHat) + (1-y)*log(1-yHat))
-  
-  return(loss)
-}
+
 
 # ----- Simple Machine Learning ------------------------------------------------
 

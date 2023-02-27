@@ -36,7 +36,7 @@ df = pd.read_csv("../input/database.csv",parse_dates=True)
 
 
 
-df.head().T
+df.head()
 
 
 
@@ -51,7 +51,7 @@ df['Pipeline Type'].value_counts()
 
 
 
-df.head(2).T
+df.head(2)
 
 
 
