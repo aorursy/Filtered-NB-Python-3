@@ -43,15 +43,15 @@ fruit_sales
 
 ## 3.
 
-Create a variable `ingredients` with a `pd.Series` that looks like:
+# Create a variable `ingredients` with a `pd.Series` that looks like:
 
-```
-Flour     4 cups
-Milk       1 cup
-Eggs     2 large
-Spam       1 can
-Name: Dinner, dtype: object
-```
+# ```
+# Flour     4 cups
+# Milk       1 cup
+# Eggs     2 large
+# Spam       1 can
+# Name: Dinner, dtype: object
+# ```
 
 
 

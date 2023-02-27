@@ -25,15 +25,15 @@ df = pd.DataFrame(data={'Apples':[35,41],'Bananas':[21,34]},index=['2017Sales','
 
 
 
-**Exercise 3**: Create a `Series` that looks like this:
+# **Exercise 3**: Create a `Series` that looks like this:
 
-```
-Flour     4 cups
-Milk       1 cup
-Eggs     2 large
-Spam       1 can
-Name: Dinner, dtype: object
-```
+# ```
+# Flour     4 cups
+# Milk       1 cup
+# Eggs     2 large
+# Spam       1 can
+# Name: Dinner, dtype: object
+# ```
 
 
 

@@ -177,8 +177,8 @@ df_data_1.describe()
 import numpy as np
 import png, os, pydicom
 
-source_folder = r'path\to\source'
-output_folder = r'path\to\output\folder'
+# source_folder = r'path\to\source'
+# output_folder = r'path\to\output\folder'
 
 
 def dicom2png(source_folder, output_folder):

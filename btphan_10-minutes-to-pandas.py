@@ -511,7 +511,7 @@ df["grade"].cat.categories = ["very good", "good", "very bad"]
 df["grade"] = df["grade"].cat.set_categories(["very bad", "bad", "medium", "good", "very good"])
 df["grade"]
 
-Sorting is per order in the categories, not lexical order.
+# Sorting is per order in the categories, not lexical order.
 
 
 df.sort_values(by="grade")

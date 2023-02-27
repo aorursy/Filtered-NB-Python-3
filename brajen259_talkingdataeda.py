@@ -23,7 +23,6 @@ device_data = pd.read_csv("../input/phone_brand_device_model.csv",encoding='utf-
 
 le = preprocessing.LabelEncoder()
 le.fit(device_data['phone_brand'])
-device_data['brand'] = 
 le.transform(device_data['phone_brand'])
 
 device_data['phone_brand'].value_counts()

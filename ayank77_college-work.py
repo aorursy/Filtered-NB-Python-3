@@ -145,101 +145,101 @@ print("label : ", Y_train[i,:])
 
 
 #KERAS
-from keras.models import Sequential
-from keras.layers.core import Dense, Dropout, Activation, Flatten
-from keras.layers.convolutional import Convolution2D, MaxPooling2D
-from keras.optimizers import SGD,RMSprop,adam
+# from keras.models import Sequential
+# from keras.layers.core import Dense, Dropout, Activation, Flatten
+# from keras.layers.convolutional import Convolution2D, MaxPooling2D
+# from keras.optimizers import SGD,RMSprop,adam
 
-model = Sequential()
+# model = Sequential()
 
-model.add(Convolution2D(nb_filters, nb_conv, nb_conv,
-                        border_mode='valid',
-                        input_shape=(img_cols, img_rows, 1)))
-convout1 = Activation('relu')
-model.add(convout1)
-model.add(Convolution2D(nb_filters, nb_conv, nb_conv))
-convout2 = Activation('relu')
-model.add(convout2)
-model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-model.add(Dropout(0.5))
+# model.add(Convolution2D(nb_filters, nb_conv, nb_conv,
+#                         border_mode='valid',
+#                         input_shape=(img_cols, img_rows, 1)))
+# convout1 = Activation('relu')
+# model.add(convout1)
+# model.add(Convolution2D(nb_filters, nb_conv, nb_conv))
+# convout2 = Activation('relu')
+# model.add(convout2)
+# model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+# model.add(Dropout(0.5))
 
-model.add(Flatten())
-model.add(Dense(128))
-model.add(Activation('relu'))
-model.add(Dropout(0.5))
-model.add(Dense(nb_classes))
-model.add(Activation('softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adadelta')#KERAS
-from keras.models import Sequential
-from keras.layers.core import Dense, Dropout, Activation, Flatten
-from keras.layers.convolutional import Convolution2D, MaxPooling2D
-from keras.optimizers import SGD,RMSprop,adam
+# model.add(Flatten())
+# model.add(Dense(128))
+# model.add(Activation('relu'))
+# model.add(Dropout(0.5))
+# model.add(Dense(nb_classes))
+# model.add(Activation('softmax'))
+# model.compile(loss='categorical_crossentropy', optimizer='adadelta')#KERAS
+# from keras.models import Sequential
+# from keras.layers.core import Dense, Dropout, Activation, Flatten
+# from keras.layers.convolutional import Convolution2D, MaxPooling2D
+# from keras.optimizers import SGD,RMSprop,adam
 
-model = Sequential()
+# model = Sequential()
 
-model.add(Convolution2D(nb_filters, nb_conv, nb_conv,
-                        border_mode='valid',
-                        input_shape=(img_cols, img_rows, 1)))
-convout1 = Activation('relu')
-model.add(convout1)
-model.add(Convolution2D(nb_filters, nb_conv, nb_conv))
-convout2 = Activation('relu')
-model.add(convout2)
-model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-model.add(Dropout(0.5))
+# model.add(Convolution2D(nb_filters, nb_conv, nb_conv,
+#                         border_mode='valid',
+#                         input_shape=(img_cols, img_rows, 1)))
+# convout1 = Activation('relu')
+# model.add(convout1)
+# model.add(Convolution2D(nb_filters, nb_conv, nb_conv))
+# convout2 = Activation('relu')
+# model.add(convout2)
+# model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+# model.add(Dropout(0.5))
 
-model.add(Flatten())
-model.add(Dense(128))
-model.add(Activation('relu'))
-model.add(Dropout(0.5))
-model.add(Dense(nb_classes))
-model.add(Activation('softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adadelta')
-
-
-
-
-from IPython.display import SVG
-from keras.utils.vis_utils import model_to_dot
-
-SVG(model_to_dot(model).create(prog='dot', format='svg'))
+# model.add(Flatten())
+# model.add(Dense(128))
+# model.add(Activation('relu'))
+# model.add(Dropout(0.5))
+# model.add(Dense(nb_classes))
+# model.add(Activation('softmax'))
+# model.compile(loss='categorical_crossentropy', optimizer='adadelta')
 
 
 
 
-from pydot import pydot.Graph
-import graphviz
-from keras.utils import plot_model
-plot_model(model, to_file='model.png')
+# from IPython.display import SVG
+# from keras.utils.vis_utils import model_to_dot
+
+# SVG(model_to_dot(model).create(prog='dot', format='svg'))
 
 
 
 
-from keras.preprocessing.image import ImageDataGenerator
-
-# create generators  - training data will be augmented images
-validationdatagenerator = ImageDataGenerator()
-traindatagenerator = ImageDataGenerator(width_shift_range=0.1,height_shift_range=0.1,rotation_range=15,zoom_range=0.1 )
-
-batchsize=8
-train_generator=traindatagenerator.flow(X_train, Y_train, batch_size=batchsize) 
-validation_generator=validationdatagenerator.flow(X_test, Y_test,batch_size=batchsize)
+# from pydot import pydot.Graph
+# import graphviz
+# from keras.utils import plot_model
+# plot_model(model, to_file='model.png')
 
 
 
 
-#hist = model.fit(X_train, Y_train, batch_size=batch_size, nb_epoch=nb_epoch, verbose=1, validation_data=(X_test, Y_test))
+# from keras.preprocessing.image import ImageDataGenerator
 
-model.fit_generator(train_generator, steps_per_epoch=int(len(X_train)/batchsize), epochs=3, validation_data=validation_generator, validation_steps=int(len(X_test)/batchsize))
+# # create generators  - training data will be augmented images
+# validationdatagenerator = ImageDataGenerator()
+# traindatagenerator = ImageDataGenerator(width_shift_range=0.1,height_shift_range=0.1,rotation_range=15,zoom_range=0.1 )
 
-#hist = model.fit(X_train, Y_train, batch_size=batch_size, nb_epoch=nb_epoch,
-#              show_accuracy=True, verbose=1, validation_split=0.2)
+# batchsize=8
+# train_generator=traindatagenerator.flow(X_train, Y_train, batch_size=batchsize) 
+# validation_generator=validationdatagenerator.flow(X_test, Y_test,batch_size=batchsize)
 
 
 
 
-score = model.evaluate(X_test, Y_test, verbose=0)
-print(score)
+# #hist = model.fit(X_train, Y_train, batch_size=batch_size, nb_epoch=nb_epoch, verbose=1, validation_data=(X_test, Y_test))
+
+# model.fit_generator(train_generator, steps_per_epoch=int(len(X_train)/batchsize), epochs=3, validation_data=validation_generator, validation_steps=int(len(X_test)/batchsize))
+
+# #hist = model.fit(X_train, Y_train, batch_size=batch_size, nb_epoch=nb_epoch,
+# #              show_accuracy=True, verbose=1, validation_split=0.2)
+
+
+
+
+# score = model.evaluate(X_test, Y_test, verbose=0)
+# print(score)
 
 
 

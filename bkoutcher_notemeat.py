@@ -24,16 +24,5 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 # Returns the matches that have valid players.
 # Guarantees that there are AT LEAST the specified number of
 # valid players (num_players) for both the Home and Away team.
-find_non_null_matches <- function(matches, num_players) {
-if (num_players <= 11 && num_players > 0) {
-non_null_matches = matches
-for (i in c(1:num_players)) {
-non_null_matches = non_null_matches[which((non_null_matches[,(55+i)] != "NA")
-& (non_null_matches[,(66+i)] != "NA")),]
-}
-return (non_null_matches)
-} else {
-return (matches)
-}
-}
+# 
 

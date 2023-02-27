@@ -39,17 +39,17 @@ client.list_rows(table, max_results=5).to_dataframe()
 
 ### 1) Prolific commenters
 
-Hacker News would like to send awards to everyone who has written more than 10,000 posts. Write a query that returns all authors with more than 10,000 posts as well as their post counts. Call the column with post counts `NumPosts`.
+# Hacker News would like to send awards to everyone who has written more than 10,000 posts. Write a query that returns all authors with more than 10,000 posts as well as their post counts. Call the column with post counts `NumPosts`.
 
-In case sample query is helpful, here is a query you saw in the tutorial to answer a similar question:
-```
+# In case sample query is helpful, here is a query you saw in the tutorial to answer a similar question:
+# ```
 query = """
         SELECT parent, COUNT(1) AS NumPosts
         FROM `bigquery-public-data.hacker_news.comments`
         GROUP BY parent
         HAVING COUNT(1) > 10
         """
-```
+# ```
 
 
 

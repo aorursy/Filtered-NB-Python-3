@@ -51,7 +51,7 @@ reviews.loc[0:10,'description']
 
 
 
-Select the first 10 values from the description column of reviews
+# Select the first 10 values from the description column of reviews
 
 
 
