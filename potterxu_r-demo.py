@@ -1,12 +1,10 @@
 #lapply(train,class)
-train$date_first_active<-substr(train$timestamp_first_active,1,8)
 head(train)
 
 qplot(gender,data=train,fill=gender,geom="bar")+facet_grid(.~country_destination,scales="free")
 
 
-qplot(first_affiliate_tracked,data=train,fill=first_affiliate_tracked,geom="bar")+
-facet_grid(.~country_destination,scales="free")
+qplot(first_affiliate_tracked,data=train,fill=first_affiliate_tracked,geom="bar")
 
 
 

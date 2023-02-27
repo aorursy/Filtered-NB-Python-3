@@ -19,8 +19,6 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 # Any results you write to the current directory are saved as output.
 
 
-
-
 train_data_dir = './data/train'
 validation_data_dir = './data/validation'
 
@@ -34,8 +32,6 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D, ZeroPadding2D
 from keras.layers import Activation, Dropout, Flatten, Dense
-
-
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -88,20 +84,6 @@ vgg_mean = np.array([123.68, 116.779, 103.939], dtype=np.float32).reshape((3,1,1
 def vgg_preprocess(x):
     x = x - vgg_mean
     return x[:, ::-1] # reverse axis rgb->bgr
-
-
-
-
-
-
-
-
-
-
-def pre_process()
-
-
-
 
 import h5py
 from keras import backend as K
