@@ -20,20 +20,20 @@ print(gatrain.shape[0])
 
 gatest.shape[0] - gatest.device_id.nunique()
 
-None, great.
+# None, great.
 
 ### Age and gender distributions
 
-Counts of target groups
+# Counts of target groups
 
 print(gatrain.group.value_counts().sort_index(ascending=False))
 
 gatrain.group.value_counts().sort_index(ascending=False).plot(kind='barh')
 
-Age distribution, lines denote target groups.
+# Age distribution, lines denote target groups.
 
 c = gatrain.groupby(['age','gender']).size().unstack().reindex(index=np.arange(gatrain.age.min(), gatrain.age.max()+1)).fillna(0)
-ax1, ax2 = c.plot(kind='bar',figsize=(12,6),subplots=True);
+ax1, ax2 = c.plot(kind='bar',figsize=(12,6),subplots=True)
 ax1.vlines(np.array([23,26,28,32,42])-0.5,0,1800,alpha=0.5,linewidth=1,color='r')
 ax2.vlines(np.array([22,26,28,31,38])-0.5,0,3000,alpha=0.5,linewidth=1,color='r')
 

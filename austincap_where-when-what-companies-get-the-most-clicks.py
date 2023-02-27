@@ -252,5 +252,5 @@ plot_learning_curve(clf, title, X.as_matrix(), y, ylim=(0.7, 1.01), cv=cvx, n_jo
 
 
 
-I seem to get an accuracy of about 0.82 no matter which algorithm I use.
+# I seem to get an accuracy of about 0.82 no matter which algorithm I use.
 

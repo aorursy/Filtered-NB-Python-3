@@ -1,8 +1,4 @@
 
-ls ../input
-
-cat ../input/NationalNames.csv | head 
-
 import pandas as pd
 
 NationalNames = pd.read_csv('../input/NationalNames.csv')

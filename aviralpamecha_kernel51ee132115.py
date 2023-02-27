@@ -38,29 +38,6 @@ from matplotlib.image import imread
 from google.colab import drive
 drive.mount('/content/drive')
 
-
-
-
-pwd
-
-
-
-
-ls
-
-
-
-
-cd ..
-
-
-
-
-cd input/global-wheat-detection
-
-
-
-
 train = pd.read_csv('train.csv')
 
 
@@ -161,10 +138,6 @@ train.drop('height', axis=1, inplace=True)
 
 
 
-pwd
-
-
-
 
 data_dir = '/kaggle/input/global-wheat-detection'
 
@@ -189,10 +162,6 @@ test_path = data_dir + '/test/'
 
 a = os.listdir(test_path)[0]
 
-
-
-
-a
 
 
 
@@ -334,10 +303,6 @@ resnet_custom_model = output_custom_model(ResNet50)
 
 
 
-pwd
-
-
-
 
 test = pd.read_csv('sample_submission.csv')
 
@@ -347,9 +312,6 @@ test = pd.read_csv('sample_submission.csv')
 test.head()
 
 
-
-
-cd ../weights
 
 
 
@@ -407,11 +369,6 @@ SC_FACTOR = int(1024 / IMG_WIDTH)
 
 
 from tqdm.notebook import tqdm
-
-
-
-
-cd ../global-wheat-detection
 
 
 
@@ -533,13 +490,6 @@ sample_sub
 
 
 
-
-cd ..
-
-
-
-
-cd ../working
 
 
 

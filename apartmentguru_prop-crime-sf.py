@@ -19,7 +19,7 @@ sf_features_train = pd.read_csv("../input/train.csv")
 sf_features_train.head()
 
 
-sf_features_train.head()describe
+# sf_features_train.head()describe
 
 
 sf_features_train.describe

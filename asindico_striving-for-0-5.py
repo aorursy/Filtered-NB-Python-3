@@ -167,7 +167,7 @@ min_max_scaler = preprocessing.MinMaxScaler()
 np_scaled = min_max_scaler.fit_transform(ps)
 df_normalized = pd.DataFrame(np_scaled)
 df_normalized.shape
-pcall = pd.concat([ps,pdf,axis=1)
+pcall = pd.concat([ps,pdf,axis=1])
 
 
 
