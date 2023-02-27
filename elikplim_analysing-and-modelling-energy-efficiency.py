@@ -48,7 +48,7 @@ numpy.random.seed(seed)
 
 
 # load dataset
-dataframe = pandas.read_csv(r"../input/ENB2012_data.csv")
+# dataframe = pandas.read_csv(r"../input/ENB2012_data.csv")
 
 # Assign names to Columns
 dataframe.columns = ['relative_compactness', 'surface_area', 'wall_area', 'roof_area', 'overall_height', 'orientation', 'glazing_area', 'glazing_area_distribution', 'heating_load', 'cooling_load']

@@ -27,21 +27,9 @@ os.listdir("../")
 
 
 
-pwd
-
-
-
 
 basepath = '../input/train/'
 os.listdir(basepath)
-
-
-
-
-cd '../input/train/'
-
-
-
 
 os.listdir()
 
@@ -70,7 +58,4 @@ all_cervix_images[0]
 os.listdir('./Type_1')
 
 
-
-
-pwd
 
