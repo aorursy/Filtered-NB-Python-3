@@ -29,11 +29,11 @@ train_df.head()
 
 print(train_df.description[100007].split('w/'))
 print(train_df['features'][100007])
-# feature_key = {'amenities':['garage', 'garden', 'fitness', 'laundry','rooftop']
-#               'transit': ['1', '2', '3', '4', '5', '6', '7', 'A', 'C', 'E', 'B', 'D', 'F', 'M',
-#                          'G', 'J', 'Z', 'L', 'S', 'N', 'Q', 'R', 'W']
-#               'feature': ['kitchen', 'microwave', 'renovated', 'marble', 'bath tile', 'hardwood floors']
-#               'fee': ['noo fee']}
+feature_key = {'amenities':['garage', 'garden', 'fitness', 'laundry','rooftop']
+              'transit': ['1', '2', '3', '4', '5', '6', '7', 'A', 'C', 'E', 'B', 'D', 'F', 'M',
+                         'G', 'J', 'Z', 'L', 'S', 'N', 'Q', 'R', 'W']
+              'feature': ['kitchen', 'microwave', 'renovated', 'marble', 'bath tile', 'hardwood floors']
+              'fee': ['noo fee']}
 
 
 
@@ -143,148 +143,148 @@ plt.show()
 
 
 
-# from mpl_toolkits.basemap import Basemap
-# from matplotlib import cm
+from mpl_toolkits.basemap import Basemap
+from matplotlib import cm
 
-# west, south, east, north = -74.02, 40.64, -73.85, 40.86
+west, south, east, north = -74.02, 40.64, -73.85, 40.86
 
-# fig = plt.figure(figsize=(14,10))
-# ax = fig.add_subplot(111)
-# m = Basemap(projection='merc', llcrnrlat=south, urcrnrlat=north,
-#             llcrnrlon=west, urcrnrlon=east, lat_ts=south, resolution='i')
-# x, y = m(train_df['longitude'].values, train_df['latitude'].values)
-# m.hexbin(x, y, gridsize=200,
-#          bins='log', cmap=cm.YlOrRd_r);
-
-
-
-
-# train_df["created"] = pd.to_datetime(train_df["created"])
-# train_df["date_created"] = train_df["created"].dt.date
-# cnt_srs = train_df['date_created'].value_counts()
-
-
-# plt.figure(figsize=(12,4))
-# ax = plt.subplot(111)
-# ax.bar(cnt_srs.index, cnt_srs.values, alpha=0.8)
-# ax.xaxis_date()
-# plt.xticks(rotation='vertical')
-# plt.show()
+fig = plt.figure(figsize=(14,10))
+ax = fig.add_subplot(111)
+m = Basemap(projection='merc', llcrnrlat=south, urcrnrlat=north,
+            llcrnrlon=west, urcrnrlon=east, lat_ts=south, resolution='i')
+x, y = m(train_df['longitude'].values, train_df['latitude'].values)
+m.hexbin(x, y, gridsize=200,
+         bins='log', cmap=cm.YlOrRd_r);
 
 
 
 
-# test_df["created"] = pd.to_datetime(test_df["created"])
-# test_df["date_created"] = test_df["created"].dt.date
-# cnt_srs = test_df['date_created'].value_counts()
-
-# plt.figure(figsize=(12,4))
-# ax = plt.subplot(111)
-# ax.bar(cnt_srs.index, cnt_srs.values, alpha=0.8)
-# ax.xaxis_date()
-# plt.xticks(rotation='vertical')
-# plt.show()
+train_df["created"] = pd.to_datetime(train_df["created"])
+train_df["date_created"] = train_df["created"].dt.date
+cnt_srs = train_df['date_created'].value_counts()
 
 
-
-
-# train_df["hour_created"] = train_df["created"].dt.hour
-# cnt_srs = train_df['hour_created'].value_counts()
-
-# plt.figure(figsize=(12,6))
-# sns.barplot(cnt_srs.index, cnt_srs.values, alpha=0.8, color=color[3])
-# plt.xticks(rotation='vertical')
-# plt.show()
+plt.figure(figsize=(12,4))
+ax = plt.subplot(111)
+ax.bar(cnt_srs.index, cnt_srs.values, alpha=0.8)
+ax.xaxis_date()
+plt.xticks(rotation='vertical')
+plt.show()
 
 
 
 
-# cnt_srs = train_df.groupby('display_address')['display_address'].count()
+test_df["created"] = pd.to_datetime(test_df["created"])
+test_df["date_created"] = test_df["created"].dt.date
+cnt_srs = test_df['date_created'].value_counts()
 
-# for i in [2, 10, 50, 100, 500]:
-#     print('Display_address that appear less than {} times: {}%'.format(i, round((cnt_srs < i).mean() * 100, 2)))
-
-# plt.figure(figsize=(12, 6))
-# plt.hist(cnt_srs.values, bins=100, log=True, alpha=0.9)
-# plt.xlabel('Number of times display_address appeared', fontsize=12)
-# plt.ylabel('log(Count)', fontsize=12)
-# plt.show()
-
-
-
-
-# train_df["num_photos"] = train_df["photos"].apply(len)
-# cnt_srs = train_df['num_photos'].value_counts()
-
-# plt.figure(figsize=(12,6))
-# sns.barplot(cnt_srs.index, cnt_srs.values, alpha=0.8)
-# plt.xlabel('Number of Photos', fontsize=12)
-# plt.ylabel('Number of Occurrences', fontsize=12)
-# plt.show()
+plt.figure(figsize=(12,4))
+ax = plt.subplot(111)
+ax.bar(cnt_srs.index, cnt_srs.values, alpha=0.8)
+ax.xaxis_date()
+plt.xticks(rotation='vertical')
+plt.show()
 
 
 
 
-# train_df['num_photos'].ix[train_df['num_photos']>12] = 12
-# plt.figure(figsize=(12,6))
-# sns.violinplot(x="num_photos", y="interest_level", data=train_df, order =['low','medium','high'])
-# plt.xlabel('Number of Photos', fontsize=12)
-# plt.ylabel('Interest Level', fontsize=12)
-# plt.show()
+train_df["hour_created"] = train_df["created"].dt.hour
+cnt_srs = train_df['hour_created'].value_counts()
+
+plt.figure(figsize=(12,6))
+sns.barplot(cnt_srs.index, cnt_srs.values, alpha=0.8, color=color[3])
+plt.xticks(rotation='vertical')
+plt.show()
 
 
 
 
-# train_df["num_features"] = train_df["features"].apply(len)
-# cnt_srs = train_df['num_features'].value_counts()
+cnt_srs = train_df.groupby('display_address')['display_address'].count()
 
-# plt.figure(figsize=(12,6))
-# sns.barplot(cnt_srs.index, cnt_srs.values, alpha=0.8)
-# plt.ylabel('Number of Occurrences', fontsize=12)
-# plt.xlabel('Number of features', fontsize=12)
-# plt.show()
+for i in [2, 10, 50, 100, 500]:
+    print('Display_address that appear less than {} times: {}%'.format(i, round((cnt_srs < i).mean() * 100, 2)))
 
-
-
-
-# train_df['num_features'].ix[train_df['num_features']>17] = 17
-# plt.figure(figsize=(12,10))
-# sns.violinplot(y="num_features", x="interest_level", data=train_df, order =['low','medium','high'])
-# plt.xlabel('Interest Level', fontsize=12)
-# plt.ylabel('Number of features', fontsize=12)
-# plt.show()
+plt.figure(figsize=(12, 6))
+plt.hist(cnt_srs.values, bins=100, log=True, alpha=0.9)
+plt.xlabel('Number of times display_address appeared', fontsize=12)
+plt.ylabel('log(Count)', fontsize=12)
+plt.show()
 
 
 
 
-# from wordcloud import WordCloud
+train_df["num_photos"] = train_df["photos"].apply(len)
+cnt_srs = train_df['num_photos'].value_counts()
 
-# text = ''
-# text_da = ''
-# text_desc = ''
-# for ind, row in train_df.iterrows():
-#     for feature in row['features']:
-#         text = " ".join([text, "_".join(feature.strip().split(" "))])
-#     text_da = " ".join([text_da,"_".join(row['display_address'].strip().split(" "))])
-#     #text_desc = " ".join([text_desc, row['description']])
-# text = text.strip()
-# text_da = text_da.strip()
-# text_desc = text_desc.strip()
+plt.figure(figsize=(12,6))
+sns.barplot(cnt_srs.index, cnt_srs.values, alpha=0.8)
+plt.xlabel('Number of Photos', fontsize=12)
+plt.ylabel('Number of Occurrences', fontsize=12)
+plt.show()
 
-# plt.figure(figsize=(12,6))
-# wordcloud = WordCloud(background_color='white', width=600, height=300, max_font_size=50, max_words=40).generate(text)
-# wordcloud.recolor(random_state=0)
-# plt.imshow(wordcloud)
-# plt.title("Wordcloud for features", fontsize=30)
-# plt.axis("off")
-# plt.show()
 
-# # wordcloud for display address
-# plt.figure(figsize=(12,6))
-# wordcloud = WordCloud(background_color='white', width=600, height=300, max_font_size=50, max_words=40).generate(text_da)
-# wordcloud.recolor(random_state=0)
-# plt.imshow(wordcloud)
-# plt.title("Wordcloud for Display Address", fontsize=30)
-# plt.axis("off")
-# plt.show()
+
+
+train_df['num_photos'].ix[train_df['num_photos']>12] = 12
+plt.figure(figsize=(12,6))
+sns.violinplot(x="num_photos", y="interest_level", data=train_df, order =['low','medium','high'])
+plt.xlabel('Number of Photos', fontsize=12)
+plt.ylabel('Interest Level', fontsize=12)
+plt.show()
+
+
+
+
+train_df["num_features"] = train_df["features"].apply(len)
+cnt_srs = train_df['num_features'].value_counts()
+
+plt.figure(figsize=(12,6))
+sns.barplot(cnt_srs.index, cnt_srs.values, alpha=0.8)
+plt.ylabel('Number of Occurrences', fontsize=12)
+plt.xlabel('Number of features', fontsize=12)
+plt.show()
+
+
+
+
+train_df['num_features'].ix[train_df['num_features']>17] = 17
+plt.figure(figsize=(12,10))
+sns.violinplot(y="num_features", x="interest_level", data=train_df, order =['low','medium','high'])
+plt.xlabel('Interest Level', fontsize=12)
+plt.ylabel('Number of features', fontsize=12)
+plt.show()
+
+
+
+
+from wordcloud import WordCloud
+
+text = ''
+text_da = ''
+text_desc = ''
+for ind, row in train_df.iterrows():
+    for feature in row['features']:
+        text = " ".join([text, "_".join(feature.strip().split(" "))])
+    text_da = " ".join([text_da,"_".join(row['display_address'].strip().split(" "))])
+    #text_desc = " ".join([text_desc, row['description']])
+text = text.strip()
+text_da = text_da.strip()
+text_desc = text_desc.strip()
+
+plt.figure(figsize=(12,6))
+wordcloud = WordCloud(background_color='white', width=600, height=300, max_font_size=50, max_words=40).generate(text)
+wordcloud.recolor(random_state=0)
+plt.imshow(wordcloud)
+plt.title("Wordcloud for features", fontsize=30)
+plt.axis("off")
+plt.show()
+
+# wordcloud for display address
+plt.figure(figsize=(12,6))
+wordcloud = WordCloud(background_color='white', width=600, height=300, max_font_size=50, max_words=40).generate(text_da)
+wordcloud.recolor(random_state=0)
+plt.imshow(wordcloud)
+plt.title("Wordcloud for Display Address", fontsize=30)
+plt.axis("off")
+plt.show()
 
