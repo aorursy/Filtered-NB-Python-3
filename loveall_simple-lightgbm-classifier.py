@@ -186,7 +186,7 @@ for i, j in enumerate(col):
     print('predicting for :' +j)
     preds[:,i] = bst.predict(countvec_df_test_)
 
-print('Fininshed Training)
+print('Fininshed Training')
 
 
 

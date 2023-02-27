@@ -39,11 +39,6 @@ def ConvBlock(layers, model, filters):
 
 
 
-Untitled Folderdef FCBlock(model):
-    model.add(Dense(4096, activation='relu'))
-    model.add(Dropout(0.5))
-
-
 
 
 # Mean of each channel as provided by VGG researchers

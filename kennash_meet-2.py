@@ -24,7 +24,7 @@ print(os.listdir("../input"))
 print("Hello, World")
 
 if 10 > 1:
-print("10 is greater")
+    print("10 is greater")
 
 print("Hello")
 print("World")

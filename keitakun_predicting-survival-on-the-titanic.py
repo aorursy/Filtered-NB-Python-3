@@ -43,8 +43,6 @@ for col in train.columns:
     
    
 print (train.Cabin.unique())
-print ("-"*40)
-print (train.)
     
 #train[train['Cabin'].str.contains("NaN")==True] #can only .str an object typed data
 ##df[df['A'].str.contains("Hello|Britain")==True]

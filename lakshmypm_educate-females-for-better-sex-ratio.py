@@ -27,5 +27,5 @@ for i, col in enumerate(feature_female.columns):
 
 
 
-The above graphs clearly shows that the better sex ratios can only be achieved by educating the females.
+# The above graphs clearly shows that the better sex ratios can only be achieved by educating the females.
 

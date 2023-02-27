@@ -2,17 +2,6 @@
 # coding: utf-8
 
 
-
-cd ../input
-
-
-
-
-ls 
-
-
-
-
 import pandas as pd
 import numpy as np
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -240,28 +229,14 @@ train2.corr()
 
 
 
-ls
-
-
-
 
 train2.head()
 
 
 
 
-ls ../
-
-
-
 
 train2.head() 
-
-
-
-
-ls ../
-
 
 
 
@@ -337,14 +312,6 @@ test.columns[test.isnull().any()]
 
 # there are 33 missing values in a column called 'producty_type'
 len(test[test['product_type'].isnull()])
-
-
-
-
-ls
-
-
-
 
 train2.head()
 

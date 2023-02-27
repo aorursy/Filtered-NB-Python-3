@@ -19,13 +19,6 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 # Any results you write to the current directory are saved as output.
 
 
-
-
-ls
-
-
-
-
 x= pd.read_csv('../input/train.csv')
 x
 
@@ -33,7 +26,6 @@ x
 
 
 for i in x:
-    
     if i['question1'] is i['question2']
         print ("ki")
 

@@ -16,10 +16,6 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
 
 
-ls -lh ../input
-
-
-
 
 clicks_test=pd.read_csv('../input/clicks_test.csv')
 

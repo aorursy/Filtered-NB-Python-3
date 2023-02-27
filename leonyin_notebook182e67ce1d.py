@@ -65,9 +65,6 @@ skewed_feats.indexskewed_feats.index
 
 
 
-skewed_feats.
-
-
 
 
 

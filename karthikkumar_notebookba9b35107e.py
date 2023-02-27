@@ -13,7 +13,6 @@ library(readr) # CSV file I/O, e.g. the read_csv function
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
-system("ls ../input")
 
 # Any results you write to the current directory are saved as output.
 
@@ -23,15 +22,4 @@ system("ls ../input")
 import tensorflow as tf
 
 from tensorflow.examples.tutorials.mnsit import input_data
-msnit = input_data.read_data_sets("MNSIT_data"/, one_hot = True)
-
-
-
-
-
-
-
-
-
-
-
+# msnit = input_data.read_data_sets("MNSIT_data"/, one_hot = True)

@@ -167,7 +167,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
             ('pca', PCA(n_components=2)),
-            ('clf', LogisticRegression(penalty='l2', random_state=1))])
+            ('clf', LogisticRegression(penalty='l2', random_state=1))
 #although l2 regularisation specified, this is the default set anyway. C parameter uses a default of 1
 
 
@@ -316,7 +316,7 @@ plt.show()
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 
-            ('clf', SVC(random_state=1))])
+            ('clf', SVC(random_state=1))
 
 param_range = [0.01, 0.1, 1.0, 10.0, 100.0]
 
@@ -405,8 +405,8 @@ print(gs.best_params_)
 
 
 
-Clearly Decision Trees is the winner here with 3 features # 'Age','no_employees','comments'
-svm is marginally better with 4 features # 'Age','Gender','no_employees','comments'
+# Clearly Decision Trees is the winner here with 3 features # 'Age','no_employees','comments'
+# svm is marginally better with 4 features # 'Age','Gender','no_employees','comments'
 
 
 
