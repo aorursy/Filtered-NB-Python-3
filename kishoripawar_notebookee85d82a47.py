@@ -26,7 +26,7 @@ x
 
 
 for i in x:
-    if i['question1'] is i['question2']
+    if i['question1'] is i['question2']:
         print ("ki")
 
 
