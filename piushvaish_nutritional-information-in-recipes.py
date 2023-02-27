@@ -93,7 +93,7 @@ print ("Features with missing values:\n{}\n\n" .format(missing_values))
 
 
 
-Calories, protein, fat and sodium have almost same missing values. Let us explore these.
+# Calories, protein, fat and sodium have almost same missing values. Let us explore these.
 
 
 
@@ -109,7 +109,7 @@ caloriesNan
 
 
 
-sns.kdeplot(df['calories'], shade=True);
+sns.kdeplot(df['calories'], shade=True)
 
 
 
@@ -178,7 +178,7 @@ print(df.skew())
 
 
 
-**Will there be any correlation between Nutrition features**
+# **Will there be any correlation between Nutrition features**
 
 
 

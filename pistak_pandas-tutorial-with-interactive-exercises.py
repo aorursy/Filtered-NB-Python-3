@@ -144,15 +144,11 @@ poke.columns
 
 
 # Only common means non-legendary :)
-only_common = # fill in poke[poke['']]
-only_common
 
 
 
 
 # Finish subset of DataFrame using condition so that only pokemon that don't have Mega in their name are selected (hint: ~)
-no_mega = # finish the subset ['Name'].str.contains('Mega ')
-no_mega.head()
 
 
 
@@ -165,15 +161,11 @@ poke['Number'].groupby(poke['Number']).count().sort_values(ascending=False)
 
 
 # Finish the subset
-nodup_poke =  # .drop_duplicates('Number', keep='first', inplace=False)
-nodup_poke.head()
 
 
 
 
 # Reindex the dataframe, so the first index is 0 and the last is n-1
-nodup_poke.reset_index(inplace=True, drop=True)
-nodup_poke.head()
 
 
 
@@ -215,8 +207,6 @@ top5_poke
 
 
 # Which pokemon generation has the biggest average total stats?
-generation_comparison = # generation and total columns. groupby column. aggregation function. sort function by value
-generation_comparison
 
 
 
@@ -230,7 +220,7 @@ pikachu_type
 
 # How strong is Pikachu among pokemon of the same type? Hint: debugging
 pikachu_rank = nodup_poke[nodup_poke['Type 1'] == pikachu_type].sort_values();
-pikachu_rank;
+pikachu_rank
 
 
 

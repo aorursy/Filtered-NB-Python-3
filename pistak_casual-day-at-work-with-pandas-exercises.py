@@ -21,7 +21,6 @@ Image('http://media.indiedb.com/images/articles/1/211/210412/kickstarter-logo-wh
 
 
 # go for it :)
-ks = #
 ks.head(3)
 
 
@@ -75,7 +74,6 @@ clean_subset.head(3)
 
 
 # also, rename the column 'by' to column 'author'
-clean_subset = #
 clean_subset.head(3)
 
 
@@ -89,7 +87,6 @@ type(clean_subset['amt_pledged'][0])
 
 
 # create a column for average contribution by user
-clean_subset['avg_contribution'] = #
 clean_subset.head(3)
 
 
@@ -102,9 +99,9 @@ get_ipython().run_line_magic('pinfo2', 'pd.DataFrame.idxmax')
 
 # there is more than 1 currency used, but we would like to make the amount comparable,
 # so convert it all to the currency that is the most common
-most_common_currency = #
+
 # translate to python: group by currency, count frequency, use .idxmax() in the end
-most_common_currency
+
 
 
 
@@ -135,21 +132,20 @@ get_ipython().run_line_magic('pinfo2', 'pd.merge')
 
 
 
-clean_currencies = #
+
 clean_currencies[clean_currencies['currency'] != 'usd'].tail(3)
 
 
 
 
-clean_currencies['usd_pledged'] = #
-clean_currencies.head(3)
+
 
 
 
 
 # you're all alone here :)
 # resulting data frame should contain 2 new columns: conversion rates for each currency, converted amount in USD
- # use series.map(lookup function) to series
+# use series.map(lookup function) to series
 
 
 
@@ -161,7 +157,6 @@ clean_currencies['avg_contribution'] = clean_currencies['usd_pledged'] / clean_c
 
 # get value behind the last comma in the column location and trim off the left space in the resulting string. regex somebody?
 # or create a list of elements in location. Elements are split by coma
-country_list = #
 # strip is needed, because the country contains space on the left side of string
 country_list[0][-1].strip()
 
@@ -190,7 +185,6 @@ most_common_currency.sort_values(ascending=False)
 
 # Are there people, that start multiple succesfull funds or it is not common?
 # yep, we can answer this, use groupby
-multiple_campaigns = 
 type(multiple_campaigns)
 
 
@@ -220,8 +214,6 @@ more_than_one/len(multiple_campaigns)
 
 # What type of products are sold this way, what type of industry is the most successful on kickstarter 
 # (fun, games, free time, culture, music, paintings, books, gadgets, etc.)
-industry_frequency = #
-industry_frequency
 
 
 
@@ -240,9 +232,8 @@ avg_back_industry
 
 
 # target group that is successful in getting funds in crowdfunding campaigns 
-category_sum = # fill in from different side :) .sum().sort_values(by='usd_pledged', ascending=0)
+# fill in from different side :) .sum().sort_values(by='usd_pledged', ascending=0)
 # Tip - use different aggragation function than before
-category_sum
 
 
 
