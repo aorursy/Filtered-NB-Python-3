@@ -233,7 +233,7 @@ ref_stds = [np.std(ref_colors[i]) for i in range(3)]
 
 
 
-And now, we have a function that can calibrate any raw image reasonably well:
+# And now, we have a function that can calibrate any raw image reasonably well:
 
 
 
@@ -298,7 +298,7 @@ for i in range(len(sampled_images)):
 
 
 
-You might want to rotate, flip, or otherwise modify the images for training purposes. Note that the dimensions of the image changes:
+# You might want to rotate, flip, or otherwise modify the images for training purposes. Note that the dimensions of the image changes:
 
 
 

@@ -23,7 +23,6 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 
 data = pd.read_csv('../input/train.csv')
 data.head()
-data.
 
 
 

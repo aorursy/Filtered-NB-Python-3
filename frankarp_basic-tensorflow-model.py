@@ -1,7 +1,7 @@
 # This Python 3 environment comes with many helpful analytics libraries installed
 # It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
 # For example, here's several helpful packages to load in 
-www.kaggle.com/c/4986/scripts/notebook
+# www.kaggle.com/c/4986/scripts/notebook
 
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
@@ -91,7 +91,5 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Create second complementary column at position 0
 y_train_2cols = np.array(list(zip((1 - y_train).values, y_train.values)))
-
--
 
 

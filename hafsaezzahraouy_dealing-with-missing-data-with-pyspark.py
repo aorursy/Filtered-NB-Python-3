@@ -83,7 +83,7 @@ msno.heatmap(df.toPandas())
 #describe correlation by groupoing variables
 msno.dendrogram(df.toPandas())
 
-here we can drop the Glucose and BMI columns because there is no correlation with other columns and just few values are missing=> MCAR (Missing Completely At Random)
+# here we can drop the Glucose and BMI columns because there is no correlation with other columns and just few values are missing=> MCAR (Missing Completely At Random)
 
 
 noMissing=df.dropna(how='any',subset=['Glucose','BMI','Diastolic_BP'])
@@ -114,28 +114,28 @@ from sklearn.impute import SimpleImputer
 
 noMissing_mean = noMissing.toPandas().copy(deep=True)
 mean_imputer = SimpleImputer(strategy='mean')
-noMissing_mean.iloc[:, :] = mean_imputer.fit_transform(noMissing_mean)
+
 
 
 
 
 noMissing_median = noMissing.toPandas().copy(deep=True)
 mean_imputer = SimpleImputer(strategy='median')
-noMissing_median.iloc[:, :] = mean_imputer.fit_transform(noMissing_median)
+
 
 
 
 
 noMissing_fq = noMissing.toPandas().copy(deep=True)
 mean_imputer = SimpleImputer(strategy='most_frequent')
-noMissing_fq.iloc[:, :] = mean_imputer.fit_transform(noMissing_fq)
+
 
 
 
 
 noMissing_cst = noMissing.toPandas().copy(deep=True)
 mean_imputer = SimpleImputer(strategy='constant',fill_value=0)
-noMissing_cst.iloc[:, :] = mean_imputer.fit_transform(noMissing_cst)
+
 
 
 
@@ -189,7 +189,6 @@ data.count()
 
 
 import statsmodels.api as sm
-X = sm.add_constant(data.iloc[:, :-1])
 y = data['Class']
 lm = sm.OLS(y, X).fit()
 print(lm.summary())
@@ -198,7 +197,6 @@ print(lm.summary())
 
 
 import statsmodels.api as sm
-X = sm.add_constant(noMissing_mean.iloc[:, :-1])
 y = noMissing_mean['Class']
 lm_mean = sm.OLS(y, X).fit()
 print(lm_mean.summary())
@@ -206,7 +204,6 @@ print(lm_mean.summary())
 
 
 
-X = sm.add_constant(knn_imputed.iloc[:, :-1])
 y = knn_imputed['Class']
 lm_knn = sm.OLS(y, X).fit()
 print(lm_knn.summary())
@@ -214,7 +211,6 @@ print(lm_knn.summary())
 
 
 
-X = sm.add_constant(mice_imputed.iloc[:, :-1])
 y =mice_imputed['Class']
 lm_mice = sm.OLS(y, X).fit()
 print(lm_mice.summary())
