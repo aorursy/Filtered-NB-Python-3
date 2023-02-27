@@ -5,10 +5,10 @@
 
 ## Introduction ##
 
-This is my first work of machine learning. the notebook is written in python and has inspired from ["Exploring Survival on Titanic" by Megan Risdal, a Kernel in R on Kaggle][1].
+# This is my first work of machine learning. the notebook is written in python and has inspired from ["Exploring Survival on Titanic" by Megan Risdal, a Kernel in R on Kaggle][1].
 
 
-  [1]: https://www.kaggle.com/mrisdal/titanic/exploring-survival-on-the-titanic
+#   [1]: https://www.kaggle.com/mrisdal/titanic/exploring-survival-on-the-titanic
 
 
 

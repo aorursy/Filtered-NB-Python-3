@@ -72,7 +72,7 @@ df.apply(lambda x: sum(x.isnull()),axis=0)
 
 
 
-Since I am using loan_amnt I need to do something about the missing values, I think the standard is to mean that ish
+# Since I am using loan_amnt I need to do something about the missing values, I think the standard is to mean that ish
 
 
 

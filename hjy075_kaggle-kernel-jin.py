@@ -19,16 +19,13 @@ print(os.listdir("../input"))
 # Any results you write to the current directory are saved as output.
 
 
-
-
-# 패키지 불러오기
-import pandas as pd # 분석
-import matplotlib.pyplot as plt # 시각화
-import seaborn as sns # 시각화
-import numpy as np # 분석
-from scipy.stats import norm # 분석
-from sklearn.preprocessing import StandardScaler # 분석
-from scipy import stats # 분석
+import pandas as pd 
+import matplotlib.pyplot as plt 
+import seaborn as sns
+import numpy as np 
+from scipy.stats import norm 
+from sklearn.preprocessing import StandardScaler 
+from scipy import stats
 import warnings
 warnings.filterwarnings('ignore')
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -63,7 +60,7 @@ sns.distplot(train['price'])
 
 
 
-#skewness and kurtosis (왜도와 첨도)
+#skewness and kurtosis
 print("Skewness : %f " % train['price'].skew())
 print("Kurtosis : %f " % train['price'].kurt())
 
@@ -90,10 +87,10 @@ sns.distplot(train['price'])
 
 
 #saleprice correlation matrix
-k = 10 # 히트맵 변수 수
+k = 10 
 corrmat = abs(train.corr(method = "spearman"))
 cols = corrmat.nlargest(k, 'price').index # nlargest : Return this many descending sorted values
-cm = np.corrcoef(train[cols].values.T) # correlation 특정 컬럼에 대해서
+cm = np.corrcoef(train[cols].values.T) # correlation
 sns.set(font_scale = 1.25)
 f, ax = plt.subplots(figsize = (18,8))
 hm = sns.heatmap(cm, cbar = True, annot = True, square = True,
@@ -104,9 +101,8 @@ plt.show()
 
 
 
-# 상관계수가 가장 낮음 10개 반응변수 
 cols = corrmat.nsmallest(k, 'price').index # nsmallest : Return this many descending sorted values
-cm = np.corrcoef(train[cols].values.T) # correlation 특정 컬럼에 대해서
+cm = np.corrcoef(train[cols].values.T) # correlation 
 sns.set(font_scale = 1.25)
 f, ax = plt.subplots(figsize = (18,8))
 hm = sns.heatmap(cm, cbar = True, annot = True, square = True,
@@ -319,8 +315,6 @@ train.loc[train['bedrooms'] >= 10]
 
 
 
-
-## 테스트도 확인
 test.loc[test['bedrooms'] >= 10]
 
 
@@ -765,8 +759,8 @@ test <- fread("../input/2019-2nd-ml-month-with-kakr/test.csv")
 
 
 
-train[ , filter:="train"] # train/test를 구분할 key변수 "filter"를 만듭니다.
-test[ , ":="(price=-999, filter="test")] # train/test를 구분할 key변수 "filter"를 만들고, row bind를 위해 test set에 price 변수를 만들고 모든 값을 -999로 채우겠습니다.
+train[ , filter:="train"] # train/test
+test[ , ":="(price=-999, filter="test")] 
 full <- rbind(train, test)
 full[,filter:=factor(filter, levels=c("train", "test"))]
 
@@ -781,7 +775,6 @@ cat_vars <- c("waterfront", "yyyymm", "zipcode")
 del_vars <- c("id", "filter", "price", "mm", "dd", "yyyy", "yr_built", "date", "sqft_basement")
 num_vars <- setdiff(colnames(full), c(cat_vars, del_vars))
 
-## 수치형 변수 표준화
 X_train_num <- full[filter=="train",num_vars, with=F]
 X_test_num <- full[filter=="test",num_vars, with=F]
 
@@ -893,9 +886,6 @@ submi = pd.read_csv('../input/submission3/submission123.csv')
 goodnight = pd.read_csv('../input/submission3/goodnight.csv')
 
 
-
-
-## 앙상블
 k = (submi + goodnight)/2
 k.to_csv('dataal.csv', index = False)
 

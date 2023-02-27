@@ -75,14 +75,3 @@ df.plot(x='Shutdown Duration',y='Unintentional Release (Barrels)',,kind='scatter
 import matplotlib.pyplot as plt
 fig, ax = plt.subplots(1)
 ax.scatter(x=df['Shutdown Duration'],y=df['Unintentional Release (Barrels)'],c=df['All Costs'],alpha=0.5)
-
-
-
-
-df.head().T
-
-
-
-
-
-
