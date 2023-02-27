@@ -51,7 +51,7 @@ df['Pipeline Type'].value_counts()
 
 
 
-df.head(2)
+df.head()
 
 
 
@@ -67,7 +67,7 @@ df[df['Shutdown Duration'] < 2500]['Shutdown Duration'].hist(bins=50) #.value_co
 
 
 cmap = cm.get_cmap('Reds')
-df.plot(x='Shutdown Duration',y='Unintentional Release (Barrels)',,kind='scatter')
+df.plot(x='Shutdown Duration',y='Unintentional Release (Barrels)',kind='scatter')
 
 
 
