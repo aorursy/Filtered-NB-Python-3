@@ -21,9 +21,6 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 from subprocess import check_output
 print(check_output(["ls", "../input/"]).decode("utf8"))
 
-# Any results you write to the current directory are saved as output.
-pd
-
 
 
 
@@ -136,7 +133,7 @@ plt.show()
 
 
 
-The weakest correlation instead is scored by the variable 'Generosity'
+# The weakest correlation instead is scored by the variable 'Generosity'
 
 
 
