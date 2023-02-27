@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
-This study looked into assessing the heating load and cooling load requirements of buildings (that is, energy efficiency) as a function of building parameters. So two outputs; 'heating_load'(Y) and 'cooling_load(Y2)
- Data Analysis, Data visualization, Feature Selection, about 10 Machine Learning models/estimators. Multilayer Perceptron(Deep Learning/Artificial Neural Network). Cross Validation was used in order to avoid overfitting.
+# This study looked into assessing the heating load and cooling load requirements of buildings (that is, energy efficiency) as a function of building parameters. So two outputs; 'heating_load'(Y) and 'cooling_load(Y2)
+#  Data Analysis, Data visualization, Feature Selection, about 10 Machine Learning models/estimators. Multilayer Perceptron(Deep Learning/Artificial Neural Network). Cross Validation was used in order to avoid overfitting.
 
 
 import numpy
@@ -298,24 +298,3 @@ for train, test in kfold.split(X, Y2):
     print("%s: %.2f%%" % ("score", 100-scores))
 cvscores.append(100-scores)
 print("%.2f%% (+/- %.2f%%)" % (numpy.mean(cvscores), numpy.std(cvscores)))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

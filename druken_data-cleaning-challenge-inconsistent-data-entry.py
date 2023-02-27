@@ -146,22 +146,22 @@ Cities
 
 
 
-And that's it for today! If you have any questions, be sure to post them in the comments below or [on the forums](https://www.kaggle.com/questions-and-answers). 
+# And that's it for today! If you have any questions, be sure to post them in the comments below or [on the forums](https://www.kaggle.com/questions-and-answers). 
 
-Remember that your notebook is private by default, and in order to share it with other people or ask for help with it, you'll need to make it public. First, you'll need to save a version of your notebook that shows your current work by hitting the "Commit & Run" button. (Your work is saved automatically, but versioning your work lets you go back and look at what it was like at the point you saved it. It also lets you share a nice compiled notebook instead of just the raw code.) Then, once your notebook is finished running, you can go to the Settings tab in the panel to the left (you may have to expand it by hitting the [<] button next to the "Commit & Run" button) and setting the "Visibility" dropdown to "Public".
+# Remember that your notebook is private by default, and in order to share it with other people or ask for help with it, you'll need to make it public. First, you'll need to save a version of your notebook that shows your current work by hitting the "Commit & Run" button. (Your work is saved automatically, but versioning your work lets you go back and look at what it was like at the point you saved it. It also lets you share a nice compiled notebook instead of just the raw code.) Then, once your notebook is finished running, you can go to the Settings tab in the panel to the left (you may have to expand it by hitting the [<] button next to the "Commit & Run" button) and setting the "Visibility" dropdown to "Public".
 
-# More practice!
-___
+# # More practice!
+# ___
 
-Do any other columns in this dataframe have inconsistent data entry? If you can find any, try to tidy them up.
+# Do any other columns in this dataframe have inconsistent data entry? If you can find any, try to tidy them up.
 
-You can also try reading in the `PakistanSuicideAttacks Ver 6 (10-October-2017).csv` file from this dataset and tidying up any inconsistent columns in that data file.
+# You can also try reading in the `PakistanSuicideAttacks Ver 6 (10-October-2017).csv` file from this dataset and tidying up any inconsistent columns in that data file.
 
 
 
 
 #baluchistan is misspellt (I checked it in Google). So let's correct it.
-Province
+# Province
 matches = fuzzywuzzy.process.extract("balochistan", Province, limit=10, scorer=fuzzywuzzy.fuzz.token_sort_ratio)
 matches
 replace_matches_in_column(df=suicide_attacks, column='Province', string_to_match="balochistan", min_ratio=90)
