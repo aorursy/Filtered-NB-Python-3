@@ -44,7 +44,7 @@ train_data.head()
 #Which are numerical? --> PassengerId, age, sibsp, parch, fare
 #Which are mixed (e.g. alphanumerical)? These are good candidates for correction --> ticket, cabin
 train_data.info()
-print("-"*40)
+# print("-"*40)
 test_data.info()
 
 #Notice how some age, cabin and embarked entries are missing
