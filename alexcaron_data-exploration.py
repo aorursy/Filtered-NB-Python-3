@@ -12,8 +12,6 @@ system("ls ../input")
 
 # Any results you write to the current directory are saved as output.
 
-data <- read_csv('../input/train.csv')
-
 
 head(data)
 
@@ -22,25 +20,6 @@ string(data)
 str(data)
 
 hist(time)
-
-hist(data$time)
-
-
-hist(data$x)
-
-
-hist(data$y)
-
-
-hist(data$accuracy)
-
-
-hist(data$place_id)
-
-
-
-
-
 
 
 head(data)
@@ -52,6 +31,4 @@ print(data)
 
 
 print(data)
-
-
 
