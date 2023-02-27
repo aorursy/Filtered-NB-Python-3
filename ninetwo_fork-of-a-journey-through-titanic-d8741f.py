@@ -367,16 +367,12 @@ coeff_df
 import numpy as np
 myMatrix=[]
 for i in range (418):
-    if((titanic_df ['Age'][i+1]) <10:
+    if(titanic_df ['Age'][i+1]) <10:
        myMatrix.append(1)
     else:
-         myMatrix.append(0)
-         myArray-np.array(myMatrix)
-         Y_pred= myArray.transpose()
+        myMatrix.append(0)
+        myArray-np.array(myMatrix)
+        Y_pred= myArray.transpose()
 
-       submission = pd.DataFrame({
-        "PassengerId": test_df["PassengerId"],
-        "Survived": Y_pred
-    })
 submission.to_csv('titanic.csv', index=False)
 

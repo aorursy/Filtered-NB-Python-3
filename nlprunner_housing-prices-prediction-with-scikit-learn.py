@@ -39,7 +39,6 @@ all_df.shape
 all_features = list(df.columns.values)
 numeric_features = ['LotFrontage', 'LotArea', 'MasVnrArea', 'BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF','LowQualFinSF','GrLivArea','BsmtFullBath','BsmtHalfBath','FullBath','HalfBath','BedroomAbvGr','KitchenAbvGr','TotRmsAbvGrd','TotalBsmtSF','Fireplaces', 'GarageCars', 'GarageArea','WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', '3SsnPorch', 'ScreenPorch', 'PoolArea', 'MiscVal']
 #numeric_features = list(df.select_dtypes(include=[np.number]).columns.values)
-categorical_features = [f for f in all_features if not(f in numeric_features)]
 
 (len(all_features), len(categorical_features), len(numeric_features))
 
@@ -121,11 +120,6 @@ from sklearn import linear_model
 lr = linear_model.LinearRegression()
 lr.fit(x_train, y_train)
 
-
-
-
-# Todo: train ridge model (linear_model.Ridge)
-ridge =
 
 
 

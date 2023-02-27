@@ -57,38 +57,38 @@ plt.show()
 
 
 
-The more than two peaks are found. We cluster this peak into two clusters and take average 
-for finding their position on x-axis. Kmeans cluster with 2 numbers of clusters returns the cluster 
-index for every peak. We check which is peak is positive by comparing them and take average of 
-peak positions for it. From this location of positive peak we calculated the phase with below reasoning.
+# The more than two peaks are found. We cluster this peak into two clusters and take average 
+# for finding their position on x-axis. Kmeans cluster with 2 numbers of clusters returns the cluster 
+# index for every peak. We check which is peak is positive by comparing them and take average of 
+# peak positions for it. From this location of positive peak we calculated the phase with below reasoning.
 
-The entire signel is capturing a full wave i.e 360 degress or 2 pi in 800000 time slices. 
-So the every displacement counts for 2*pi/800000. 
-The positive peack will appear at pi/2 for zero phase. and hence
-phase = (((800000- posivePeackLoc)+200000)% 800000)/800000*np.pi/2         ---phase formula
+# The entire signel is capturing a full wave i.e 360 degress or 2 pi in 800000 time slices. 
+# So the every displacement counts for 2*pi/800000. 
+# The positive peack will appear at pi/2 for zero phase. and hence
+# phase = (((800000- posivePeackLoc)+200000)% 800000)/800000*np.pi/2         ---phase formula
 
-The sine wave has equation,
-y(t) = A\sin(2 \pi f t + \varphi) = A\sin(\omega t + \varphi)
-where:
+# The sine wave has equation,
+# y(t) = A\sin(2 \pi f t + \varphi) = A\sin(\omega t + \varphi)
+# where:
 
-A = the amplitude, the peak deviation of the function from zero.
-f = the ordinary frequency, the number of oscillations (cycles) that occur each second of time.
-ω = 2πf, the angular frequency, the rate of change of the function argument in 
-        units of radians per second 
-{\displaystyle \varphi } \varphi  = the phase, specifies (in radians) where in its cycle 
-        the oscillation is at t = 0.    When {\displaystyle \varphi } \varphi  is non-zero, 
-    the entire waveform appears to be shifted in time by the amount {\displaystyle \varphi } 
-    \varphi /ω seconds. A negative value represents a delay, and a positive value represents an advance.
+# A = the amplitude, the peak deviation of the function from zero.
+# f = the ordinary frequency, the number of oscillations (cycles) that occur each second of time.
+# ω = 2πf, the angular frequency, the rate of change of the function argument in 
+#         units of radians per second 
+# {\displaystyle \varphi } \varphi  = the phase, specifies (in radians) where in its cycle 
+#         the oscillation is at t = 0.    When {\displaystyle \varphi } \varphi  is non-zero, 
+#     the entire waveform appears to be shifted in time by the amount {\displaystyle \varphi } 
+#     \varphi /ω seconds. A negative value represents a delay, and a positive value represents an advance.
 
-We also add a displacement parameter so the fitted curve can move horizontally.
+# We also add a displacement parameter so the fitted curve can move horizontally.
 
-The intial guasses are below,
-A = 20 visual inspection  and problem description.
-f = 1/800000. There are 800000 samples per full cycle.
-ω = 2πf = 4*np.pi/800000
-phase = (((800000- posivePeackLoc)+200000)% 800000)/800000*np.pi/2         ---phase formula 
+# The intial guasses are below,
+# A = 20 visual inspection  and problem description.
+# f = 1/800000. There are 800000 samples per full cycle.
+# ω = 2πf = 4*np.pi/800000
+# phase = (((800000- posivePeackLoc)+200000)% 800000)/800000*np.pi/2         ---phase formula 
 
-The fitted wave is plotted in blue over red raw signal. Good fit!
+# The fitted wave is plotted in blue over red raw signal. Good fit!
 
 
 

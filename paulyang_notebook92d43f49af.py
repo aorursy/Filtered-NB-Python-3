@@ -19,13 +19,6 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 # Any results you write to the current directory are saved as output.
 
 
-
-
-ls ../input/
-
-
-
-
 import pandas as pd
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.ensemble import RandomForestClassifier
@@ -163,7 +156,7 @@ f_language = lb.transform(train_cleaned['language'])
 
 f_lan_names = []
 for cl in lb.classes_:
-    f_lan_names.append('lan_' + cl)
+  f_lan_names.append('lan_' + cl)
 f_language = pd.DataFrame(f_language, columns=f_lan_names)
 train_cleaned = pd.concat((train_cleaned, f_language), axis=1)
 
@@ -186,23 +179,7 @@ train_cleaned = pd.merge(train_cleaned, members[['msno', 'lifespan_days', 'trial
 
 
 label = 'target'
-features = [            u'album',
-                       u'artist',            u'listen-with',
-                u'local-library',         u'local-playlist',
-            u'my-daily-playlist',        u'online-playlist',
-                        u'radio',                   u'song',
-          u'song-based-playlist',    u'top-hits-for-artist',
-       u'topic-article-playlist',                u'unknown',
-                    u'song_rank',            u'artist_rank',
-                  u'song_length',              
-                    u'top_genre',
-                       u'lan_-1',                  u'lan_0',
-                       u'lan_10',                 u'lan_17',
-                       u'lan_24',                  u'lan_3',
-                       u'lan_31',                 u'lan_38',
-                       u'lan_45',                 u'lan_52',
-                       u'lan_59',          u'lifespan_days',
-                  u'trial_users',          u'advance_payers']
+
 
 
 

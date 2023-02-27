@@ -27,17 +27,17 @@ print(check_output(["ls","../input/train"]).decode("utf8"))
 
 
 
-check_output(["ls", "../input/train/ALB"]).decode("utf8"))
+check_output(["ls", "../input/train/ALB"]).decode("utf8")
 
 
 
 
-sub_folders = check_output(["ls", "../input/train"]).decode("utf8").strip().split('\n');
-folderdict = {};
+sub_folders = check_output(["ls", "../input/train"]).decode("utf8").strip().split('\n')
+folderdict = {}
 print(sub_folders)
 for sub_folder in sub_folders:
-    print("folders Name:", sub_folder);
-    files = check_output(["ls", "../input/train/"+sub_folder]).decode("utf8").strip().split('\n');
-    folderdict[sub_folder] = len(files);
-    print("number of images:", folderdict[sub_folder]);
+    print("folders Name:", sub_folder)
+    files = check_output(["ls", "../input/train/"+sub_folder]).decode("utf8").strip().split('\n')
+    folderdict[sub_folder] = len(files)
+    print("number of images:", folderdict[sub_folder])
 

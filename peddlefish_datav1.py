@@ -33,12 +33,6 @@ for pair in pairs:
     unique_pair.append(pair)
 print (unique_pair)
 
-#Calculate the Pearson correlation
-cor = []
-for pair in unique_pair:
-    ['{} vs. {}'.format(i[0], i[1]), 
-                (pearsonr(Rep_res_name[pair[0], Rep_res_name[pair[1]]**2]
-    cor.append()
 
 max = ['',.5]
 min = ['',.5]

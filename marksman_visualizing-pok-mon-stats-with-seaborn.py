@@ -67,7 +67,7 @@ pkmn.head()
 
 
 
-sns.swarmplot(x="Stat", y="value", data=pkmn, hue="Type 1");
+sns.swarmplot(x="Stat", y="value", data=pkmn, hue="Type 1")
 
 
 
@@ -75,7 +75,7 @@ sns.swarmplot(x="Stat", y="value", data=pkmn, hue="Type 1");
 plt.figure(figsize=(12,10))
 plt.ylim(0, 275)
 sns.swarmplot(x="Stat", y="value", data=pkmn, hue="Type 1", split=True, size=7)
-plt.legend(bbox_to_anchor=(1, 1), loc=2, borderaxespad=0.);
+plt.legend(bbox_to_anchor=(1, 1), loc=2, borderaxespad=0.0)
 
 
 

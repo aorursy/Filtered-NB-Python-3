@@ -19,11 +19,11 @@ df.me.fillna(0, inplace=True)
 
 
 
-Here I make a bunch of features that I think might be predictive. These include:
+# Here I make a bunch of features that I think might be predictive. These include:
 
-1. The expected number of cards (ec) on any roll
-2. The ability to build items without needing to trade
-3. Having ports that you can use
+# 1. The expected number of cards (ec) on any roll
+# 2. The ability to build items without needing to trade
+# 3. Having ports that you can use
 
 
 

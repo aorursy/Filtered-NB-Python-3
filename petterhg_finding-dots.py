@@ -101,16 +101,6 @@ for k in range(0, np.shape(imgList)[0]):
     if xDiff > resizer[0][3]:
         resizer[0][3] = xDiff
     
-    
-    
-
-
-
-
-cropCoordinates = img[int(round(np.min(coord[1,:]))) - margin:
-           int(round(np.max(coord[1,:]))) + margin, 
-           int(round(np.min(coord[0,:]))) - margin:
-           int(round(np.max(coord[0,:]))) + margin]
 
 
 

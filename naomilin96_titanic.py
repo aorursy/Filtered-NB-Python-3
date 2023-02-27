@@ -66,7 +66,7 @@ train_data.describe()
 
 
 #Data analysis
-train_data.describe(include=['O'])
+# train_data.describe(include=['O'])
 
 #note it's capital o, not 0. O stands for object. Note how previously describe only shows the numerical data. But here it shows the categorical data 
 
