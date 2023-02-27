@@ -25,7 +25,3 @@ train['Month'] = train['Date'].apply(lambda x: int(str(x)[5:7]))
 train['weekday'] = train['Date'].dt.dayofweek
 
 
-
-
-lambda x
-

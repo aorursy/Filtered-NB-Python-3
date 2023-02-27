@@ -1142,7 +1142,7 @@ np.savetxt('Titanic_Kaggle_Result.csv', np.transpose(Titanic_prediction), delimi
 
 # 1-  My first attempt (version 1) was without looking into any solution online.
 # 2-  This version is modified version after looking at works of others.
-      e.g. - 'Titanic Top 4% with ensemble modeling' kernel by Yassine Ghouzam, PhD
+#   e.g. - 'Titanic Top 4% with ensemble modeling' kernel by Yassine Ghouzam, PhD
 # 3-  I underestimated feature engineering before.
 # 4- Got slighlty better result of 0.80332 [Top 8%]
 # 5- I am more interested in approach and doing all the steps correctly along with necessary checks.

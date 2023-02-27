@@ -36,8 +36,6 @@ vc.fit(X_train, y_train)
 
 
 
-vc.
-
 estimators = [('reduce_dim', SelectKBest(f_classif, k=32)), ('svm', svm.SVC(probability=True))]
 #pipeline = Pipeline(estimators)
 #size = 1000
