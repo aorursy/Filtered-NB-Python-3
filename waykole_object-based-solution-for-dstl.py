@@ -75,11 +75,6 @@ train_image_ids = TRAIN_WKT.ImageId.unique()
 
 
 
-mkdir ../input/feature;mkdir ../input/feature_train;mkdir ../input/feature/segment
-
-
-
-
 from rsgislib.segmentation import segutils
 import time
 def run_image_segmentation(input_image, output_image, num_clusters=60, min_pixels=100, dist_thres=100):
@@ -255,259 +250,259 @@ def image_to_features(image_id,image_type='M', class_type = 0):
     print ("Feature extracted in %d seconds" % (time.time()-start) )        
     return features,labels,poly_ids,mask
 
-# def mask_for_polygons(polygons, image_size):
-#     image_mask = np.zeros(image_size, np.uint8)
-#     if not polygons:
-#         return image_mask
-#     int_coords = lambda x: np.array(x).round().astype(np.int32)
-#     exteriors = [int_coords(poly.exterior.coords) for poly in polygons]
-#     interiors = [int_coords(pi.coords) for poly in polygons
-#                  for pi in poly.interiors]
-#     cv2.fillPoly(image_mask, exteriors, 1)
-#     cv2.fillPoly(image_mask, interiors, 0)
-#     return image_mask
+def mask_for_polygons(polygons, image_size):
+    image_mask = np.zeros(image_size, np.uint8)
+    if not polygons:
+        return image_mask
+    int_coords = lambda x: np.array(x).round().astype(np.int32)
+    exteriors = [int_coords(poly.exterior.coords) for poly in polygons]
+    interiors = [int_coords(pi.coords) for poly in polygons
+                 for pi in poly.interiors]
+    cv2.fillPoly(image_mask, exteriors, 1)
+    cv2.fillPoly(image_mask, interiors, 0)
+    return image_mask
 
-# def poly_to_mask(polygons, image_shape, class_type):
-#     mask = np.zeros(image_shape, np.uint8)    
-#     if not polygons:
-#         return image
-#     int_coords = lambda x: np.array(x).round().astype(np.int32)
+def poly_to_mask(polygons, image_shape, class_type):
+    mask = np.zeros(image_shape, np.uint8)    
+    if not polygons:
+        return image
+    int_coords = lambda x: np.array(x).round().astype(np.int32)
 
-#     exteriors = []
-#     interiors = []
-#     for pid, poly in enumerate(polygons):
-#         poly_mask = np.zeros(image_shape, np.uint8)
-#         exteriors=[int_coords(poly.exterior.coords)]
-#         interiors = []
-#         for pi in poly.interiors:
-#             interiors.append(int_coords(pi.coords) )
+    exteriors = []
+    interiors = []
+    for pid, poly in enumerate(polygons):
+        poly_mask = np.zeros(image_shape, np.uint8)
+        exteriors=[int_coords(poly.exterior.coords)]
+        interiors = []
+        for pi in poly.interiors:
+            interiors.append(int_coords(pi.coords) )
 
-#         cv2.fillPoly(poly_mask, exteriors, 1)
+        cv2.fillPoly(poly_mask, exteriors, 1)
 
-#         cv2.fillPoly(poly_mask, interiors, 0)
-#         poly_id = (pid + 1) * 100 + class_type
-#         poly_mask = poly_mask * poly_id
-#         mask = np.max(np.stack((mask, poly_mask)),axis=0)
-#     return mask 
+        cv2.fillPoly(poly_mask, interiors, 0)
+        poly_id = (pid + 1) * 100 + class_type
+        poly_mask = poly_mask * poly_id
+        mask = np.max(np.stack((mask, poly_mask)),axis=0)
+    return mask 
 
-# def poly_to_features(polygons, image, class_type):
-#     '''
-#     Extract features for training image. 
-#     Polygons are extracted from training WKT then converted to masks.
-#     Featuers are statistical metrics of each polygon
-#     '''
-#     image_shape = image.shape[:2]
-#     poly_mask = poly_to_mask(polygons, image_shape, class_type)
-#     poly_ids = np.unique(poly_mask)
-#     poly_ids = poly_ids[poly_ids != 0]
-#     with warnings.catch_warnings():
-#         warnings.simplefilter("ignore")
+def poly_to_features(polygons, image, class_type):
+    '''
+    Extract features for training image. 
+    Polygons are extracted from training WKT then converted to masks.
+    Featuers are statistical metrics of each polygon
+    '''
+    image_shape = image.shape[:2]
+    poly_mask = poly_to_mask(polygons, image_shape, class_type)
+    poly_ids = np.unique(poly_mask)
+    poly_ids = poly_ids[poly_ids != 0]
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
 
-#         features = []
-#         for poly_id in poly_ids:
-#             poly_pixels = image[poly_mask==poly_id]
-#             poly_features = get_poly_features(poly_pixels)
-#             features.append(poly_features)     
-#     return features, poly_ids, poly_mask 
+        features = []
+        for poly_id in poly_ids:
+            poly_pixels = image[poly_mask==poly_id]
+            poly_features = get_poly_features(poly_pixels)
+            features.append(poly_features)     
+    return features, poly_ids, poly_mask 
 
-# def image_to_train(image_id, class_type, image_type='3'):
-#     # Get grid size: x_max and y_min
-#     x_max = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Xmax.values[0]
-#     y_min = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Ymin.values[0]
+def image_to_train(image_id, class_type, image_type='3'):
+    # Get grid size: x_max and y_min
+    x_max = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Xmax.values[0]
+    y_min = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Ymin.values[0]
 
-#     # Load train poly with shapely
-#     train_polygons = shapely.wkt.loads(TRAIN_WKT[(TRAIN_WKT['ImageId']==image_id) & 
-#                                                 (TRAIN_WKT['ClassType']==class_type)].MultipolygonWKT.values[0])
+    # Load train poly with shapely
+    train_polygons = shapely.wkt.loads(TRAIN_WKT[(TRAIN_WKT['ImageId']==image_id) & 
+                                                (TRAIN_WKT['ClassType']==class_type)].MultipolygonWKT.values[0])
 
-#     # Read image with tiff
-#     if image_type =='3':
-#         image = tiff.imread('../input/three_band/{}.tif'.format(image_id)).transpose([1, 2, 0])
-#     if image_type =='M':
-#         image = tiff.imread('../input/sixteen_band/{}_M.tif'.format(image_id)).transpose([1, 2, 0])
-#     if image_type =='A':
-#         image = tiff.imread('../input/sixteen_band/{}_A.tif'.format(image_id)).transpose([1, 2, 0])
-#     if image_type =='P':
-#         image = tiff.imread('../input/sixteen_band/{}_P.tif'.format(image_id))
-#     image_size = image.shape[:2]
-#     x_scaler, y_scaler = get_scalers(image_size, x_max, y_min)
+    # Read image with tiff
+    if image_type =='3':
+        image = tiff.imread('../input/three_band/{}.tif'.format(image_id)).transpose([1, 2, 0])
+    if image_type =='M':
+        image = tiff.imread('../input/sixteen_band/{}_M.tif'.format(image_id)).transpose([1, 2, 0])
+    if image_type =='A':
+        image = tiff.imread('../input/sixteen_band/{}_A.tif'.format(image_id)).transpose([1, 2, 0])
+    if image_type =='P':
+        image = tiff.imread('../input/sixteen_band/{}_P.tif'.format(image_id))
+    image_size = image.shape[:2]
+    x_scaler, y_scaler = get_scalers(image_size, x_max, y_min)
 
-#     # Scale polygons
-#     train_polygons_scaled = shapely.affinity.scale(train_polygons,
-#                                                    xfact=x_scaler,
-#                                                    yfact=y_scaler,
-#                                                    origin=(0, 0, 0))
+    # Scale polygons
+    train_polygons_scaled = shapely.affinity.scale(train_polygons,
+                                                   xfact=x_scaler,
+                                                   yfact=y_scaler,
+                                                   origin=(0, 0, 0))
 
-#     train_mask = mask_for_polygons(train_polygons_scaled, image_size)
-#     if image_type =='3':
-#         X = image.reshape(-1, 3).astype(np.float32)
-#     if image_type =='M':
-#         X = image.reshape(-1, 8).astype(np.float32)
-#     if image_type =='A':
-#         X = image.reshape(-1, 8).astype(np.float32)
-#     if image_type =='P':
-#         X = image
-#     y = train_mask.reshape(-1)
-#     return train_mask*class_type
+    train_mask = mask_for_polygons(train_polygons_scaled, image_size)
+    if image_type =='3':
+        X = image.reshape(-1, 3).astype(np.float32)
+    if image_type =='M':
+        X = image.reshape(-1, 8).astype(np.float32)
+    if image_type =='A':
+        X = image.reshape(-1, 8).astype(np.float32)
+    if image_type =='P':
+        X = image
+    y = train_mask.reshape(-1)
+    return train_mask*class_type
 
-# def most_common(lst):
-#     data = Counter(lst)
-#     return data.most_common(1)[0][0]
+def most_common(lst):
+    data = Counter(lst)
+    return data.most_common(1)[0][0]
 
-# def train_image_to_feature(image_id):
-#     # original image tif
-#     image = image_to_array(image_id)
-#     # Segmented training image mask
-#     image_segment_mask = tiff.imread('../input/segment/'+image_id+'_M_SEG.tif')
-#     # Training image mask by classes
-#     image_class_mask = np.max([ image_to_train(image_id,c,'M') for c in CLASSES],axis=0)
+def train_image_to_feature(image_id):
+    # original image tif
+    image = image_to_array(image_id)
+    # Segmented training image mask
+    image_segment_mask = tiff.imread('../input/segment/'+image_id+'_M_SEG.tif')
+    # Training image mask by classes
+    image_class_mask = np.max([ image_to_train(image_id,c,'M') for c in CLASSES],axis=0)
 
-#     start = time.time()
-#     # for each segment, set its class as the one which has most pixels
-#     segment_class_mask=np.zeros(image_segment_mask.shape)
-#     segment_ids = np.unique(image_segment_mask)
-#     labels = []
-#     features = []
-#     for segment_id in segment_ids:
-#     #         segment_class_mask[image_segment_mask==segment_id] = 
-#         # Labels
-#         labels.append(most_common(image_class_mask[image_segment_mask==segment_id]))
-#         # Features
-#         segment_pixels = image[image_segment_mask==segment_id]
-#         features.append(get_poly_features(segment_pixels))
+    start = time.time()
+    # for each segment, set its class as the one which has most pixels
+    segment_class_mask=np.zeros(image_segment_mask.shape)
+    segment_ids = np.unique(image_segment_mask)
+    labels = []
+    features = []
+    for segment_id in segment_ids:
+    #         segment_class_mask[image_segment_mask==segment_id] = 
+        # Labels
+        labels.append(most_common(image_class_mask[image_segment_mask==segment_id]))
+        # Features
+        segment_pixels = image[image_segment_mask==segment_id]
+        features.append(get_poly_features(segment_pixels))
 
-#     return features, labels, segment_ids  
-
-
+    return features, labels, segment_ids  
 
 
-# ## Feature extraction for training images
-# train_image_ids = TRAIN_WKT.ImageId.unique()
-# for image_id in train_image_ids:
-#     start = time.time()
-#     features, class_types, segment_ids= train_image_to_feature(image_id)
-#     feature_df = pd.DataFrame(features
-#                 ,columns=['b1_min','b1_max','b1_mean','b1_variance','b1_skewness','b1_kurtosis',
-#                           'b2_min','b2_max','b2_mean','b2_variance','b2_skewness','b2_kurtosis',
-#                           'b3_min','b3_max','b3_mean','b3_variance','b3_skewness','b3_kurtosis',
-#                           'b4_min','b4_max','b4_mean','b4_variance','b4_skewness','b4_kurtosis',
-#                           'b5_min','b5_max','b5_mean','b5_variance','b5_skewness','b5_kurtosis',
-#                           'b6_min','b6_max','b6_mean','b6_variance','b6_skewness','b6_kurtosis',
-#                           'b7_min','b7_max','b7_mean','b7_variance','b7_skewness','b7_kurtosis',
-#                           'b8_min','b8_max','b8_mean','b8_variance','b8_skewness','b8_kurtosis'
-#                          ])
-#     feature_df['segment_id'] = segment_ids
-#     feature_df['image_id'] = image_id
-#     feature_df['class_type'] = class_types
-#     feature_df.to_csv('../input/feature_train/'+image_id+'.csv',index = False)
-#     print ('Feature extraction for image %s finished in %d seconds' % (image_id,time.time() - start))
 
 
+## Feature extraction for training images
+train_image_ids = TRAIN_WKT.ImageId.unique()
+for image_id in train_image_ids:
+    start = time.time()
+    features, class_types, segment_ids= train_image_to_feature(image_id)
+    feature_df = pd.DataFrame(features
+                ,columns=['b1_min','b1_max','b1_mean','b1_variance','b1_skewness','b1_kurtosis',
+                          'b2_min','b2_max','b2_mean','b2_variance','b2_skewness','b2_kurtosis',
+                          'b3_min','b3_max','b3_mean','b3_variance','b3_skewness','b3_kurtosis',
+                          'b4_min','b4_max','b4_mean','b4_variance','b4_skewness','b4_kurtosis',
+                          'b5_min','b5_max','b5_mean','b5_variance','b5_skewness','b5_kurtosis',
+                          'b6_min','b6_max','b6_mean','b6_variance','b6_skewness','b6_kurtosis',
+                          'b7_min','b7_max','b7_mean','b7_variance','b7_skewness','b7_kurtosis',
+                          'b8_min','b8_max','b8_mean','b8_variance','b8_skewness','b8_kurtosis'
+                         ])
+    feature_df['segment_id'] = segment_ids
+    feature_df['image_id'] = image_id
+    feature_df['class_type'] = class_types
+    feature_df.to_csv('../input/feature_train/'+image_id+'.csv',index = False)
+    print ('Feature extraction for image %s finished in %d seconds' % (image_id,time.time() - start))
 
 
 
 
 
-# train_df = pd.DataFrame()
-# for image_id in train_image_ids:
-# #     print (image_id)
-#     train_df = pd.concat([train_df, pd.read_csv('../input/feature_train/'+image_id+'.csv')],axis=0)
+
+
+train_df = pd.DataFrame()
+for image_id in train_image_ids:
+#     print (image_id)
+    train_df = pd.concat([train_df, pd.read_csv('../input/feature_train/'+image_id+'.csv')],axis=0)
 
 
 
 
-# full_cols = train_df.columns.tolist()
-# full_cols.remove('segment_id')
-# full_cols.remove('image_id')
-# full_cols.remove('class_type')
+full_cols = train_df.columns.tolist()
+full_cols.remove('segment_id')
+full_cols.remove('image_id')
+full_cols.remove('class_type')
 
-# target = 'class_type'
-
-
-
-
-# from sklearn.model_selection import train_test_split
-# import xgboost as xgb
-
-# start = time.time()
-# clf = xgb.XGBClassifier(n_estimators=720, learning_rate = 0.1, max_depth=5)
-# clf.fit(train_df[full_cols].values,train_df[target].values)
-# print (time.time()-start)
+target = 'class_type'
 
 
 
 
-# from matplotlib import pyplot as plt
-# from matplotlib import colors
+from sklearn.model_selection import train_test_split
+import xgboost as xgb
+
+start = time.time()
+clf = xgb.XGBClassifier(n_estimators=720, learning_rate = 0.1, max_depth=5)
+clf.fit(train_df[full_cols].values,train_df[target].values)
+print (time.time()-start)
 
 
-# def pixels_to_poly(image,mask):
-#     poly=[]
-#     for vec in rasterio.features.shapes(image,mask):
-#         poly.append(shapely.geometry.geo.shape(vec[0]))
-#     poly = MultiPolygon(poly)
-#     return poly
-
-# def predict_image(image_id, clf, full_cols,plot_image = False):
-#     test_df = pd.read_csv('../input/feature/'+image_id+'.csv')
 
 
-#     test_x = test_df[full_cols].values
-#     test_segment_id = test_df['segment_id'].values
+from matplotlib import pyplot as plt
+from matplotlib import colors
 
-#     pred_test_segment_y = clf.predict(test_x)
-#     start = time.time()
-#     test_segment_mask = tiff.imread('../input/segment/{}_M_SEG.tif'.format(image_id))
-#     test_pred_mask = np.zeros(test_segment_mask.shape,dtype=np.int32)
 
-#     for pid, cls in zip(test_segment_id,pred_test_segment_y):
-#         test_pred_mask[test_segment_mask==pid] = np.int(cls)
+def pixels_to_poly(image,mask):
+    poly=[]
+    for vec in rasterio.features.shapes(image,mask):
+        poly.append(shapely.geometry.geo.shape(vec[0]))
+    poly = MultiPolygon(poly)
+    return poly
+
+def predict_image(image_id, clf, full_cols,plot_image = False):
+    test_df = pd.read_csv('../input/feature/'+image_id+'.csv')
+
+
+    test_x = test_df[full_cols].values
+    test_segment_id = test_df['segment_id'].values
+
+    pred_test_segment_y = clf.predict(test_x)
+    start = time.time()
+    test_segment_mask = tiff.imread('../input/segment/{}_M_SEG.tif'.format(image_id))
+    test_pred_mask = np.zeros(test_segment_mask.shape,dtype=np.int32)
+
+    for pid, cls in zip(test_segment_id,pred_test_segment_y):
+        test_pred_mask[test_segment_mask==pid] = np.int(cls)
     
-#     if plot_image:
-#         cmap = colors.ListedColormap([COLORS.get(c,'1') for c in np.unique(test_pred_mask)])
-#         plt.imshow(test_pred_mask, interpolation='none',cmap=cmap)
-#     return test_pred_mask
+    if plot_image:
+        cmap = colors.ListedColormap([COLORS.get(c,'1') for c in np.unique(test_pred_mask)])
+        plt.imshow(test_pred_mask, interpolation='none',cmap=cmap)
+    return test_pred_mask
 
 
 
 
-# # Make predictions
-# test_df = pd.DataFrame()
-# preds = []
-# for image_id in test_image_ids:
-#     print ("Predicting image ",image_id)
-#     start = time.time()    
-#     # Make predictions - pixels
-#     pred_image = predict_image(image_id,clf,full_cols, plot_image = False)
+# Make predictions
+test_df = pd.DataFrame()
+preds = []
+for image_id in test_image_ids:
+    print ("Predicting image ",image_id)
+    start = time.time()    
+    # Make predictions - pixels
+    pred_image = predict_image(image_id,clf,full_cols, plot_image = False)
 
-#     image_shape = pred_image.shape[:2]
-#     x_max = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Xmax.values[0]
-#     y_min = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Ymin.values[0]    
+    image_shape = pred_image.shape[:2]
+    x_max = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Xmax.values[0]
+    y_min = GRID_SIZE[GRID_SIZE['ImageId']==image_id].Ymin.values[0]    
 
-#     x_scaler, y_scaler = get_scalers(image_shape, x_max, y_min)   
+    x_scaler, y_scaler = get_scalers(image_shape, x_max, y_min)   
 
-#     ##Generate polygons from pixels
-#     for cls in CLASSES:
-#         polygons = pixels_to_poly(pred_image,pred_image==cls)
-#         # Scale polygons
-#         polygons = shapely.affinity.scale(polygons, xfact=1 / x_scaler, yfact=1 / y_scaler, origin=(0, 0, 0))
-#         preds.append([image_id,cls,polygons])
-#     print ("Predictions for image finishend in %d seconds" % (time.time()-start))
+    ##Generate polygons from pixels
+    for cls in CLASSES:
+        polygons = pixels_to_poly(pred_image,pred_image==cls)
+        # Scale polygons
+        polygons = shapely.affinity.scale(polygons, xfact=1 / x_scaler, yfact=1 / y_scaler, origin=(0, 0, 0))
+        preds.append([image_id,cls,polygons])
+    print ("Predictions for image finishend in %d seconds" % (time.time()-start))
         
     
 
 
 
 
-# preds_df=pd.DataFrame(preds, columns = ['ImageId','ClassType','MultipolygonWKT'])
+preds_df=pd.DataFrame(preds, columns = ['ImageId','ClassType','MultipolygonWKT'])
 
-# ## Convert polygon precision - this is to reduce the volume of submission data as well as chance of errors for submission 
+## Convert polygon precision - this is to reduce the volume of submission data as well as chance of errors for submission 
 
-# preds_df['MultipolygonWKT'] = preds_df['MultipolygonWKT'].apply(lambda x:x.simplify(0.0001, preserve_topology=False)).apply(lambda x:x if x.is_valid else x.buffer(0)).apply(lambda x:shapely.wkt.dumps(x,rounding_precision=5))   
+preds_df['MultipolygonWKT'] = preds_df['MultipolygonWKT'].apply(lambda x:x.simplify(0.0001, preserve_topology=False)).apply(lambda x:x if x.is_valid else x.buffer(0)).apply(lambda x:shapely.wkt.dumps(x,rounding_precision=5))   
 
 
-# ## This step is to ensure output will have the same sequence as sample submission
-# output_df = pd.merge(sample_submission[['ImageId','ClassType']],preds_df, how = 'left', on = ['ImageId','ClassType'])
+## This step is to ensure output will have the same sequence as sample submission
+output_df = pd.merge(sample_submission[['ImageId','ClassType']],preds_df, how = 'left', on = ['ImageId','ClassType'])
 
-# ## Final output
-# output_df[['ImageId','ClassType','MultipolygonWKT']].to_csv("../output/submission.csv", index=False)
+## Final output
+output_df[['ImageId','ClassType','MultipolygonWKT']].to_csv("../output/submission.csv", index=False)
 

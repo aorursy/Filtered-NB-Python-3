@@ -30,17 +30,6 @@ dtStations = dtDate[,!grepl("L",colnames(dtDate)),with=F]
 #melt data to go from wide to long format
 dtStationsM = melt(dtStations,id.vars=c("Id"))
 
-#join with numeric to have Response
-dtStationsM %>%
-  left_join(dtNum, by = "Id") -> dtStationsM
-
-#remove NA entries - these are plentiful as after melting each station-job combination has its own row
-dtStationsM %>%
-  filter(!is.na(value)) -> dtStationsMFiltered
-
-#sort entries by ascending time
-dtStationsMFiltered %>%
-  arrange(value) -> dtStationsMFiltered
 
 #imports for plotting
 require(GGally)
@@ -53,21 +42,21 @@ options(repr.plot.width=5, repr.plot.height=15)
 
 #for each row obtain the subsequent statoin
 dtStationsMFiltered %>%
-  group_by(Id) %>%
-  mutate(nextStation = lead(variable)) -> edgelistsComplete
+group_by(Id) %>%
+mutate(nextStation = lead(variable)) -> edgelistsComplete
 
 #for each id find the first node to be entered 
 edgelistsComplete %>%
-  group_by(Id) %>%
-  filter(!(variable %in% nextStation)) %>%
-  ungroup() %>%
-  select(variable,Response) -> startingPoints
+group_by(Id) %>%
+filter(!(variable %in% nextStation)) %>%
+ungroup() %>%
+select(variable,Response) -> startingPoints
 
 #prior to each starting point insert an edge from a common origin
 colnames(startingPoints) = c("nextStation","Response")
 startingPoints$variable = "S"
 edgelistsComplete %>%
-  select(variable,nextStation,Response) -> paths
+select(variable,nextStation,Response) -> paths
 
 #for each id find the row where there is no next station (last station to be visited)
 #fill this station with Response value
@@ -161,33 +150,33 @@ print(network)
 
 
 #obtain summary statistic of number of edges on each station pair
-pathshelp %>%
-    mutate(stationpair=paste0(Source,"->",Target)) %>%
-    group_by(stationpair) %>%
-    summarize(count=n()) %>%
-    arrange(-count) %>%
-    print(n=10)
+# pathshelp %>%
+mutate(stationpair=paste0(Source,"->",Target)) %>%
+group_by(stationpair) %>%
+summarize(count=n()) %>%
+arrange(-count) %>%
+print(n=10)
 
-pathshelp %>%
-    mutate(stationpair=paste0(Source,"->",Target)) %>%
-    group_by(stationpair) %>%
-    summarize(count=n()) %>%
-    arrange(count) %>%
-    print(n=10)
+# pathshelp %>%
+mutate(stationpair=paste0(Source,"->",Target)) %>%
+group_by(stationpair) %>%
+summarize(count=n()) %>%
+arrange(count) %>%
+print(n=10)
 
-pathshelp %>%
-    filter(Target=="Result 1") %>%
-    mutate(stationpair=paste0(Source,"->",Target)) %>%
-    group_by(stationpair) %>%
-    summarize(count=n()) %>%
-    arrange(count) %>%
-    print(n=20)
+# pathshelp %>%
+filter(Target=="Result 1") %>%
+mutate(stationpair=paste0(Source,"->",Target)) %>%
+group_by(stationpair) %>%
+summarize(count=n()) %>%
+arrange(count) %>%
+print(n=20)
 
-pathshelp %>%
-    filter(Target=="Result 0") %>%
-    mutate(stationpair=paste0(Source,"->",Target)) %>%
-    group_by(stationpair) %>%
-    summarize(count=n()) %>%
-    arrange(count) %>%
-    print(n=20)
+# pathshelp %>%
+filter(Target=="Result 0") %>%
+mutate(stationpair=paste0(Source,"->",Target)) %>%
+group_by(stationpair) %>%
+summarize(count=n()) %>%
+arrange(count) %>%
+print(n=20)
 
