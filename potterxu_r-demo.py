@@ -1,12 +1,6 @@
 #lapply(train,class)
 head(train)
 
-qplot(gender,data=train,fill=gender,geom="bar")+facet_grid(.~country_destination,scales="free")
-
-
-qplot(first_affiliate_tracked,data=train,fill=first_affiliate_tracked,geom="bar")
-
-
 
 # This Python 3 environment comes with many helpful analytics libraries installed
 # It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
