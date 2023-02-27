@@ -68,7 +68,7 @@ validation_generator = test_datagen.flow_from_directory(
 test_generator=test_datagen.flow_from_directory(
     'test',
      target_size=(ROWS,COLS),
-     batch_size=BATCH_SIZE
+     batch_size=BATCH_SIZE,
      class_mode=None)
 
 

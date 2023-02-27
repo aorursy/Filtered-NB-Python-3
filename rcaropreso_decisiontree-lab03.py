@@ -3,7 +3,6 @@
 
 
 
-#CÉLULA LINREG-LIB-01
 import numpy as np
 import math
 import matplotlib.pyplot as plt
@@ -55,18 +54,6 @@ def visualize_classifier(classifier, X, y, title=''):
     plt.show()
 
 
-
-
-dfData = 
-
-
-
-
-
-
-
-
-
 class_0 = dfData[ dfData['d'] == 0 ]
 class_0 = class_0[ ['X', 'Y'] ].values
 
@@ -94,43 +81,7 @@ plt.title('Dados de entrada')
 
 
 
-
-X = 
-y = 
-
-
-
-
-
-
-
-
-
-X_train, X_test, y_train, y_test = 
-
-
-
-
-
-
-
-
-
 params = {'n_estimators': 100, 'max_depth': 4, 'random_state': 0}
-
-
-
-
-#Random Forests
-classifier1 = 
-
-
-
-
-#ExtraTreesClassifiers
-classifier2 = 
-
-
 
 
 visualize_classifier(classifier1, X_train, y_train, 'Dataset de treinamento')
@@ -149,28 +100,6 @@ visualize_classifier(classifier1, X_test, y_test, 'Classificador (Random Forest)
 
 
 visualize_classifier(classifier2, X_test, y_test, 'Classificador (Extremely Random Forest): Dataset de Validação')
-
-
-
-
-y_test_pred1 = 
-
-
-
-
-y_test_pred2 = 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Evaluate classifier performance

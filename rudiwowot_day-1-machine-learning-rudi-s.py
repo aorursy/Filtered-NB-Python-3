@@ -23,21 +23,8 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 
 
 
-
 df = pd.read_csv('/kaggle/input/titanic/train.csv')
 df.head(5)
-
-
-
-
-len(df.loc[df['PassengerId'].isnull() |  df['Survived'].isnull() | df['Pclass'].isnull() | df['Name'].isnull() | df['Sex'].isnull() | df['Age'].isnull() | df['SibSp'].isnull() | df['Parch'].isnull() | df['Ticket'].isnull() | df['Fare'].isnull() | df['Cabin'].isnull() | df['Embarked'].isnull()])
-
-
-
-
-(df.isnull().sum(axis=1)>0).sum()
-
-
 
 
 df.groupby('Sex').size()/len(df)*100
@@ -45,7 +32,7 @@ df.groupby('Sex').size()/len(df)*100
 
 
 
-df['Cabin'].nunique()
+df['Cabin'].unique()
 
 
 
@@ -78,4 +65,3 @@ df[df['Age'] >= 50].groupby('Cabin').size().sort_values(ascending=False)
 
 
 df[['Pclass', 'Embarked', 'Sex', 'Survived']].groupby(['Pclass', 'Embarked', 'Sex']).agg(['count', 'sum', 'mean'])
-
